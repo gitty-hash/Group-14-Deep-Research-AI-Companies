@@ -1,0 +1,134 @@
+{
+  "checkedAt": "2026-10-19T02:11:21.104Z",
+  "news": [
+    {
+      "company": "Google",
+      "title": "We’re sharing 3 tips to study smarter with Gemini Notebook.",
+      "url": "https://blog.google/innovation-and-ai/products/gemini-notebook/three-tips-study-gemini-notebook/",
+      "date": "2026-10-16T16:00:00.000Z",
+      "publisher": "blog.google"
+    },
+    {
+      "company": "Google",
+      "title": "400 publications are now partnering with us on our News AI pilot program.",
+      "url": "https://blog.google/products-and-platforms/products/news/news-ai-pilot-update-publishers/",
+      "date": "2026-10-15T16:00:00.000Z",
+      "publisher": "blog.google"
+    },
+    {
+      "company": "Meta",
+      "title": "More Than Three Quarters of Small Business Owners Say AI Makes Them More Productive, But Most Need More Guidance",
+      "url": "https://about.fb.com/news/2026/10/more-than-three-quarters-of-small-business-owners-say-ai-makes-them-more-productive-but-most-need-more-guidance/",
+      "date": "2026-10-15T00:50:50.000Z",
+      "publisher": "about.fb.com"
+    },
+    {
+      "company": "Meta",
+      "title": "Meta, Milan’s Pinacoteca di Brera, and EssilorLuxottica Expand Access to Art Through AI Glasses",
+      "url": "https://about.fb.com/news/2026/10/meta-milans-pinacoteca-di-brera-and-essilorluxottica-expand-access-to-art-through-ai-glasses/",
+      "date": "2026-10-14T16:00:57.000Z",
+      "publisher": "about.fb.com"
+    },
+    {
+      "company": "Google",
+      "title": "17 organizations using AI to accelerate scientific breakthroughs",
+      "url": "https://blog.google/company-news/outreach-and-initiatives/google-org/impact-challenge-ai-science-recipients/",
+      "date": "2026-10-14T09:30:00.000Z",
+      "publisher": "blog.google"
+    },
+    {
+      "company": "Google",
+      "title": "We’re powering European scientific discovery with advanced AI compute and frontier models.",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/were-powering-european-scientific-discovery-with-advanced-ai-compute-and-frontier-models/",
+      "date": "2026-10-14T08:00:00.000Z",
+      "publisher": "blog.google"
+    },
+    {
+      "company": "Google",
+      "title": "Enabling an AI-first European economy",
+      "url": "https://blog.google/company-news/inside-google/around-the-globe/google-europe/european-economic-impact-report/",
+      "date": "2026-10-14T07:00:00.000Z",
+      "publisher": "blog.google"
+    },
+    {
+      "company": "Google",
+      "title": "Developing Gemini 4 Argon responsibly and safely",
+      "url": "https://blog.google/innovation-and-ai/technology/safety-security/gemini-4-model-safety-security/",
+      "date": "2026-10-13T18:00:00.000Z",
+      "publisher": "blog.google"
+    },
+    {
+      "company": "Meta",
+      "title": "Introducing Muse Wonder and Muse Wonder Full: Frontier Models for Agents",
+      "url": "https://about.fb.com/news/2026/10/introducing-muse-wonder-models/",
+      "date": "2026-10-12T17:08:05.000Z",
+      "publisher": "about.fb.com"
+    },
+    {
+      "company": "Meta",
+      "title": "Meta Donates 1,000 AI Glasses to Singapore’s Disability Community",
+      "url": "https://about.fb.com/news/2026/10/meta-donates-1000-ai-glasses-to-singapores-disability-community/",
+      "date": "2026-10-08T05:49:36.000Z",
+      "publisher": "about.fb.com"
+    }
+  ],
+  "prices": [
+    {
+      "id": "muse-wonder-1.0",
+      "input": 4,
+      "output": 20
+    },
+    {
+      "id": "muse-spark-1.3",
+      "input": 1.25,
+      "output": 4.25
+    },
+    {
+      "id": "gemini-4-argon",
+      "input": 2,
+      "output": 10
+    },
+    {
+      "id": "gemini-3.8-flash",
+      "input": 0.75,
+      "output": 3.75
+    },
+    {
+      "id": "gemini-3.5-flash-lite",
+      "input": 0.3,
+      "output": 2.5
+    }
+  ],
+  "logs": [
+    {
+      "source": "https://blog.google/rss/",
+      "status": "ok",
+      "items": 6,
+      "hash": "80ae7399faf23a0ae607f76ee7788b29a18af56f688a4248ad9e38b800867819",
+      "checkedAt": "2026-10-19T02:11:21.104Z"
+    },
+    {
+      "source": "https://about.fb.com/feed/",
+      "status": "ok",
+      "items": 4,
+      "hash": "90eba65070bff6ad9b944c43891a08c252bdeab184e36e1557b56fb6ced28437",
+      "checkedAt": "2026-10-19T02:11:21.104Z"
+    },
+    {
+      "source": "https://dev.meta.ai/docs/pricing-rate-limits",
+      "status": "ok",
+      "items": 2,
+      "hash": "22cd9934a86e90511031ad4d316b84cd37fcaee760764845722cfa6f61aad94d",
+      "checkedAt": "2026-10-19T02:11:21.104Z"
+    },
+    {
+      "source": "https://ai.google.dev/gemini-api/docs/pricing",
+      "status": "ok",
+      "items": 3,
+      "hash": "927b6772801573b8c185acb7e199f5195f6b81013cf0be09ecb826610271e974",
+      "checkedAt": "2026-10-19T02:11:21.104Z"
+    }
+  ],
+  "persistent": false,
+  "storage": "github-pages-snapshot"
+}
