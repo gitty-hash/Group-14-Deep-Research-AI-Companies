@@ -1,6 +1,20 @@
 {
-  "checkedAt": "2026-10-19T02:24:34.791Z",
+  "checkedAt": "2026-10-19T20:26:38.579Z",
   "news": [
+    {
+      "company": "Google",
+      "title": "How to shape your slides and videos with Gemini Notebook",
+      "url": "https://blog.google/innovation-and-ai/products/gemini-notebook/co-create-slides-videos/",
+      "date": "2026-10-19T17:00:00.000Z",
+      "publisher": "blog.google"
+    },
+    {
+      "company": "Google",
+      "title": "4 tips for styling outfits with Gemini",
+      "url": "https://blog.google/products-and-platforms/products/gemini/stylist-outfit-tips-gemini/",
+      "date": "2026-10-19T16:00:00.000Z",
+      "publisher": "blog.google"
+    },
     {
       "company": "Google",
       "title": "We’re sharing 3 tips to study smarter with Gemini Notebook.",
@@ -28,34 +42,6 @@
       "url": "https://about.fb.com/news/2026/10/meta-milans-pinacoteca-di-brera-and-essilorluxottica-expand-access-to-art-through-ai-glasses/",
       "date": "2026-10-14T16:00:57.000Z",
       "publisher": "about.fb.com"
-    },
-    {
-      "company": "Google",
-      "title": "17 organizations using AI to accelerate scientific breakthroughs",
-      "url": "https://blog.google/company-news/outreach-and-initiatives/google-org/impact-challenge-ai-science-recipients/",
-      "date": "2026-10-14T09:30:00.000Z",
-      "publisher": "blog.google"
-    },
-    {
-      "company": "Google",
-      "title": "We’re powering European scientific discovery with advanced AI compute and frontier models.",
-      "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/were-powering-european-scientific-discovery-with-advanced-ai-compute-and-frontier-models/",
-      "date": "2026-10-14T08:00:00.000Z",
-      "publisher": "blog.google"
-    },
-    {
-      "company": "Google",
-      "title": "Enabling an AI-first European economy",
-      "url": "https://blog.google/company-news/inside-google/around-the-globe/google-europe/european-economic-impact-report/",
-      "date": "2026-10-14T07:00:00.000Z",
-      "publisher": "blog.google"
-    },
-    {
-      "company": "Google",
-      "title": "Developing Gemini 4 Argon responsibly and safely",
-      "url": "https://blog.google/innovation-and-ai/technology/safety-security/gemini-4-model-safety-security/",
-      "date": "2026-10-13T18:00:00.000Z",
-      "publisher": "blog.google"
     },
     {
       "company": "Meta",
@@ -86,17 +72,20 @@
     {
       "id": "gemini-4-argon",
       "input": 2,
-      "output": 10
+      "output": 10,
+      "retained": true
     },
     {
       "id": "gemini-3.8-flash",
       "input": 0.75,
-      "output": 3.75
+      "output": 3.75,
+      "retained": true
     },
     {
       "id": "gemini-3.5-flash-lite",
       "input": 0.3,
-      "output": 2.5
+      "output": 2.5,
+      "retained": true
     }
   ],
   "logs": [
@@ -105,28 +94,27 @@
       "status": "ok",
       "items": 4,
       "hash": "90eba65070bff6ad9b944c43891a08c252bdeab184e36e1557b56fb6ced28437",
-      "checkedAt": "2026-10-19T02:24:34.791Z"
+      "checkedAt": "2026-10-19T20:26:38.579Z"
     },
     {
       "source": "https://blog.google/rss/",
       "status": "ok",
-      "items": 6,
-      "hash": "80ae7399faf23a0ae607f76ee7788b29a18af56f688a4248ad9e38b800867819",
-      "checkedAt": "2026-10-19T02:24:34.791Z"
+      "items": 4,
+      "hash": "51eb4b14d9e7ab962897b7134977c666844fc7adcc0b07baabc034129395f62b",
+      "checkedAt": "2026-10-19T20:26:38.579Z"
     },
     {
       "source": "https://dev.meta.ai/docs/pricing-rate-limits",
       "status": "ok",
       "items": 2,
-      "hash": "bd66aba940b580a06131dc25287aca2849f1be167f7e63f6fea4bd8f1ef641c3",
-      "checkedAt": "2026-10-19T02:24:34.791Z"
+      "hash": "e064ca9982182b2975fc04931933ff1de2bb489ca5c9172e3ca3a057c86781ea",
+      "checkedAt": "2026-10-19T20:26:38.579Z"
     },
     {
       "source": "https://ai.google.dev/gemini-api/docs/pricing",
-      "status": "ok",
-      "items": 3,
-      "hash": "98e4660723e8d752d35bc31f6abcf792c1fafa49e3a8949bacad768d85c61672",
-      "checkedAt": "2026-10-19T02:24:34.791Z"
+      "status": "error",
+      "message": "Price structure could not be verified; reviewed prices retained",
+      "checkedAt": "2026-10-19T20:26:38.579Z"
     }
   ],
   "persistent": false,
