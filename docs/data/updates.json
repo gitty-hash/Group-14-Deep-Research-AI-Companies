@@ -1,6 +1,13 @@
 {
-  "checkedAt": "2026-10-20T19:02:53.318Z",
+  "checkedAt": "2026-10-20T20:04:08.945Z",
   "news": [
+    {
+      "company": "Google",
+      "title": "Get hands-free personalized help on the road with Gemini",
+      "url": "https://blog.google/products-and-platforms/platforms/android/android-auto-cars-with-google-built-in-gemini-personal-intelligence/",
+      "date": "2026-10-20T20:00:00.000Z",
+      "publisher": "blog.google"
+    },
     {
       "company": "Google",
       "title": "Ask a Scientist: How can AI help doctors spend more time on collaborative care?",
@@ -14,6 +21,20 @@
       "url": "https://blog.google/innovation-and-ai/products/gemini-app/new-tools-small-business-owners/",
       "date": "2026-10-20T16:00:00.000Z",
       "publisher": "blog.google"
+    },
+    {
+      "company": "OpenAI",
+      "title": "Franchisee reconciles cash in 94% less time with ChatGPT Work",
+      "url": "https://openai.com/index/ted-taylor-restaurant",
+      "date": "2026-10-20T10:00:00.000Z",
+      "publisher": "openai.com"
+    },
+    {
+      "company": "OpenAI",
+      "title": "OpenAI acquires Orchestra Bio",
+      "url": "https://openai.com/index/openai-to-acquire-orchestra-bio",
+      "date": "2026-10-20T00:00:00.000Z",
+      "publisher": "openai.com"
     },
     {
       "company": "Google",
@@ -30,11 +51,53 @@
       "publisher": "blog.google"
     },
     {
+      "company": "OpenAI",
+      "title": "Advancing coding in low‑resource programming languages",
+      "url": "https://openai.com/index/low-resource-programming-languages",
+      "date": "2026-10-19T12:00:00.000Z",
+      "publisher": "openai.com"
+    },
+    {
+      "company": "Anthropic",
+      "title": "Investing in the public benefit",
+      "url": "https://www.anthropic.com/news/public-benefit-fund",
+      "date": "2026-10-18T00:00:00.000Z",
+      "publisher": "www.anthropic.com"
+    },
+    {
+      "company": "OpenAI",
+      "title": "How Itaú is building generative AI for its entire customer base",
+      "url": "https://openai.com/index/itau-generative-ai",
+      "date": "2026-10-16T19:00:00.000Z",
+      "publisher": "openai.com"
+    },
+    {
       "company": "Google",
       "title": "We’re sharing 3 tips to study smarter with Gemini Notebook.",
       "url": "https://blog.google/innovation-and-ai/products/gemini-notebook/three-tips-study-gemini-notebook/",
       "date": "2026-10-16T16:00:00.000Z",
       "publisher": "blog.google"
+    },
+    {
+      "company": "OpenAI",
+      "title": "Benefit Street Partners answers questions faster with Codex",
+      "url": "https://openai.com/index/benefit-street-partners",
+      "date": "2026-10-16T00:00:00.000Z",
+      "publisher": "openai.com"
+    },
+    {
+      "company": "OpenAI",
+      "title": "Stack Overflow for Agents triples signups with ChatGPT plugin",
+      "url": "https://openai.com/index/stack-overflow-chatgpt-plugin",
+      "date": "2026-10-16T00:00:00.000Z",
+      "publisher": "openai.com"
+    },
+    {
+      "company": "OpenAI",
+      "title": "Bringing GPT-Rosalind to academic research labs",
+      "url": "https://openai.com/index/introducing-the-rosalind-academic-plan",
+      "date": "2026-10-15T19:00:00.000Z",
+      "publisher": "openai.com"
     },
     {
       "company": "Google",
@@ -44,11 +107,25 @@
       "publisher": "blog.google"
     },
     {
+      "company": "OpenAI",
+      "title": "Teaching students to think and learn through questions",
+      "url": "https://openai.com/index/teaching-students-to-think-and-learn-through-questions",
+      "date": "2026-10-15T13:00:00.000Z",
+      "publisher": "openai.com"
+    },
+    {
       "company": "Meta",
       "title": "More Than Three Quarters of Small Business Owners Say AI Makes Them More Productive, But Most Need More Guidance",
       "url": "https://about.fb.com/news/2026/10/more-than-three-quarters-of-small-business-owners-say-ai-makes-them-more-productive-but-most-need-more-guidance/",
       "date": "2026-10-15T00:50:50.000Z",
       "publisher": "about.fb.com"
+    },
+    {
+      "company": "Anthropic",
+      "title": "An update on independent evaluators",
+      "url": "https://www.anthropic.com/news/an-update-on-independent-evaluators",
+      "date": "2026-10-15T00:00:00.000Z",
+      "publisher": "www.anthropic.com"
     },
     {
       "company": "Meta",
@@ -58,6 +135,20 @@
       "publisher": "about.fb.com"
     },
     {
+      "company": "Anthropic",
+      "title": "Preparing for the 2026 US midterms",
+      "url": "https://www.anthropic.com/news/2026-us-midterms",
+      "date": "2026-10-14T00:00:00.000Z",
+      "publisher": "www.anthropic.com"
+    },
+    {
+      "company": "Anthropic",
+      "title": "Anthropic opens Singapore office and signs MOU with the Government of Singapore",
+      "url": "https://www.anthropic.com/news/singapore-office-opening",
+      "date": "2026-10-14T00:00:00.000Z",
+      "publisher": "www.anthropic.com"
+    },
+    {
       "company": "Meta",
       "title": "Introducing Muse Wonder and Muse Wonder Full: Frontier Models for Agents",
       "url": "https://about.fb.com/news/2026/10/introducing-muse-wonder-models/",
@@ -65,14 +156,52 @@
       "publisher": "about.fb.com"
     },
     {
+      "company": "Anthropic",
+      "title": "Strengthening our defenses against distillation attacks",
+      "url": "https://www.anthropic.com/news/distillation-defenses",
+      "date": "2026-10-12T00:00:00.000Z",
+      "publisher": "www.anthropic.com"
+    },
+    {
       "company": "Meta",
       "title": "Meta Donates 1,000 AI Glasses to Singapore’s Disability Community",
       "url": "https://about.fb.com/news/2026/10/meta-donates-1000-ai-glasses-to-singapores-disability-community/",
       "date": "2026-10-08T05:49:36.000Z",
       "publisher": "about.fb.com"
+    },
+    {
+      "company": "Anthropic",
+      "title": "Introducing the Anthropic Cyber Mission",
+      "url": "https://www.anthropic.com/news/anthropic-cyber-mission",
+      "date": "2026-10-08T00:00:00.000Z",
+      "publisher": "www.anthropic.com"
+    },
+    {
+      "company": "Anthropic",
+      "title": "2026 Usage Policy update",
+      "url": "https://www.anthropic.com/news/2026-usage-policy-update",
+      "date": "2026-10-08T00:00:00.000Z",
+      "publisher": "www.anthropic.com"
+    },
+    {
+      "company": "Anthropic",
+      "title": "Building on our commitment to American scientific discovery",
+      "url": "https://www.anthropic.com/news/genesis-mission-commitment",
+      "date": "2026-10-08T00:00:00.000Z",
+      "publisher": "www.anthropic.com"
     }
   ],
   "prices": [
+    {
+      "id": "gpt-6-astra",
+      "input": 10,
+      "output": 50
+    },
+    {
+      "id": "gpt-6.1-sol",
+      "input": 2,
+      "output": 10
+    },
     {
       "id": "muse-wonder-1.0",
       "input": 4,
@@ -82,6 +211,11 @@
       "id": "muse-spark-1.3",
       "input": 1.25,
       "output": 4.25
+    },
+    {
+      "id": "gpt-6-luna",
+      "input": 0.1,
+      "output": 0.5
     },
     {
       "id": "gemini-4-argon",
@@ -97,36 +231,108 @@
       "id": "gemini-3.5-flash-lite",
       "input": 0.3,
       "output": 2.5
+    },
+    {
+      "id": "claude-fable-5-1",
+      "input": 10,
+      "output": 50
+    },
+    {
+      "id": "claude-opus-5-5",
+      "input": 4,
+      "output": 20
+    },
+    {
+      "id": "claude-sonnet-5-5",
+      "input": 2,
+      "output": 10
+    },
+    {
+      "id": "claude-haiku-5-5",
+      "input": 0.1,
+      "output": 0.5
     }
   ],
   "logs": [
     {
+      "company": "Google",
+      "source": "https://blog.google/rss/",
+      "status": "ok",
+      "items": 7,
+      "hash": "3abd83083298c5468c37f55f65036057463e35ffe04f16e6c142f9b82a567baf",
+      "checkedAt": "2026-10-20T20:04:08.945Z"
+    },
+    {
+      "company": "Meta",
       "source": "https://about.fb.com/feed/",
       "status": "ok",
       "items": 4,
       "hash": "90eba65070bff6ad9b944c43891a08c252bdeab184e36e1557b56fb6ced28437",
-      "checkedAt": "2026-10-20T19:02:53.318Z"
+      "checkedAt": "2026-10-20T20:04:08.945Z"
     },
     {
-      "source": "https://blog.google/rss/",
+      "company": "OpenAI",
+      "source": "https://openai.com/news/rss.xml",
       "status": "ok",
-      "items": 6,
-      "hash": "d7c39c971f7dd92d380c4f4e90552df2d938e1f98b8a4f9524eaebd82fb83a1f",
-      "checkedAt": "2026-10-20T19:02:53.318Z"
+      "items": 8,
+      "hash": "120b78963c84a798d1a23d85a57113d5e625b6af3dd1c7e19f1a425acf0649fe",
+      "checkedAt": "2026-10-20T20:04:08.945Z"
     },
     {
+      "company": "Anthropic",
+      "source": "https://www.anthropic.com/news",
+      "status": "ok",
+      "items": 8,
+      "hash": "ee7203e60c096507bbbdd79eeb3412028db19f4819e30948f242cdcef84fee44",
+      "checkedAt": "2026-10-20T20:04:08.945Z"
+    },
+    {
+      "company": "OpenAI",
+      "source": "https://developers.openai.com/api/docs/models/gpt-6-astra",
+      "status": "ok",
+      "items": 1,
+      "hash": "eb7e55dd751df1043130f716d22687d321e2a2df37be142b51a6294d0eb1fe24",
+      "checkedAt": "2026-10-20T20:04:08.945Z"
+    },
+    {
+      "company": "OpenAI",
+      "source": "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
+      "status": "ok",
+      "items": 1,
+      "hash": "b028208c8d82da7480da254a35367bf6dd2008187583b38baeeaace00df24364",
+      "checkedAt": "2026-10-20T20:04:08.945Z"
+    },
+    {
+      "company": "Meta",
       "source": "https://dev.meta.ai/docs/pricing-rate-limits",
       "status": "ok",
       "items": 2,
-      "hash": "8ebbe7596843110528f4f40f09103dabf1ebdde92470231a0c4e92b3df82f71e",
-      "checkedAt": "2026-10-20T19:02:53.318Z"
+      "hash": "e2fdb3e596d990d1c4e70418f6a7209b4f5eae992a0724a52d527e67d1ae440a",
+      "checkedAt": "2026-10-20T20:04:08.945Z"
     },
     {
+      "company": "OpenAI",
+      "source": "https://developers.openai.com/api/docs/models/gpt-6-luna",
+      "status": "ok",
+      "items": 1,
+      "hash": "65963df7787db8e92b009cf08f757676c6c0087313a6e9ea3bdbdbc67c99c1c2",
+      "checkedAt": "2026-10-20T20:04:08.945Z"
+    },
+    {
+      "company": "Google",
       "source": "https://ai.google.dev/gemini-api/docs/pricing",
       "status": "ok",
       "items": 3,
-      "hash": "88bc044d6fec8f4f8006c5184cdc901b516eae406e9fff6f8b595eee93c503ff",
-      "checkedAt": "2026-10-20T19:02:53.318Z"
+      "hash": "14ebb2be718e16e576acdd67af901ae811ce7b208b7bdf90915977fc9bc380e1",
+      "checkedAt": "2026-10-20T20:04:08.945Z"
+    },
+    {
+      "company": "Anthropic",
+      "source": "https://platform.claude.com/docs/en/about-claude/pricing",
+      "status": "ok",
+      "items": 4,
+      "hash": "fd42d9322719e68c8e1d13d8cf556aebfa47e59b17e1e545fe25917f86b79c88",
+      "checkedAt": "2026-10-20T20:04:08.945Z"
     }
   ],
   "persistent": false,
