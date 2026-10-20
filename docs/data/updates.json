@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-20T18:09:17.520Z",
+  "checkedAt": "2026-10-20T19:02:53.318Z",
   "news": [
     {
       "company": "Google",
@@ -86,20 +86,17 @@
     {
       "id": "gemini-4-argon",
       "input": 2,
-      "output": 10,
-      "retained": true
+      "output": 10
     },
     {
       "id": "gemini-3.8-flash",
       "input": 0.75,
-      "output": 3.75,
-      "retained": true
+      "output": 3.75
     },
     {
       "id": "gemini-3.5-flash-lite",
       "input": 0.3,
-      "output": 2.5,
-      "retained": true
+      "output": 2.5
     }
   ],
   "logs": [
@@ -108,27 +105,28 @@
       "status": "ok",
       "items": 4,
       "hash": "90eba65070bff6ad9b944c43891a08c252bdeab184e36e1557b56fb6ced28437",
-      "checkedAt": "2026-10-20T18:09:17.520Z"
+      "checkedAt": "2026-10-20T19:02:53.318Z"
     },
     {
       "source": "https://blog.google/rss/",
       "status": "ok",
       "items": 6,
       "hash": "d7c39c971f7dd92d380c4f4e90552df2d938e1f98b8a4f9524eaebd82fb83a1f",
-      "checkedAt": "2026-10-20T18:09:17.520Z"
+      "checkedAt": "2026-10-20T19:02:53.318Z"
     },
     {
       "source": "https://dev.meta.ai/docs/pricing-rate-limits",
       "status": "ok",
       "items": 2,
-      "hash": "2dcab5056543f9f04e0f52fcd93377d06391407d2d7ae1c4022bfd3c9f91ba93",
-      "checkedAt": "2026-10-20T18:09:17.520Z"
+      "hash": "8ebbe7596843110528f4f40f09103dabf1ebdde92470231a0c4e92b3df82f71e",
+      "checkedAt": "2026-10-20T19:02:53.318Z"
     },
     {
       "source": "https://ai.google.dev/gemini-api/docs/pricing",
-      "status": "error",
-      "message": "Price structure could not be verified; reviewed prices retained",
-      "checkedAt": "2026-10-20T18:09:17.520Z"
+      "status": "ok",
+      "items": 3,
+      "hash": "88bc044d6fec8f4f8006c5184cdc901b516eae406e9fff6f8b595eee93c503ff",
+      "checkedAt": "2026-10-20T19:02:53.318Z"
     }
   ],
   "persistent": false,
