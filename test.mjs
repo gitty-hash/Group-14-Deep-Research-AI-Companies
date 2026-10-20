@@ -52,3 +52,14 @@ assert.equal((await api.ask({question:'GPT-6.1 Sol API price',company:'OpenAI',g
 context.fetch=async()=>({ok:true,json:async()=>({candidates:[{content:{parts:[{text:'Unsupported source. [Z99]'}]}}]})});
 assert.equal((await api.ask({question:'Claude pricing',company:'Anthropic',generate:true,apiKey:'unit-test-key'})).mode,'Evidence search');
 console.log('Four-company retrieval, undisclosed financials and new citation-prefix checks passed.');
+
+// Render every company with baseline prices: collected updates must remain optional.
+const renderCosts=new Function('DATA','workload','models','refs',html.match(/^function costs\(\).*$/m)[0]+';return costs();');
+for(const selected of ['All','Google','Meta','OpenAI','Anthropic']){
+ const entries=seed.models.filter(m=>selected==='All'||m.company===selected).map(m=>({...m,live:false}));
+ const result=renderCosts(seed,{requests:10000,inputtokens:1000,outputtokens:500,contributor:false},()=>entries,()=> '');
+ assert(result.includes('Workload calculator'));
+ for(const entry of entries)assert(result.includes(entry.name));
+ assert(result.includes('Reviewed '));
+}
+console.log('Cost tab renders for all companies without collected pricing updates.');
