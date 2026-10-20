@@ -1,6 +1,20 @@
 {
-  "checkedAt": "2026-10-19T20:26:38.579Z",
+  "checkedAt": "2026-10-20T18:09:17.520Z",
   "news": [
+    {
+      "company": "Google",
+      "title": "Ask a Scientist: How can AI help doctors spend more time on collaborative care?",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/google-research/amie-clinical-study/",
+      "date": "2026-10-20T16:00:00.000Z",
+      "publisher": "blog.google"
+    },
+    {
+      "company": "Google",
+      "title": "New Gemini tools for small business owners",
+      "url": "https://blog.google/innovation-and-ai/products/gemini-app/new-tools-small-business-owners/",
+      "date": "2026-10-20T16:00:00.000Z",
+      "publisher": "blog.google"
+    },
     {
       "company": "Google",
       "title": "How to shape your slides and videos with Gemini Notebook",
@@ -94,27 +108,27 @@
       "status": "ok",
       "items": 4,
       "hash": "90eba65070bff6ad9b944c43891a08c252bdeab184e36e1557b56fb6ced28437",
-      "checkedAt": "2026-10-19T20:26:38.579Z"
+      "checkedAt": "2026-10-20T18:09:17.520Z"
     },
     {
       "source": "https://blog.google/rss/",
       "status": "ok",
-      "items": 4,
-      "hash": "51eb4b14d9e7ab962897b7134977c666844fc7adcc0b07baabc034129395f62b",
-      "checkedAt": "2026-10-19T20:26:38.579Z"
+      "items": 6,
+      "hash": "d7c39c971f7dd92d380c4f4e90552df2d938e1f98b8a4f9524eaebd82fb83a1f",
+      "checkedAt": "2026-10-20T18:09:17.520Z"
     },
     {
       "source": "https://dev.meta.ai/docs/pricing-rate-limits",
       "status": "ok",
       "items": 2,
-      "hash": "e064ca9982182b2975fc04931933ff1de2bb489ca5c9172e3ca3a057c86781ea",
-      "checkedAt": "2026-10-19T20:26:38.579Z"
+      "hash": "2dcab5056543f9f04e0f52fcd93377d06391407d2d7ae1c4022bfd3c9f91ba93",
+      "checkedAt": "2026-10-20T18:09:17.520Z"
     },
     {
       "source": "https://ai.google.dev/gemini-api/docs/pricing",
       "status": "error",
       "message": "Price structure could not be verified; reviewed prices retained",
-      "checkedAt": "2026-10-19T20:26:38.579Z"
+      "checkedAt": "2026-10-20T18:09:17.520Z"
     }
   ],
   "persistent": false,
