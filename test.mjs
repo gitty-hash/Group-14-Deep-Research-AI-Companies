@@ -33,10 +33,22 @@ assert(html.includes('GitHub Pages edition'));
 assert(!html.includes('passes through this private dashboard'));
 assert(!html.includes('The Check sources button fetches official'));
 new Function(html.match(/<script>([\s\S]*)<\/script>/)[1]);
-assert.equal(new Set(seed.sources.map(s=>s.id)).size,11);
+assert.equal(new Set(seed.sources.map(s=>s.id)).size,21);
 for(const model of seed.models)assert(seed.sources.some(s=>s.id===model.source));
 assert.equal(10000*(1000*1.25+500*4.25)/1e6,33.75);
 assert.deepEqual(parsePrices('<p>Publisher changed its page</p>','Google'),[]);
 const feed='<rss><item><title>Gemini AI update</title><link>https://evil.invalid/</link><pubDate>Fri, 16 Oct 2026 12:00:00 GMT</pubDate></item></rss>';
 assert.equal(parseFeed(feed,{company:'Google',host:'blog.google'}).length,0);
 console.log('Pages path handling, evidence retrieval, Gemini requests, citation fallback, secret handling and collector checks passed.');
+
+for(const company of ['OpenAI','Anthropic']){
+ const answer=await api.ask({question:'What are standard API token prices?',company});
+ assert(answer.sources.length>0);assert(answer.sources.every(s=>s.company===company));
+ const c=seed.companies.find(c=>c.name===company);
+ for(const key of ['revenue','margin','income','cashflow','rd'])assert.deepEqual(c[key],[null,null]);
+}
+context.fetch=async()=>({ok:true,json:async()=>({candidates:[{content:{parts:[{text:'Standard Sol prices apply. [O2]'}]}}]})});
+assert.equal((await api.ask({question:'GPT-6.1 Sol API price',company:'OpenAI',generate:true,apiKey:'unit-test-key'})).mode,'Gemini RAG');
+context.fetch=async()=>({ok:true,json:async()=>({candidates:[{content:{parts:[{text:'Unsupported source. [Z99]'}]}}]})});
+assert.equal((await api.ask({question:'Claude pricing',company:'Anthropic',generate:true,apiKey:'unit-test-key'})).mode,'Evidence search');
+console.log('Four-company retrieval, undisclosed financials and new citation-prefix checks passed.');

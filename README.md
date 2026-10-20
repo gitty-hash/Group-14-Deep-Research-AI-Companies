@@ -1,17 +1,17 @@
 # Group 14 Deep Research on AI Companies
 
-An interactive dashboard comparing Meta and Google for students and business researchers.
+An interactive dashboard comparing Google, Meta, OpenAI and Anthropic for students and business researchers.
 
 **GitHub Pages address:** https://gitty-hash.github.io/Group-14-Deep-Research-AI-Companies/
 
-The address becomes live after GitHub Pages is enabled and the deployment workflow succeeds.
+The public dashboard is deployed through GitHub Actions.
 
 ## What works on GitHub Pages
 
 - Financial comparisons and chart controls.
 - Product and strategy comparisons, with access-route filters.
 - A workload-based API cost calculator.
-- Local BM25 evidence search across eleven reviewed primary sources.
+- Local BM25 evidence search across 21 reviewed primary sources.
 - Gemini RAG using each viewer's own Gemini API key.
 - A searchable source library with collected news, pricing and collection logs.
 - Research-method explanations and a five-minute presentation view.
@@ -31,11 +31,11 @@ If repository Actions are disabled, enable them for this repository first. The d
 
 The workflow runs after relevant pushes, on manual request, and daily at **15:00 UTC / 8:00 a.m. Phoenix time**. GitHub schedules are best effort; they can run late and may stop after inactivity in a public repository. Use the collection timestamp to judge freshness.
 
-The workflow fetches official Google and Meta news feeds and supported API pricing tables. It records collection errors and content hashes, preserves earlier prices or headlines where extraction fails, saves `docs/data/updates.json`, and deploys the resulting site. A successful fetch does not independently verify publisher claims. Newly discovered headlines do not enter the reviewed answer corpus automatically.
+The workflow checks official news for all four companies and six supported API pricing pages (ten source checks in total). It records collection errors and content hashes, preserves earlier prices or headlines where extraction fails, saves `docs/data/updates.json`, and deploys the resulting site. A successful fetch does not independently verify publisher claims. Newly discovered headlines do not enter the reviewed answer corpus automatically.
 
 **Reload published data** reads the JSON snapshot already published by the workflow. It does not run the collection job from the browser. The open page rechecks that published file every 15 minutes.
 
-Financial charts remain reviewed **Q2 2026** results compared with Q2 2025. Google financials refer to parent Alphabet; these are not standalone AI-revenue or market-share figures. Update `seed.mjs` only after reviewing new original sources.
+Financial comparisons use five parameters: revenue, operating margin, operating income, operating cash flow and R&D expense, for **Q2 2025 and Q2 2026** where disclosed. Google financials refer to parent Alphabet. The reviewed OpenAI and Anthropic sources do not disclose the same quarterly series, so these cells say **Not disclosed** and do not become zero-value chart bars. Dated monthly revenue and annualized run-rate statements appear separately; they are not directly comparable quarterly results. Company-wide figures are not AI-only revenue or market-share figures. Update `seed.mjs` only after reviewing new original sources.
 
 The original private Sites deployment and its cloud schedule are independent. They do not publish updates to this repository.
 
@@ -66,4 +66,4 @@ Serve `docs/` with a static HTTP server. Opening `index.html` directly as a file
 
 ## Limits
 
-Gemini calls depend on the viewer's key, quota, model access and account terms. The code checks missing or unknown citation IDs, but readers must still verify generated claims. Model prices do not establish equivalent quality. Estimates exclude search/tools, retries, taxes, caching discounts and self-hosting costs.
+Gemini calls depend on the viewer's key, quota, model access and account terms. The code checks missing or unknown citation IDs, but readers must still verify generated claims. The selected catalog has 14 model/access entries. Model prices do not establish equivalent quality. The calculator preserves one workload across company filters and limits input to 100,000 tokens per request to stay within the shared standard pricing tier. Estimates exclude long-context premiums, search/tools, retries, taxes, caching or batch discounts and self-hosting costs.
