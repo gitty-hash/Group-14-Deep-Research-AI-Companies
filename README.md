@@ -73,9 +73,9 @@ Retrieval combines reviewed company materials with recent collected official new
 
 ### 6. Inspect sources and collection status
 
-1. Open **Source library** to search the reviewed collection, inspect source types and view the latest collection status.
+1. Open **Source library** to search the reviewed documents used across the dashboard: financial comparisons, product and strategy notes, API pricing, and the preloaded Google and Meta stock snapshot.
 2. Review collection timestamps and any failed-source notes to understand how current the published news and pricing data are.
-3. Use the links beside financial figures, product entries, stock data and research answers to check claims against their original context.
+3. Current news collection and Gemini Search citations appear alongside their related updates or answers; use those links and the library links to check claims against their original context.
 
 ## Data, definitions and research limitations
 

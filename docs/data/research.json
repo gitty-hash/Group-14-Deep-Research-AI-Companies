@@ -349,6 +349,50 @@
       "note": "Yahoo Finance, attributing figures to Reuters’ review of Anthropic’s IPO prospectus, reported FY2025 revenue of $4.59 billion and year-over-year sales growth of 1,088%. The dashboard uses this reported growth rate rather than deriving extra precision from rounded annual figures. The report said the filing was not yet public. These are attributed annual results, not forecasts or run-rate revenue. Yahoo Finance also reported a FY2025 GAAP net loss of $41.97 billion, versus $8.31 billion in FY2024.",
       "reviewed": "2026-10-20",
       "comparisonPeriod": "FY2025"
+    },
+    {
+      "id": "S1",
+      "company": "Google",
+      "title": "Alphabet Inc. (GOOGL) Historical Data",
+      "publisher": "Yahoo Finance",
+      "date": "2026-10-20",
+      "url": "https://finance.yahoo.com/quote/GOOGL/history/",
+      "type": "Stock market data",
+      "note": "Source for the fixed Alphabet closing-price history and period returns preloaded in Stock Performance. The snapshot covers 1D at 15-minute intervals, 1W and 1M daily, 3M/6M/1Y weekly, and 5Y monthly through the October 20, 2026 market close. It is historical data, not a live feed.",
+      "reviewed": "2026-10-21"
+    },
+    {
+      "id": "S2",
+      "company": "Meta",
+      "title": "Meta Platforms, Inc. (META) Historical Data",
+      "publisher": "Yahoo Finance",
+      "date": "2026-10-20",
+      "url": "https://finance.yahoo.com/quote/META/history/",
+      "type": "Stock market data",
+      "note": "Source for the fixed Meta closing-price history and period returns preloaded in Stock Performance. The snapshot covers 1D at 15-minute intervals, 1W and 1M daily, 3M/6M/1Y weekly, and 5Y monthly through the October 20, 2026 market close. It is historical data, not a live feed.",
+      "reviewed": "2026-10-21"
+    },
+    {
+      "id": "S3",
+      "company": "Google",
+      "title": "Alphabet Inc. (GOOGL) Quote",
+      "publisher": "Yahoo Finance",
+      "date": null,
+      "url": "https://finance.yahoo.com/quote/GOOGL/",
+      "type": "Stock market data",
+      "note": "Source for the fixed snapshot's market capitalization and trailing P/E, checked before the October 21, 2026 market open. Values are historical snapshot figures, not live quotes.",
+      "reviewed": "2026-10-21"
+    },
+    {
+      "id": "S4",
+      "company": "Meta",
+      "title": "Meta Platforms, Inc. (META) Quote",
+      "publisher": "Yahoo Finance",
+      "date": null,
+      "url": "https://finance.yahoo.com/quote/META/",
+      "type": "Stock market data",
+      "note": "Source for the fixed snapshot's market capitalization and trailing P/E, checked before the October 21, 2026 market open. Values are historical snapshot figures, not live quotes.",
+      "reviewed": "2026-10-21"
     }
   ],
   "companies": [
