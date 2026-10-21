@@ -1,6 +1,6 @@
 export const seed = {
   "reviewed": "2026-10-20",
-  "financialPeriod": "Q2 2026",
+  "financialPeriod": "FY2025",
   "sources": [
     {
       "id": "G1",
@@ -232,6 +232,123 @@ export const seed = {
       "type": "Data-use policy",
       "note": "Anthropic says it does not train models on commercial-product inputs and outputs by default, including the Anthropic API and Claude for Work. Explicit feedback or permission may allow training use. This policy is distinct from terms for consumer Claude plans and does not mean zero retention.",
       "reviewed": "2026-10-20"
+    },
+    {
+      "id": "A5",
+      "company": "Anthropic",
+      "publisher": "Anthropic · Claude Code documentation",
+      "title": "Claude Code overview and development workflows",
+      "url": "https://code.claude.com/docs/en/overview",
+      "date": null,
+      "reviewed": "2026-10-20",
+      "type": "Product documentation",
+      "note": "Anthropic describes Claude Code as a coding agent that can inspect a repository, modify files and execute commands. It is available through a terminal, IDE integrations, a desktop app and the web. Documented workflows include multi-file feature work, debugging, writing and running tests, Git commits and pull requests, and automated review through CI integrations. MCP connections, project instructions, skills and hooks support customization. These are documented capabilities, not proof that Claude Code is faster, more accurate or better than Google Antigravity. This overview does not provide an independent head-to-head comparison under the same model, repository, task and budget."
+    },
+    {
+      "id": "G7",
+      "company": "Google",
+      "publisher": "Google · Antigravity documentation",
+      "title": "Google Antigravity product surfaces and agent capabilities",
+      "url": "https://www.antigravity.google/docs/overview",
+      "date": null,
+      "reviewed": "2026-10-20",
+      "type": "Product documentation",
+      "note": "Google describes Antigravity as an agent platform with a desktop app, command-line interface, IDE extensions and a Python SDK. The overview documents interactive coding and background work, parallel agents in isolated Git worktrees, implementation plans, file diffs and browser recordings for reviewing results. It lists Gemini models and selected Claude models, so Antigravity is not simply a single Google model. These documented features overlap with some coding-agent workflows and do not prove that Antigravity is better than Claude Code. The overview does not provide an independent head-to-head comparison using the same repository, task, model and budget."
+    },
+    {
+      "id": "G8",
+      "company": "Google",
+      "title": "Alphabet FY2025 Form 10-K: annual revenue and cost of revenues",
+      "publisher": "Alphabet · SEC EDGAR",
+      "date": "2026-02-05",
+      "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/goog-20251231.htm",
+      "type": "Financial filing",
+      "note": "Alphabet reported FY2025 revenue of $402.836 billion versus $350.018 billion in FY2024. Cost of revenues was $162.535 billion in 2025. Using (revenue minus cost of revenues) divided by revenue gives a 59.7% gross margin; annual revenue growth calculated from these figures is 15.1%. Figures cover all of Alphabet, including Google, and are not AI-only revenue or Google Cloud margin. Calculated FY2025 gross profit is $240.301 billion. Reported net income is $132.170 billion.",
+      "reviewed": "2026-10-20",
+      "comparisonPeriod": "FY2025"
+    },
+    {
+      "id": "M7",
+      "company": "Meta",
+      "title": "Meta FY2025 annual report: annual revenue and cost of revenue",
+      "publisher": "Meta · SEC EDGAR",
+      "date": null,
+      "url": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026025534/meta-12312025x10kars.htm",
+      "type": "Financial filing",
+      "note": "Meta reported FY2025 revenue of $200.966 billion versus $164.501 billion in FY2024, with 2025 cost of revenue of $36.175 billion. Calculated gross margin is 82.0%; calculated annual revenue growth is 22.2%. This is the full company, including advertising and Reality Labs. Gross margin is before research, selling and administrative expenses and does not equal operating or net margin. Calculated FY2025 gross profit is $164.791 billion. Reported net income is $60.458 billion.",
+      "reviewed": "2026-10-20",
+      "comparisonPeriod": "FY2025"
+    },
+    {
+      "id": "O7",
+      "company": "OpenAI",
+      "title": "OpenAI FY2024 and FY2025 financial statements: original reporting",
+      "publisher": "Ed Zitron · Where’s Your Ed At",
+      "date": "2026-06-15",
+      "url": "https://www.wheresyoured.at/exclusive-openai-financials/",
+      "type": "Financial reporting",
+      "note": "Ed Zitron reported from OpenAI financial statements: revenue of $3.7 billion in 2024 and $13.07 billion in 2025; cost of revenue of $2.65 billion and $7.5 billion, respectively. FY2025 gross margin calculated from reported revenue and cost of revenue is about 42.6%; revenue growth is about 253.2%. These are reported statement figures, not an annualized run rate. The dashboard did not inspect the underlying audited statements independently. Calculated gross profit is $5.57 billion. Reported net loss attributable to OpenAI is $38.53 billion, distinct from the consolidated $60.35 billion loss. Group results included a $41.55 billion fair-value charge related to convertible interests and warrants. Net loss is not cash burn.",
+      "reviewed": "2026-10-20",
+      "comparisonPeriod": "FY2025"
+    },
+    {
+      "id": "O8",
+      "company": "OpenAI",
+      "title": "OpenAI annual revenue and cost-of-revenue reporting corroboration",
+      "publisher": "Ars Technica · Kyle Orland",
+      "date": "2026-06-16",
+      "url": "https://arstechnica.com/ai/2026/06/leaked-financial-docs-show-openai-is-losing-billions-of-dollars-a-year/",
+      "type": "Financial reporting",
+      "note": "Ars Technica reported OpenAI annual revenue of $3.7 billion in 2024 and $13.07 billion in 2025, and cost of revenue of $2.65 billion and $7.5 billion. It stated that the Financial Times reviewed the same financial documents. This corroborates the inputs used for the dashboard’s calculated FY2025 gross margin and revenue growth.",
+      "reviewed": "2026-10-20",
+      "comparisonPeriod": "FY2025"
+    },
+    {
+      "id": "O9",
+      "company": "OpenAI",
+      "title": "Why OpenAI adjusted gross margin is a different measure",
+      "publisher": "Reuters via CNA",
+      "date": "2026-02-20",
+      "url": "https://www.channelnewsasia.com/business/openai-expects-compute-spend-around-600-billion-through-2030-source-says-5943906",
+      "type": "Financial reporting",
+      "note": "Reuters reported 2025 OpenAI revenue of about $13 billion, citing a source. Separately, it attributed to The Information a 33% adjusted gross margin for 2025, compared with 40% in 2024. The dashboard does not substitute this adjusted measure for its approximately 42.6% calculation using reported statement revenue and cost of revenue. These bases differ and have not been reconciled here.",
+      "reviewed": "2026-10-20"
+    },
+    {
+      "id": "A6",
+      "company": "Anthropic",
+      "title": "Anthropic FY2025 financial results from a prospectus reviewed by Reuters",
+      "publisher": "Reuters via MarketScreener",
+      "date": "2026-09-28",
+      "url": "https://www.marketscreener.com/news/anthropic-s-ipo-prospectus-shows-sweeping-ai-vision-surging-costs-ce785addd98afe2c",
+      "type": "Financial reporting",
+      "note": "Reuters reported from a confidential Anthropic IPO prospectus that 2025 revenue was nearly $4.6 billion, about twelve times the prior year. Anthropic declined to comment. These are annual revenue figures reported by Reuters, not Anthropic’s separate annualized run-rate disclosures. The underlying prospectus was not independently inspected for this dashboard. Reuters reported a near-$42 billion net loss, including roughly $34 billion of noncash financing-related accounting charges. Net loss therefore does not measure cash spent running the business.",
+      "reviewed": "2026-10-20",
+      "comparisonPeriod": "FY2025"
+    },
+    {
+      "id": "A7",
+      "company": "Anthropic",
+      "title": "Anthropic FY2025 implied gross margin analysis",
+      "publisher": "Reuters Breakingviews · Karen Kwok",
+      "date": "2026-09-29",
+      "url": "https://www.breakingviews.com/columns/breaking-view/anthropics-2-trln-goal-is-ais-biggest-moonshot-2026-09-29/",
+      "type": "Financial analysis",
+      "note": "Reuters Breakingviews, discussing documents reviewed by Reuters, put Anthropic’s implied gross margin at roughly 40% in 2025, versus negative 95% in 2024. It described the associated costs as mainly computing responses to queries. The dashboard marks 40% as approximate and reported analysis, rather than a directly verified GAAP margin. Definitions and cost classifications can differ across companies; gross margin is not net profitability. Applying this approximate margin to the separately reported $4.59 billion annual revenue gives an estimated gross profit of about $1.84 billion; this is a dashboard calculation, not a disclosed gross-profit line item.",
+      "reviewed": "2026-10-20",
+      "comparisonPeriod": "FY2025"
+    },
+    {
+      "id": "A8",
+      "company": "Anthropic",
+      "title": "Anthropic FY2025 revenue and year-over-year growth detail",
+      "publisher": "Yahoo Finance · Brian Sozzi",
+      "date": "2026-09-29",
+      "url": "https://sg.finance.yahoo.com/news/tech-bull-dan-ives-flags-shocker-risk-in-anthropics-ipo-leak-172922273.html/",
+      "type": "Financial reporting",
+      "note": "Yahoo Finance, attributing figures to Reuters’ review of Anthropic’s IPO prospectus, reported FY2025 revenue of $4.59 billion and year-over-year sales growth of 1,088%. The dashboard uses this reported growth rate rather than deriving extra precision from rounded annual figures. The report said the filing was not yet public. These are attributed annual results, not forecasts or run-rate revenue. Yahoo Finance also reported a FY2025 GAAP net loss of $41.97 billion, versus $8.31 billion in FY2024.",
+      "reviewed": "2026-10-20",
+      "comparisonPeriod": "FY2025"
     }
   ],
   "companies": [
@@ -240,26 +357,6 @@ export const seed = {
       "entity": "Alphabet Inc.",
       "color": "#5367e8",
       "ticker": "GOOGL / GOOG",
-      "revenue": [
-        96.428,
-        119.796
-      ],
-      "income": [
-        31.271,
-        40.77
-      ],
-      "margin": [
-        32,
-        34
-      ],
-      "cashflow": [
-        27.747,
-        39.069
-      ],
-      "rd": [
-        13.808,
-        18.219
-      ],
       "growth": 24,
       "ads": 81.629,
       "capex": 44.924,
@@ -272,33 +369,84 @@ export const seed = {
         "G2",
         "G5"
       ],
-      "mark": "G"
+      "mark": "G",
+      "historicalQuarterly": {
+        "revenue": [
+          96.428,
+          119.796
+        ],
+        "margin": [
+          32,
+          34
+        ],
+        "income": [
+          31.271,
+          40.77
+        ],
+        "cashflow": [
+          27.747,
+          39.069
+        ],
+        "rd": [
+          13.808,
+          18.219
+        ]
+      },
+      "performance": {
+        "revenue": {
+          "value": 402.836,
+          "unit": "USD billions",
+          "basis": "SEC annual filing",
+          "refs": [
+            "G8"
+          ],
+          "approximate": false,
+          "priorRevenue": 350.018
+        },
+        "margin": {
+          "value": 59.65231508603998,
+          "unit": "percent",
+          "basis": "Calculated: (revenue − cost of revenue) ÷ revenue",
+          "refs": [
+            "G8"
+          ],
+          "approximate": false,
+          "costOfRevenue": 162.535
+        },
+        "growth": {
+          "value": 15.090081081544394,
+          "unit": "percent",
+          "basis": "Calculated from FY2024 and FY2025 revenue",
+          "refs": [
+            "G8"
+          ],
+          "approximate": false
+        },
+        "grossprofit": {
+          "value": 240.30100000000002,
+          "unit": "USD billions",
+          "basis": "Calculated: annual revenue − cost of revenue",
+          "refs": [
+            "G8"
+          ],
+          "approximate": false
+        },
+        "netincome": {
+          "value": 132.17,
+          "unit": "USD billions",
+          "basis": "Consolidated net income · SEC annual filing",
+          "refs": [
+            "G8"
+          ],
+          "approximate": false
+        }
+      }
     },
     {
       "name": "Meta",
       "entity": "Meta Platforms Inc.",
       "color": "#15a58d",
       "ticker": "META",
-      "revenue": [
-        47.516,
-        60.801
-      ],
-      "income": [
-        20.441,
-        18.775
-      ],
-      "margin": [
-        43,
-        31
-      ],
-      "cashflow": [
-        25.561,
-        31.862
-      ],
-      "rd": [
-        12.942,
-        21.656
-      ],
       "growth": 28,
       "ads": 59.363,
       "capex": 31.08,
@@ -312,33 +460,84 @@ export const seed = {
         "M3",
         "M4"
       ],
-      "mark": "M"
+      "mark": "M",
+      "historicalQuarterly": {
+        "revenue": [
+          47.516,
+          60.801
+        ],
+        "margin": [
+          43,
+          31
+        ],
+        "income": [
+          20.441,
+          18.775
+        ],
+        "cashflow": [
+          25.561,
+          31.862
+        ],
+        "rd": [
+          12.942,
+          21.656
+        ]
+      },
+      "performance": {
+        "revenue": {
+          "value": 200.966,
+          "unit": "USD billions",
+          "basis": "SEC annual filing",
+          "refs": [
+            "M7"
+          ],
+          "approximate": false,
+          "priorRevenue": 164.501
+        },
+        "margin": {
+          "value": 81.9994426917986,
+          "unit": "percent",
+          "basis": "Calculated: (revenue − cost of revenue) ÷ revenue",
+          "refs": [
+            "M7"
+          ],
+          "approximate": false,
+          "costOfRevenue": 36.175
+        },
+        "growth": {
+          "value": 22.167038498246217,
+          "unit": "percent",
+          "basis": "Calculated from FY2024 and FY2025 revenue",
+          "refs": [
+            "M7"
+          ],
+          "approximate": false
+        },
+        "grossprofit": {
+          "value": 164.791,
+          "unit": "USD billions",
+          "basis": "Calculated: annual revenue − cost of revenue",
+          "refs": [
+            "M7"
+          ],
+          "approximate": false
+        },
+        "netincome": {
+          "value": 60.458,
+          "unit": "USD billions",
+          "basis": "Consolidated net income · SEC annual filing",
+          "refs": [
+            "M7"
+          ],
+          "approximate": false
+        }
+      }
     },
     {
       "name": "OpenAI",
       "entity": "OpenAI",
       "mark": "O",
       "color": "#8A62C6",
-      "revenue": [
-        null,
-        null
-      ],
-      "margin": [
-        null,
-        null
-      ],
-      "income": [
-        null,
-        null
-      ],
-      "cashflow": [
-        null,
-        null
-      ],
-      "rd": [
-        null,
-        null
-      ],
       "source": "O1",
       "refs": [
         "O1",
@@ -354,33 +553,88 @@ export const seed = {
       },
       "summary": "Consumer and business distribution through ChatGPT, coding tools through Codex and developer access through the API.",
       "route": "ChatGPT · Codex · OpenAI API",
-      "risk": "Comparability of private-company disclosures and infrastructure commitments."
+      "risk": "Comparability of private-company disclosures and infrastructure commitments.",
+      "historicalQuarterly": {
+        "revenue": [
+          null,
+          null
+        ],
+        "margin": [
+          null,
+          null
+        ],
+        "income": [
+          null,
+          null
+        ],
+        "cashflow": [
+          null,
+          null
+        ],
+        "rd": [
+          null,
+          null
+        ]
+      },
+      "performance": {
+        "revenue": {
+          "value": 13.07,
+          "unit": "USD billions",
+          "basis": "Financial statements reported by journalists",
+          "refs": [
+            "O7",
+            "O8"
+          ],
+          "approximate": false,
+          "priorRevenue": 3.7
+        },
+        "margin": {
+          "value": 42.61667941851569,
+          "unit": "percent",
+          "basis": "Calculated: (revenue − cost of revenue) ÷ revenue",
+          "refs": [
+            "O7",
+            "O8"
+          ],
+          "approximate": false,
+          "costOfRevenue": 7.5
+        },
+        "growth": {
+          "value": 253.24324324324326,
+          "unit": "percent",
+          "basis": "Calculated from FY2024 and FY2025 revenue",
+          "refs": [
+            "O7",
+            "O8"
+          ],
+          "approximate": true
+        },
+        "grossprofit": {
+          "value": 5.57,
+          "unit": "USD billions",
+          "basis": "Calculated: annual revenue − cost of revenue",
+          "refs": [
+            "O7",
+            "O8"
+          ],
+          "approximate": false
+        },
+        "netincome": {
+          "value": -38.53,
+          "unit": "USD billions",
+          "basis": "Reported net loss attributable to OpenAI; consolidated group loss was $60.35B",
+          "refs": [
+            "O7"
+          ],
+          "approximate": false
+        }
+      }
     },
     {
       "name": "Anthropic",
       "entity": "Anthropic PBC",
       "mark": "A",
       "color": "#C87949",
-      "revenue": [
-        null,
-        null
-      ],
-      "margin": [
-        null,
-        null
-      ],
-      "income": [
-        null,
-        null
-      ],
-      "cashflow": [
-        null,
-        null
-      ],
-      "rd": [
-        null,
-        null
-      ],
       "source": "A1",
       "refs": [
         "A1",
@@ -396,7 +650,81 @@ export const seed = {
       },
       "summary": "Claude products and developer APIs, with enterprise and coding use cases supported by cloud distribution partners.",
       "route": "Claude · Claude Code · Anthropic API",
-      "risk": "Limited comparable financial disclosures and differences between direct and cloud partner terms."
+      "risk": "Limited comparable financial disclosures and differences between direct and cloud partner terms.",
+      "historicalQuarterly": {
+        "revenue": [
+          null,
+          null
+        ],
+        "margin": [
+          null,
+          null
+        ],
+        "income": [
+          null,
+          null
+        ],
+        "cashflow": [
+          null,
+          null
+        ],
+        "rd": [
+          null,
+          null
+        ]
+      },
+      "performance": {
+        "revenue": {
+          "value": 4.59,
+          "unit": "USD billions",
+          "basis": "Prospectus figures reported by Reuters / Yahoo Finance",
+          "refs": [
+            "A8",
+            "A6"
+          ],
+          "approximate": false,
+          "priorRevenue": null
+        },
+        "margin": {
+          "value": 40,
+          "unit": "percent",
+          "basis": "Approximate implied margin · Reuters analysis",
+          "refs": [
+            "A7"
+          ],
+          "approximate": true,
+          "costOfRevenue": null
+        },
+        "growth": {
+          "value": 1088,
+          "unit": "percent",
+          "basis": "Reported YoY growth · rounded source rate",
+          "refs": [
+            "A8"
+          ],
+          "approximate": true
+        },
+        "grossprofit": {
+          "value": 1.836,
+          "unit": "USD billions",
+          "basis": "Estimate: $4.59B revenue × ≈40% implied gross margin; not a disclosed line item",
+          "refs": [
+            "A8",
+            "A7"
+          ],
+          "approximate": true
+        },
+        "netincome": {
+          "value": -41.97,
+          "unit": "USD billions",
+          "basis": "Reported GAAP net loss · Yahoo Finance; Reuters rounds to $42B",
+          "refs": [
+            "A8",
+            "A6"
+          ],
+          "approximate": false
+        }
+      }
     }
   ],
   "models": [
@@ -550,13 +878,13 @@ export const seed = {
   ],
   "insights": [
     {
-      "title": "Financial disclosure limits shape the comparison",
-      "text": "Alphabet and Meta provide comparable quarterly figures. OpenAI and Anthropic publish selected business disclosures with different periods and bases. Missing quarterly values remain undisclosed rather than zero.",
+      "title": "One completed year makes the comparison clearer",
+      "text": "The business comparison uses FY2025 annual revenue, gross margin, gross profit, net income or loss, and revenue growth. SEC filings support Alphabet and Meta; attributed financial reporting fills the private-company rows. Reported and calculated figures remain labeled.",
       "sources": [
-        "G1",
-        "M1",
-        "O1",
-        "A1"
+        "G8",
+        "M7",
+        "O7",
+        "A8"
       ]
     },
     {
@@ -586,5 +914,6 @@ export const seed = {
         "M2"
       ]
     }
-  ]
+  ],
+  "performanceScope": "Completed calendar year ending 31 December 2025"
 };

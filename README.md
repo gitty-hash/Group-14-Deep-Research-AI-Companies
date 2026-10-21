@@ -11,12 +11,12 @@ The public dashboard is deployed through GitHub Actions.
 - Financial comparisons and chart controls.
 - Product and strategy comparisons, with access-route filters.
 - A workload-based API cost calculator.
-- Local BM25 evidence search across 21 reviewed primary sources.
-- Gemini RAG using each viewer's own Gemini API key.
+- Local BM25 retrieval and concise source summaries across 31 reviewed sources.
+- Answer-first Gemini RAG using each viewer's own Gemini API key; supporting sources follow the answer.
 - A searchable source library with collected news, pricing and collection logs.
 - Research-method explanations and a five-minute presentation view.
 
-The website is public. The Gemini key belongs to the viewer, stays in page memory, and is sent only to Google's Gemini API when generation is enabled. It is not written to browser storage, the repository or GitHub Pages. Do not commit API keys or add them to GitHub Actions for this version. Evidence search requires no key.
+The website is public. The Gemini key belongs to the viewer, stays in page memory, and is sent only to Google's Gemini API when generation is enabled. It is not written to browser storage, the repository or GitHub Pages. Do not commit API keys or add them to GitHub Actions for this version. Source summaries require no key. Gemini generates two to four short sentences from retrieved notes and supplies structured source references. One format repair is allowed; failed or unavailable generation falls back to relevant source sentences with a visible notice. No unvalidated generated answer is shown. Explicit multi-company questions retrieve both named companies even when a single-company filter was selected. The reviewed corpus includes Claude Code and Google Antigravity documentation; product descriptions do not establish a tested winner.
 
 ## One-time publishing setup
 
@@ -35,7 +35,11 @@ The workflow checks official news for all four companies and six supported API p
 
 **Reload published data** reads the JSON snapshot already published by the workflow. It does not run the collection job from the browser. The open page rechecks that published file every 15 minutes.
 
-Financial comparisons use five parameters: revenue, operating margin, operating income, operating cash flow and R&D expense, for **Q2 2025 and Q2 2026** where disclosed. Google financials refer to parent Alphabet. The reviewed OpenAI and Anthropic sources do not disclose the same quarterly series, so these cells say **Not disclosed** and do not become zero-value chart bars. Dated monthly revenue and annualized run-rate statements appear separately; they are not directly comparable quarterly results. Company-wide figures are not AI-only revenue or market-share figures. Update `seed.mjs` only after reviewing new original sources.
+Financial comparisons use **FY2025 annual revenue, gross margin, gross profit, net income/loss and revenue growth** for all four companies. Alphabet and Meta use SEC annual filings. OpenAI uses reported financial statements (Ed Zitron, corroborated by Ars Technica); Anthropic uses Reuters prospectus reporting, Reuters Breakingviews analysis and Yahoo Finance. The underlying private-company documents were not independently inspected here.
+
+Gross margin is calculated from reported revenue and cost of revenue for Alphabet, Meta and OpenAI. Anthropic’s approximately 40% is a reported implied estimate. The separately reported 33% adjusted OpenAI margin is a different basis and is not used in the chart. Cost classifications differ, so the chart is not a fully standardized profitability ranking. Revenue growth compares 2025 with 2024; Anthropic uses the reported rounded 1,088% rate. Run rates and forecasts are excluded. Company-wide results include businesses beyond AI. Financial inputs are manually reviewed, not replaced by the automated news collector.
+
+Gross profit is revenue less cost of revenue for Alphabet, Meta and OpenAI. Anthropic’s gross profit is an estimate from its reported revenue and approximate implied margin, not a disclosed gross-profit line item. Net income/loss uses consolidated results for Alphabet and Meta, the loss attributable to OpenAI after noncontrolling interests, and Anthropic’s reported GAAP net loss. OpenAI and Anthropic losses include substantial noncash financing charges; they do not measure cash burn. The chart supports positive and negative values around a zero baseline.
 
 The original private Sites deployment and its cloud schedule are independent. They do not publish updates to this repository.
 
@@ -56,7 +60,8 @@ Serve `docs/` with a static HTTP server. Opening `index.html` directly as a file
 | File | Role |
 | --- | --- |
 | `template.html` | Dashboard layout and UI source |
-| `pages-api.js` | Browser-side retrieval, data loading and Gemini requests |
+| `pages-api.js` | Browser data loading and calls to the shared RAG engine |
+| `rag-core.js` | Shared BM25 retrieval, source summaries, Gemini prompt and citation validation |
 | `seed.mjs` | Reviewed facts, sources and baseline prices |
 | `collector.mjs` | Official-source collection and parsing |
 | `scripts/refresh-data.mjs` | Writes a new published update record |
