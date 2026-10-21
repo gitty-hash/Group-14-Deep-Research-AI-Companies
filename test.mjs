@@ -8,16 +8,20 @@ const html=await readFile('docs/index.html','utf8');
 const updates=JSON.parse(await readFile('docs/data/updates.json','utf8'));
 const stockSnapshot=JSON.parse(await readFile('docs/data/stock-snapshot.json','utf8'));
 const requests=[];
-const context={URL,URLSearchParams,Blob,AbortSignal,setTimeout,console,document:{baseURI:'https://gitty-hash.github.io/Group-14-Deep-Research-AI-Companies/'},fetch:async(url,opts)=>{requests.push({url:String(url),opts});if(String(url).endsWith('/research.json'))return {ok:true,json:async()=>seed};if(String(url).endsWith('/updates.json'))return {ok:true,json:async()=>updates};throw new Error('Unexpected request');}};
+const context={URL,URLSearchParams,Blob,AbortSignal,setTimeout,console,document:{baseURI:'https://gitty-hash.github.io/Group-14-Deep-Research-AI-Companies/'},fetch:async(url,opts)=>{requests.push({url:String(url),opts});if(String(url).endsWith('/research.json'))return {ok:true,json:async()=>seed};if(String(url).endsWith('/api/config'))return {ok:true,json:async()=>({generationConfigured:false})};if(String(url).endsWith('/updates.json'))return {ok:true,json:async()=>updates};throw new Error('Unexpected request');}};
 vm.createContext(context);vm.runInContext(await readFile('rag-core.js','utf8'),context);vm.runInContext(adapter,context);const api=context.PagesAPI;
-await api.load();
+const loaded=await api.load();
+assert.equal(loaded.generationConfigured,false);
 assert(requests[0].url.includes('/Group-14-Deep-Research-AI-Companies/data/research.json'));
 assert.equal(api.retrieve('latest AI news').some(source=>source.kind==='news'),true);
 for(const [q,id] of [['How do API costs and data-use terms differ?','M2'],['Are Meta and Google partners as well as competitors?','G3'],['How do the companies compare on revenue and profit?','M7'],['Is Llama open source without restrictions?','M6']]){
  const a=await api.ask({question:q});assert(a.sources.some(s=>s.id===id));assert.equal(a.mode,'Source summary');
 }
 assert.equal((await api.ask({question:'What is the best pasta recipe?'})).sources.length,0);
-await assert.rejects(()=>api.ask({question:'API pricing',generate:true}),/own Gemini key/);
+assert.match((await api.ask({question:'API pricing',generate:true})).notice,/currently unavailable/);
+await assert.rejects(()=>api.compareCompany({company:'Acme Holdings'}),/currently unavailable/);
+await assert.rejects(()=>api.stockPerformance({}),/currently unavailable/);
+loaded.generationConfigured=true;
 assert((await api.ask({question:'API pricing',company:'Meta'})).sources.every(x=>x.company==='Meta'));
 const localNews=await api.ask({question:'What are the latest AI announcements from Google and Meta?'});
 assert(localNews.sources.some(source=>source.kind==='news'),'Recent official-news headlines should enter retrieval.');
@@ -26,10 +30,10 @@ context.fetch=async(url,opts)=>{requests.push({url:String(url),opts});return {ok
  {type:'google_search_call',arguments:{queries:['Meta current AI API pricing']}},
  {type:'model_output',content:[{type:'text',text:'Meta lists standard API prices. [M2]',annotations:[{type:'url_citation',title:'Meta API pricing',url:'https://example.com/meta-pricing'}]}]}
 ]})};};
-const generated=await api.ask({question:'API pricing',generate:true,apiKey:'unit-test-key'});
+const generated=await api.ask({question:'API pricing',generate:true});
 assert.equal(generated.mode,'Agentic Gemini RAG');
-assert.equal(requests.at(-1).url,'https://generativelanguage.googleapis.com/v1beta/interactions');
-assert.equal(requests.at(-1).opts.headers['x-goog-api-key'],'unit-test-key');
+assert.equal(requests.at(-1).url,'/api/gemini');
+assert.equal(requests.at(-1).opts.headers['x-goog-api-key'],undefined);
 assert(!requests.at(-1).opts.body.includes('unit-test-key'));
 const agentPayload=JSON.parse(requests.at(-1).opts.body);
 assert.deepEqual(agentPayload.tools,[{type:'google_search'}]);
@@ -37,9 +41,9 @@ assert(agentPayload.input.includes('M2'));
 assert(generated.sources.some(source=>source.url==='https://example.com/meta-pricing'));
 assert(generated.trace.some(step=>step.includes('BM25')));
 context.fetch=async()=>({ok:true,json:async()=>({steps:[{type:'google_search_call'},{type:'model_output',content:[{type:'text',text:'Invented claim [G99]',annotations:[{type:'url_citation',title:'Unknown',url:'https://example.com/unknown'}]}]}]})});
-assert.equal((await api.ask({question:'API pricing',generate:true,apiKey:'unit-test-key'})).mode,'Source summary');
+assert.equal((await api.ask({question:'API pricing',generate:true})).mode,'Source summary');
 context.fetch=async()=>({ok:false,status:403});
-assert.match((await api.ask({question:'API pricing',generate:true,apiKey:'unit-test-key'})).notice,/HTTP 403/);
+assert.match((await api.ask({question:'API pricing',generate:true})).notice,/HTTP 403/);
 assert(!/localStorage|sessionStorage/.test(adapter));
 assert(!/alphavantage\.co|stockSeries|searchStocks|summarizeStockPerformance/i.test(adapter));
 assert(/stockPerformance/.test(adapter));
@@ -48,7 +52,7 @@ assert(html.includes('Stock Performance'));
 assert(html.includes('Compare Stock'));
 assert(html.includes('Retrieve reviewed company research and recent AI news'));
 assert(html.includes('Use Gemini agent with Google Search and retrieved source documents'));
-assert(html.includes('const result=await PagesAPI.ask({question:q,company,generate,apiKey:key||undefined})'));
+assert(html.includes('const result=await PagesAPI.ask({question:q,company,generate})'));
 assert(html.includes('Supporting documents and web sources'));
 assert(html.includes('Latest AI news'));
 assert(html.includes('id="assistant-panel" role="dialog"'));
@@ -78,14 +82,16 @@ assert(html.includes('assistant-widget.robot-moving .robot-body'));
 assert(html.includes('prefers-reduced-motion:reduce'));
 assert(html.includes('id="assistant-chat-form"'));
 assert(html.includes('Optional Gemini web research'));
-assert(html.includes('PagesAPI.ask({question,company,generate,apiKey:apiKey||undefined})'));
+assert(html.includes('PagesAPI.ask({question,company,generate})'));
 assert(html.includes('data-assistant-research'));
 assert(html.includes('assistant-message-sources'));
 assert(html.includes("event.key==='Escape'"));
 assert(adapter.includes('BM25 retrieved'));
 assert(adapter.includes("tools:[{type:'google_search'}]"));
 assert(!/fetch\('\/api\/|location.href='\/api\//.test(html));
-assert(html.includes('GitHub Pages edition'));
+assert(html.includes('Research workspace'));
+assert(!/apiKey|apikey|api-key|type="password"|enter.{0,30}key/i.test(html));
+assert(!/x-goog-api-key|generativelanguage\.googleapis\.com/.test(adapter));
 assert(!html.includes('passes through this private dashboard'));
 assert(!html.includes('The Check sources button fetches official'));
 assert(!/method:\['Research method'/.test(html));
@@ -115,12 +121,11 @@ for(const company of ['OpenAI','Anthropic']){
  for(const key of ['revenue','margin','growth','grossprofit','netincome'])assert(Number.isFinite(c.performance[key].value));
 }
 context.fetch=async()=>({ok:true,json:async()=>({steps:[{type:'google_search_call'},{type:'model_output',content:[{type:'text',text:'Standard Sol prices apply. [O2]',annotations:[{type:'url_citation',title:'Sol pricing',url:'https://example.com/sol-pricing'}]}]}]})});
-assert.equal((await api.ask({question:'GPT-6.1 Sol API price',company:'OpenAI',generate:true,apiKey:'unit-test-key'})).mode,'Agentic Gemini RAG');
+assert.equal((await api.ask({question:'GPT-6.1 Sol API price',company:'OpenAI',generate:true})).mode,'Agentic Gemini RAG');
 context.fetch=async()=>({ok:true,json:async()=>({steps:[{type:'google_search_call'},{type:'model_output',content:[{type:'text',text:'Unsupported source. [Z99]',annotations:[{type:'url_citation',title:'Unrelated',url:'https://example.com/unrelated'}]}]}]})});
-assert.equal((await api.ask({question:'Claude pricing',company:'Anthropic',generate:true,apiKey:'unit-test-key'})).mode,'Source summary');
+assert.equal((await api.ask({question:'Claude pricing',company:'Anthropic',generate:true})).mode,'Source summary');
 console.log('Four-company retrieval, populated annual financials and new citation-prefix checks passed.');
 
-await assert.rejects(()=>api.compareCompany({company:'Acme Holdings'}),/Gemini API key/);
 const externalReport={company:'Acme Holdings',period:'FY2025',metrics:{
  revenue:{value:120,unit:'USD billions',basis:'FY2025 reported revenue'},
  margin:{value:42,unit:'percent',basis:'Gross profit divided by revenue'},
@@ -135,26 +140,25 @@ context.fetch=async(url,opts)=>{
   {type:'model_output',content:[{type:'text',text:JSON.stringify(externalReport),annotations:[{type:'url_citation',title:'Acme FY2025 report',url:'https://example.com/acme-report'}]}]}
  ]})};
 };
-const compared=await api.compareCompany({company:'Acme Holdings',apiKey:'unit-test-key'});
+const compared=await api.compareCompany({company:'Acme Holdings'});
 assert.equal(compared.company,'Acme Holdings');
 assert.equal(compared.period,'FY2025');
 assert.equal(compared.metrics.netincome.value,-3.2);
 assert.equal(compared.sources.length,1);
 assert.equal(compared.sources[0].title,'Acme FY2025 report');
 assert.equal(compared.sources[0].url,'https://example.com/acme-report');
-assert.equal(requests.at(-1).url,'https://generativelanguage.googleapis.com/v1beta/interactions');
-assert.equal(requests.at(-1).opts.headers['x-goog-api-key'],'unit-test-key');
+assert.equal(requests.at(-1).url,'/api/gemini');
+assert.equal(requests.at(-1).opts.headers['x-goog-api-key'],undefined);
 assert(!requests.at(-1).opts.body.includes('unit-test-key'));
 const searchPayload=JSON.parse(requests.at(-1).opts.body);
 assert.equal(searchPayload.model,'gemini-3.8-flash');
 assert.deepEqual(searchPayload.tools,[{type:'google_search'}]);
 context.fetch=async()=>({ok:true,json:async()=>({steps:[{type:'model_output',content:[{type:'text',text:JSON.stringify(externalReport)}]}]})});
-await assert.rejects(()=>api.compareCompany({company:'Acme Holdings',apiKey:'unit-test-key'}),/did not perform a Google Search/);
+await assert.rejects(()=>api.compareCompany({company:'Acme Holdings'}),/did not perform a Google Search/);
 context.fetch=async()=>({ok:true,json:async()=>({steps:[{type:'google_search_call'},{type:'model_output',content:[{type:'text',text:JSON.stringify(externalReport)}]}]})});
-await assert.rejects(()=>api.compareCompany({company:'Acme Holdings',apiKey:'unit-test-key'}),/no verifiable Google Search citations/);
+await assert.rejects(()=>api.compareCompany({company:'Acme Holdings'}),/no verifiable Google Search citations/);
 console.log('Grounded FY2025 company comparison, citation requirements and API-key handling passed.');
 
-await assert.rejects(()=>api.stockPerformance({}),/Gemini API key/);
 const stockReport={range:'1M',stocks:[
  {requestedName:'Alphabet Inc.',symbol:'GOOGL',company:'Alphabet Inc.',price:245.12,currency:'USD',quoteDate:'2026-10-20',quoteType:'latest trade',history:[{time:'2026-10-01',close:235},{time:'2026-10-06',close:240},{time:'2026-10-12',close:237},{time:'2026-10-16',close:243},{time:'2026-10-20',close:245.12}],previousClose:242.1,dayLow:240,dayHigh:246,dailyChangePercent:1.25,periodReturns:{'1D':1.25,'1W':2.4,'1M':4.8,'3M':8.1,'6M':12.5,'1Y':18.4,'5Y':92.1},week52Low:147,week52High:250,marketCapUsdBillions:3000,trailingPE:25.2,volume:22000000,averageDailyVolume:21000000,beta:1.03,dividendYieldPercent:.5,rsi14:54,sma50:238,sma200:205,note:'Latest quote from the cited market source.'},
  {requestedName:'Meta Platforms, Inc.',symbol:'META',company:'Meta Platforms, Inc.',price:712.5,currency:'USD',quoteDate:'2026-10-20',quoteType:'last close',history:[{time:'2026-10-01',close:700},{time:'2026-10-06',close:705},{time:'2026-10-12',close:690},{time:'2026-10-16',close:710},{time:'2026-10-20',close:712.5}],previousClose:716,dayLow:708,dayHigh:720,dailyChangePercent:-.5,periodReturns:{'1D':-.5,'1W':-1,'1M':null,'3M':4,'6M':9,'1Y':22,'5Y':130},week52Low:480,week52High:796,marketCapUsdBillions:1800,trailingPE:27.5,volume:11000000,averageDailyVolume:12000000,beta:1.2,dividendYieldPercent:.3,rsi14:48,sma50:710,sma200:645,note:'One-month return was not available.'}
@@ -163,14 +167,14 @@ context.fetch=async(url,opts)=>{requests.push({url:String(url),opts});return{ok:
  {type:'google_search_call',arguments:{queries:['GOOGL META latest stock quote']}},
  {type:'model_output',content:[{type:'text',text:JSON.stringify(stockReport),annotations:[{type:'url_citation',title:'Market quotes',url:'https://example.com/quotes'}]}]}
 ]})};};
-const stockPerformance=await api.stockPerformance({apiKey:'unit-test-key'});
+const stockPerformance=await api.stockPerformance({});
 assert.equal(stockPerformance.stocks.length,2);
 assert.equal(stockPerformance.range,'1M');
 assert.equal(stockPerformance.stocks[0].price,245.12);
 assert.equal(stockPerformance.stocks[0].history.length,5);
 assert.equal(stockPerformance.stocks[1].periodReturns['1M'],null);
 assert.equal(stockPerformance.sources[0].url,'https://example.com/quotes');
-assert.equal(requests.at(-1).opts.headers['x-goog-api-key'],'unit-test-key');
+assert.equal(requests.at(-1).opts.headers['x-goog-api-key'],undefined);
 assert(!requests.at(-1).opts.body.includes('unit-test-key'));
 assert.deepEqual(JSON.parse(requests.at(-1).opts.body).tools,[{type:'google_search'}]);
 const renderStockPerformance=new Function('initialData','report','companies','range','selectedCompany','esc','busy','error',html.match(/function stockMoney[\s\S]*?(?=function research\()/)[0]+'\nDATA=initialData;stockReport=report;stockSnapshot=report?.snapshot?report:null;stockCompanies=companies;stockCompanyDraft="";stockRange=range;company=selectedCompany;stockBusy=busy;stockError=error;return stocks();');
@@ -289,27 +293,27 @@ context.fetch=async(url,opts)=>{requests.push({url:String(url),opts});return{ok:
  {type:'google_search_call'},
  {type:'model_output',content:[{type:'text',text:JSON.stringify(expandedStockReport),annotations:[{type:'url_citation',title:'Quotes',url:'https://example.com/expanded'}]}]}
 ]})};};
-const expandedComparison=await api.stockPerformance({apiKey:'unit-test-key',companies:['NVIDIA','AMD']});
+const expandedComparison=await api.stockPerformance({companies:['NVIDIA','AMD']});
 assert.equal(expandedComparison.stocks.length,4);
 assert.equal(expandedComparison.stocks[2].symbol,'NASDAQ:NVDA');
 assert(JSON.parse(requests.at(-1).opts.body).input.includes('NVIDIA'));
-await assert.rejects(()=>api.stockPerformance({apiKey:'unit-test-key',range:'QTD'}),/supported stock chart range/);
+await assert.rejects(()=>api.stockPerformance({range:'QTD'}),/supported stock chart range/);
 const unorderedReport={...stockReport,stocks:stockReport.stocks.map((stock,index)=>index?stock:{...stock,history:[...stock.history].reverse()})};
 context.fetch=async()=>({ok:true,json:async()=>({steps:[{type:'google_search_call'},{type:'model_output',content:[{type:'text',text:JSON.stringify(unorderedReport),annotations:[{type:'url_citation',title:'Quotes',url:'https://example.com/unordered'}]}]}]})});
-await assert.rejects(()=>api.stockPerformance({apiKey:'unit-test-key'}),/invalid or unordered GOOGL historical prices/);
+await assert.rejects(()=>api.stockPerformance({}),/invalid or unordered GOOGL historical prices/);
 context.fetch=async()=>({ok:true,json:async()=>({steps:[{type:'google_search_call'},{type:'model_output',content:[{type:'text',text:JSON.stringify({...stockReport,range:'1D'}),annotations:[{type:'url_citation',title:'Quotes',url:'https://example.com/daily'}]}]}]})});
-await assert.rejects(()=>api.stockPerformance({apiKey:'unit-test-key',range:'1D'}),/date-only data for the 1D GOOGL chart/);
+await assert.rejects(()=>api.stockPerformance({range:'1D'}),/date-only data for the 1D GOOGL chart/);
 const intradayReport={...stockReport,range:'1D',stocks:stockReport.stocks.map(stock=>({...stock,history:[{time:'2026-10-20T14:30:00Z',close:stock.history[0].close},{time:'2026-10-20T19:30:00Z',close:stock.price}]}))};
 context.fetch=async(url,opts)=>{requests.push({url:String(url),opts});return{ok:true,json:async()=>({steps:[{type:'google_search_call'},{type:'model_output',content:[{type:'text',text:JSON.stringify(intradayReport),annotations:[{type:'url_citation',title:'Quotes',url:'https://example.com/intraday'}]}]}]})};};
-const intradayComparison=await api.stockPerformance({apiKey:'unit-test-key',range:'1D'});
+const intradayComparison=await api.stockPerformance({range:'1D'});
 assert.equal(intradayComparison.range,'1D');
 assert(JSON.parse(requests.at(-1).opts.body).input.includes('Requested chart range: 1D'));
-await assert.rejects(()=>api.stockPerformance({apiKey:'unit-test-key',companies:['NVIDIA','NVIDIA']}),/already included/);
-await assert.rejects(()=>api.stockPerformance({apiKey:'unit-test-key',companies:['NVDA','AMD','TSLA']}),/up to two/);
+await assert.rejects(()=>api.stockPerformance({companies:['NVIDIA','NVIDIA']}),/already included/);
+await assert.rejects(()=>api.stockPerformance({companies:['NVDA','AMD','TSLA']}),/up to two/);
 context.fetch=async()=>({ok:true,json:async()=>({steps:[{type:'model_output',content:[{type:'text',text:JSON.stringify(stockReport)}]}]})});
-await assert.rejects(()=>api.stockPerformance({apiKey:'unit-test-key'}),/did not perform a Google Search/);
+await assert.rejects(()=>api.stockPerformance({}),/did not perform a Google Search/);
 context.fetch=async()=>({ok:true,json:async()=>({steps:[{type:'google_search_call'},{type:'model_output',content:[{type:'text',text:JSON.stringify(stockReport)}]}]})});
-await assert.rejects(()=>api.stockPerformance({apiKey:'unit-test-key'}),/no verifiable Google Search citations/);
+await assert.rejects(()=>api.stockPerformance({}),/no verifiable Google Search citations/);
 console.log('Gemini stock quotes, validation, citations and dashboard rendering passed.');
 
 // Render every company with baseline prices: collected updates must remain optional.
@@ -336,8 +340,10 @@ assert.match(summary.limitation,/do not establish/);
 const good={sentences:[{text:'The reviewed documentation does not establish a performance winner.',sourceIds:['A5','G7']},{text:'Claude Code documents repository edits and command execution.',sourceIds:['A5']}],limitation:'A comparable test would be needed.',insufficientEvidence:false};
 const fakeResponse=text=>({ok:true,json:async()=>({candidates:[{finishReason:'STOP',content:{parts:[{text}]}}]})});
 let generationCalls=0;
-const valid=await rag.generate(comparison,evidence,'test-only-key',async(url,opts)=>{
+const valid=await rag.generate(comparison,evidence,async(url,opts)=>{
  generationCalls++;
+ assert.equal(url,'/api/gemini/content');
+ assert.equal(opts.headers['x-goog-api-key'],undefined);
  const body=JSON.parse(opts.body);
  assert.equal(body.generationConfig.responseMimeType,'application/json');
  assert(body.generationConfig.responseJsonSchema.properties.sentences.items.properties.sourceIds.items.enum.includes('A5'));
@@ -353,16 +359,16 @@ assert.equal(rag.parseAnswer(JSON.stringify({...good,sentences:[{text:'No citati
 const gap=rag.parseAnswer(JSON.stringify({sentences:[],limitation:'The reviewed sources do not contain this benchmark.',insufficientEvidence:true}),evidence);
 assert(gap&&gap.sources.length===0&&gap.answer.includes('do not contain'));
 generationCalls=0;
-const repaired=await rag.generate(comparison,evidence,'test-only-key',async()=>fakeResponse(++generationCalls===1?'Malformed output':JSON.stringify(good)));
+const repaired=await rag.generate(comparison,evidence,async()=>fakeResponse(++generationCalls===1?'Malformed output':JSON.stringify(good)));
 assert.equal(generationCalls,2);assert.equal(repaired.mode,'Gemini RAG');
 generationCalls=0;
-const rejected=await rag.generate(comparison,evidence,'test-only-key',async()=>{generationCalls++;return fakeResponse(JSON.stringify({...good,sentences:[{text:'Unverified fabricated winner',sourceIds:['Z99']}]}));});
+const rejected=await rag.generate(comparison,evidence,async()=>{generationCalls++;return fakeResponse(JSON.stringify({...good,sentences:[{text:'Unverified fabricated winner',sourceIds:['Z99']}]}));});
 assert.equal(generationCalls,2);assert.equal(rejected.mode,'Source summary');
 assert(!rejected.answer.includes('fabricated winner'));assert.match(rejected.notice,/valid source references/);
 generationCalls=0;
-const blocked=await rag.generate(comparison,evidence,'test-only-key',async()=>{generationCalls++;return {ok:true,json:async()=>({promptFeedback:{blockReason:'SAFETY'}})};});
+const blocked=await rag.generate(comparison,evidence,async()=>{generationCalls++;return {ok:true,json:async()=>({promptFeedback:{blockReason:'SAFETY'}})};});
 assert.equal(generationCalls,1);assert.equal(blocked.mode,'Source summary');
-assert.match((await rag.generate(comparison,evidence,'test-only-key',async()=>({ok:false,status:429}))).notice,/HTTP 429/);
+assert.match((await rag.generate(comparison,evidence,async()=>({ok:false,status:429}))).notice,/HTTP 429/);
 assert.equal(rag.sourceSummary('unrelated question',[]).mode,'Evidence gap');
 console.log('Answer-first RAG, cross-company retrieval, grouped citations, evidence gaps, bounded repair and failure summaries passed.');
 

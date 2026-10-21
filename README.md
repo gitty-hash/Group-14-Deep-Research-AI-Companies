@@ -11,13 +11,13 @@ The project is designed as a research and presentation tool: it brings comparabl
 - **Research question:** How do the four companies differ in business performance, product strategy, distribution and economics?
 - **Interface:** Static, responsive dashboard with interactive charts, company filters and a searchable source library.
 - **Data:** Reviewed FY2025 company financials, selected model and pricing information, dated stock snapshots, and periodically collected official company news and pricing pages.
-- **Research assistant:** A floating animated robot chat launcher plus the full research tab, using local BM25 retrieval over reviewed documents and recent news, with optional Gemini generation and Google Search grounding.
-- **Deployment:** GitHub Pages, built and deployed by GitHub Actions.
+- **Research assistant:** A floating animated robot chat launcher plus the full research tab, using local BM25 retrieval over reviewed documents and recent news, with Gemini generation and Google Search grounding configured by the local server.
+- **Deployment:** Existing GitHub Pages site; the updated Gemini integration runs locally through `server.mjs`. A backend is required before deploying the updated live-research features.
 - **Runtime:** Node.js 22 or newer for building, tests and collection. No npm dependency installation is required.
 
 ### How the application is put together
 
-The browser dashboard is built with HTML, CSS and JavaScript, and renders its comparisons and charts in the page. Reviewed company information and collected updates are served as JSON files from `docs/`. Node.js scripts assemble the static site, validate the application, and collect approved public-source updates. The research assistant ranks source notes locally with BM25; optional Gemini calls add Google Search research and citation checks. GitHub Actions runs the build, tests, data collection and deployment.
+The browser dashboard is built with HTML, CSS and JavaScript, and renders its comparisons and charts in the page. Reviewed company information and collected updates are served as JSON files from `docs/`. Node.js scripts assemble the static site, validate the application, and collect approved public-source updates. The research assistant ranks source notes locally with BM25; Gemini calls through the local Node server add Google Search research and citation checks. The server reads its key from `.env`; the browser never receives the credential. GitHub Actions runs the build, tests, data collection and deployment.
 
 ## Guided dashboard walkthrough
 
@@ -29,7 +29,7 @@ Open the [live dashboard](https://gitty-hash.github.io/Group-14-Deep-Research-AI
 2. Use the company filter to view **All companies**, **Google**, **Meta**, **OpenAI** or **Anthropic**.
 3. Select a business-performance measure to update the chart and comparison table.
 4. Review the source links and basis notes shown with the figures.
-5. Select **Compare** to research another public or private company. Enter its name and your own Gemini API key, then submit. Remove the added comparison to return to the reviewed baseline.
+5. Select **Compare** to research another public or private company. Enter its name, then submit. Remove the added comparison to return to the reviewed baseline.
 
 The baseline uses FY2025 annual financial information. Alphabet and Meta figures are based on company filings; private-company figures use attributed reporting. A custom comparison is produced on demand, is not independently reviewed or saved, and may leave figures unavailable when Gemini cannot substantiate them.
 
@@ -56,7 +56,7 @@ The calculator applies one workload to the selected model catalogue. It estimate
 2. Select **1D**, **1W**, **1M**, **3M**, **6M**, **1Y** or **5Y** to change the dated price-history chart.
 3. Review the market-capitalization and trailing-P/E comparison charts, quote cards, historical returns and linked sources.
 4. To add listed companies, enter a company name or ticker and choose **Add company**. Up to two additional companies can be included.
-5. Enter your Gemini API key and choose **Compare Stock** to request a cited Google Search-grounded report for the selected companies and range.
+5. Choose **Compare Stock** to request a cited Google Search-grounded report for the selected companies and range.
 
 The default Google and Meta chart series are a fixed Yahoo Finance snapshot dated October 20, 2026: 15-minute samples for 1D, daily samples for 1W/1M, weekly samples for 3M/6M/1Y, and monthly samples for 5Y. The snapshot's market capitalization and trailing P/E values were checked before the October 21 market open. These are historical values, not live quotes. The line chart indexes each stock to 0% at the first point so different share prices can be compared. The snapshot does not include every technical indicator. Gemini Search is not a dedicated market-data feed; on-demand results can be delayed, sparse or incorrect. Verify the citations; this is not investment advice.
 
@@ -66,7 +66,7 @@ The global company filter also applies to this view. **All** displays Google and
 
 1. Open **Research assistant**, or select the floating robot button in the bottom-right corner from any dashboard tab for a quick chat. The robot performs four short reactions—wave, bounce, curious head tilt and cheer—with matching eye and mouth expressions on successive hover or click interactions.
 2. Enter a question about the companies, their strategy, products, financials or recent AI-industry developments.
-3. Search the reviewed source collection without a key, or open the chat settings and provide your own Gemini API key to request a generated answer grounded in retrieved evidence and Google Search.
+3. Search the reviewed source collection, or enable Gemini web research for a generated answer grounded in retrieved evidence and Google Search. Gemini is enabled automatically when the server key is configured; there are no key-entry fields in the dashboard.
 4. Follow the inline evidence references and source links. Expand the research steps to inspect how evidence was retrieved; choose **Open full Research assistant** for the complete research view.
 
 Retrieval combines reviewed company materials with recent collected official news. News headlines are discovery leads, not independently verified article summaries. If Gemini Search fails or produces missing or invalid citations, the interface falls back to retrieved evidence; generated text with invalid local references is withheld. Asking about multiple named companies retrieves evidence for each, even when a company filter is selected.
@@ -106,69 +106,44 @@ The dashboard's **Reload published data** button loads the already-published JSO
 - Git
 - Node.js 22 or newer
 - A web browser
-- Optional: Python 3 for the simple static-server command below
 
-### Step-by-step setup
+### Setup
 
-1. Clone the repository and enter its folder:
+1. From the repository folder, copy `.env.example` to `.env` if `.env` does not already exist:
 
-   ```sh
-   git clone https://github.com/gitty-hash/Group-14-Deep-Research-AI-Companies.git
-   cd Group-14-Deep-Research-AI-Companies
+   ```powershell
+   Copy-Item .env.example .env
    ```
 
-2. Build the static site and its data files:
+2. Edit `.env` locally and set `GEMINI_API_KEY` to your Gemini key. `PORT` defaults to `8787`. The existing local `.env` has already been populated; do not overwrite it with the example. Never put a real key in `.env.example`.
+3. Build the dashboard and start the local server:
 
    ```sh
    node build.mjs
+   node server.mjs
    ```
 
-3. Serve the generated `docs/` directory over HTTP. Do not open `docs/index.html` directly as a `file://` URL: the dashboard loads JSON files using HTTP.
-
-   **Windows PowerShell** (if Python is installed):
-
-   ```powershell
-   py -m http.server 8000 --directory docs
-   ```
-
-   **macOS/Linux:**
-
-   ```sh
-   python3 -m http.server 8000 --directory docs
-   ```
-
-4. Open [http://localhost:8000](http://localhost:8000) in a browser. Navigate to **Stock Performance** or another section using the sidebar.
-5. To check the project, open a second terminal at the repository root and run:
+4. Open [http://127.0.0.1:8787](http://127.0.0.1:8787). Restart `node server.mjs` after changing `.env`. Environment variables already set in the shell take precedence over `.env`.
+5. Run validation from another terminal:
 
    ```sh
    node test.mjs
+   node server.test.mjs
    ```
 
-6. Optional: refresh official news and pricing data locally:
+No package installation is required. Serve the dashboard with `node server.mjs` for Gemini features. A plain static server can display the snapshots and local source search, but cannot read `.env` or run Gemini requests. Optionally run `node scripts/refresh-data.mjs` to refresh the published news and pricing snapshot.
 
-   ```sh
-   node scripts/refresh-data.mjs
-   ```
+## Deployment status
 
-   Reload the dashboard after collection to read the updated JSON.
+The GitHub Pages workflow publishes the generated `docs/` folder, including the updated interface without API-key entry fields. It does not publish `.env` or run `server.mjs`. The Pages site supports reviewed-source search and historical snapshots; Gemini web research and live comparisons require the local server or a separately hosted backend.
 
-No package installation is needed for build or tests. The Python command above is only a convenient local HTTP server; it is not a project dependency.
+GitHub Pages serves static files and cannot privately load an environment key. Before publishing this updated Gemini integration, deploy an authenticated backend that keeps `GEMINI_API_KEY` in its server environment and connect the dashboard to it. The included development server listens only on `127.0.0.1`; it is intended for local use. On static hosting, live research is unavailable and source retrieval and historical snapshots remain available.
 
-## Publish with GitHub Pages
+## Gemini configuration and privacy
 
-The project is configured to publish the built `docs/` directory with GitHub Actions.
+`GEMINI_API_KEY` is read from the ignored local `.env` file by `server.mjs`. The research assistant, floating chat, company comparison and stock comparison all call the same-origin server. The server adds the key only when contacting Google's Gemini API. The key is never embedded in HTML, JavaScript, exported research data, browser storage or request bodies sent by the browser. Only a boolean indicating whether generation is configured is returned by `/api/config`.
 
-1. In the repository on GitHub, open **Settings → Pages**.
-2. Under **Build and deployment**, choose **GitHub Actions** as the source.
-3. Open **Actions** and select **Update data and deploy GitHub Pages**.
-4. For a first-time or manual deployment, choose **Run workflow** and confirm the `main` branch.
-5. Wait for the workflow to finish successfully, then open the [published dashboard](https://gitty-hash.github.io/Group-14-Deep-Research-AI-Companies/).
-
-After setup, relevant pushes to `main`, the daily schedule and manual workflow runs trigger deployment. The workflow uses GitHub's built-in token and does not require a personal access token or a shared Gemini secret.
-
-## Gemini key and privacy
-
-The public dashboard does not provide a shared Gemini API key. A viewer can enter their own key for on-demand research and stock comparison. The key stays in page memory, is sent directly to Google's Gemini API, and is not written to browser storage, this repository or GitHub Pages. It is cleared when the page session ends or the page is reloaded. Do not paste keys into chat, commit them, or include them in screenshots or shared documents. Gemini model access, Google Search grounding, quotas, billing and data terms depend on the viewer's Google account.
+The server serves files only from `docs/`; requests for `.env`, repository files and traversal paths are blocked. Gemini failures retain the assistant's retrieved-source fallback. Validation uses mocked upstream requests without spending real Gemini quota. Model access, Google Search grounding, quotas, billing and data terms depend on the configured Google account.
 
 ## Repository map
 
@@ -178,7 +153,10 @@ The public dashboard does not provide a shared Gemini API key. A viewer can ente
 | `seed.mjs` | Reviewed company data, source library, baseline model and pricing catalogue |
 | `stock-history.json` | Fixed dated GOOGL and META close series for the seven chart ranges |
 | `stock-snapshot.mjs` | Builds the preloaded stock metrics, returns and citations |
-| `pages-api.js` | Browser-side data access and validated Gemini request helpers |
+| `pages-api.js` | Browser data access, same-origin research requests and response validation |
+| `server.mjs` | Local static server and private Gemini proxy; loads `.env` |
+| `.env.example` | Safe configuration template; real key belongs only in ignored `.env` |
+| `server.test.mjs` | Server routing, private credentials, error and access checks |
 | `rag-core.js` | BM25 retrieval, evidence selection, Gemini prompts and citation validation |
 | `collector.mjs` | Official news and API-pricing collection and parsing |
 | `scripts/refresh-data.mjs` | Runs collection and writes `docs/data/updates.json` |
