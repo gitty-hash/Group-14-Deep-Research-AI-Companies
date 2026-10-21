@@ -11,7 +11,7 @@ The project is designed as a research and presentation tool: it brings comparabl
 - **Research question:** How do the four companies differ in business performance, product strategy, distribution and economics?
 - **Interface:** Static, responsive dashboard with interactive charts, company filters and a searchable source library.
 - **Data:** Reviewed FY2025 company financials, selected model and pricing information, dated stock snapshots, and periodically collected official company news and pricing pages.
-- **Research assistant:** Local BM25 retrieval over reviewed documents and recent news, with optional Gemini generation and Google Search grounding.
+- **Research assistant:** A floating animated robot chat launcher plus the full research tab, using local BM25 retrieval over reviewed documents and recent news, with optional Gemini generation and Google Search grounding.
 - **Deployment:** GitHub Pages, built and deployed by GitHub Actions.
 - **Runtime:** Node.js 22 or newer for building, tests and collection. No npm dependency installation is required.
 
@@ -64,10 +64,10 @@ The global company filter also applies to this view. **All** displays Google and
 
 ### 5. Ask the research assistant
 
-1. Open **Research assistant**.
+1. Open **Research assistant**, or select the floating robot button in the bottom-right corner from any dashboard tab for a quick chat. The robot performs four short reactions—wave, bounce, curious head tilt and cheer—on successive hover or click interactions.
 2. Enter a question about the companies, their strategy, products, financials or recent AI-industry developments.
-3. Search the reviewed source collection without a key, or provide your own Gemini API key to request a generated answer grounded in retrieved evidence and Google Search.
-4. Follow the inline evidence references and source links. Expand the research steps to inspect how evidence was retrieved.
+3. Search the reviewed source collection without a key, or open the chat settings and provide your own Gemini API key to request a generated answer grounded in retrieved evidence and Google Search.
+4. Follow the inline evidence references and source links. Expand the research steps to inspect how evidence was retrieved; choose **Open full Research assistant** for the complete research view.
 
 Retrieval combines reviewed company materials with recent collected official news. News headlines are discovery leads, not independently verified article summaries. If Gemini Search fails or produces missing or invalid citations, the interface falls back to retrieved evidence; generated text with invalid local references is withheld. Asking about multiple named companies retrieves evidence for each, even when a company filter is selected.
 

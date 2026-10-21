@@ -12,12 +12,87 @@
 .stock-quotes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.stock-quote{border:1px solid var(--line);border-radius:9px;padding:18px;background:#fafbfe}.stock-quote-head{display:flex;justify-content:space-between;gap:12px;align-items:center}.stock-quote-value{font-size:29px;font-weight:650;letter-spacing:-.7px;margin:12px 0 4px}.stock-quote-meta,.stock-quote-disclaimer{font-size:11px;color:var(--muted)}.stock-quote-metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:14px 0}.stock-quote-metrics strong{display:block;font-size:14px}.stock-quote-sources{font-size:10px}.stock-quote .stock-positive{color:#14836f}.stock-quote .stock-negative{color:#c24353}.stock-add-form{display:flex;gap:9px;align-items:flex-end;flex-wrap:wrap}.stock-add-form .field{flex:1;min-width:220px}.stock-company-chips{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.stock-company-chip{display:flex;align-items:center;gap:8px;background:#f0f2f7;border-radius:18px;padding:5px 9px;font-size:11px}.stock-company-chip button{padding:1px 5px;border:0}.stock-periods{display:flex;gap:6px;flex-wrap:wrap;margin:16px 0}.stock-periods button{font-size:11px;padding:6px 10px}.stock-periods button.active{background:#303a66;color:white;border-color:#303a66}.stock-metric-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.stock-metric{padding:10px;background:#fff;border:1px solid var(--line);border-radius:7px}.stock-metric span{display:block;font-size:10px;color:var(--muted)}.stock-metric strong{font-size:12px;overflow-wrap:anywhere}.stock-chart-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.stock-chart-panel{border:1px solid var(--line);border-radius:8px;padding:14px;background:#fff}.stock-chart-panel h3{font-size:12px}.stock-chart-panel .note{font-size:10px;margin-top:8px}.stock-chart-svg{width:100%;height:auto;min-height:190px;display:block;overflow:visible}.stock-history-panel{grid-column:1/-1}.stock-history-panel .stock-chart-svg{min-height:260px}.stock-chart-svg text{font-family:inherit;font-size:9px;fill:#72788a}.stock-chart-svg .stock-axis-label{fill:#485167;font-weight:600}.stock-chart-svg .stock-grid-line{stroke:#e9ecf2;stroke-width:1}.stock-chart-svg .stock-zero-line{stroke:#858da0;stroke-width:1.5}.stock-line-legend{display:flex;gap:8px 15px;flex-wrap:wrap;font-size:10px}.stock-line-legend-item{display:flex;align-items:center;gap:5px}.stock-line-legend-item i{width:9px;height:3px;border-radius:2px;display:inline-block}
 @media(max-width:950px){.stock-chart-grid{grid-template-columns:1fr}}@media(max-width:700px){.stock-quotes{grid-template-columns:1fr}.stock-metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.stock-return-row{grid-template-columns:minmax(95px,130px) minmax(85px,1fr) 70px}}
 .legend{flex-wrap:wrap}.stat strong{font-size:23px}.financialtable{margin-top:12px}.financialtable td,.financialtable th{padding:10px 8px}.unavailable{color:#7b6571;font-size:11px}.disclosures{margin-bottom:22px}.disclosurevalue{display:block;font-size:25px;margin:10px 0}.disclosures article p{font-size:12px}.costbar .name small{display:block;color:var(--muted);font-size:10px}#companyfilter{flex-wrap:wrap}.pagehead{flex-wrap:wrap}@media(max-width:560px){.costbar{gap:7px}.costbar .name{min-width:125px;max-width:125px}.costbar .amount{min-width:66px}}
-.answer-summary{background:#f7f8fd;border:1px solid #e3e7f4;border-radius:9px;padding:20px;margin:22px 0}.answer-summary .answer{padding:8px 0 0;line-height:1.8}.answer-summary .note{margin-bottom:0}.sources-heading{margin-top:26px}.comparison-notes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:18px}.comparison-notes p{font-size:12px;color:var(--muted);line-height:1.8}.company-key{display:inline-block;width:8px;height:8px;border-radius:3px;margin-right:8px}.company-chart-label{fill:#485167!important;font-size:12px!important}@media(max-width:950px){.comparison-notes{grid-template-columns:1fr}} </style></head><body>
+.answer-summary{background:#f7f8fd;border:1px solid #e3e7f4;border-radius:9px;padding:20px;margin:22px 0}.answer-summary .answer{padding:8px 0 0;line-height:1.8}.answer-summary .note{margin-bottom:0}.sources-heading{margin-top:26px}.comparison-notes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:18px}.comparison-notes p{font-size:12px;color:var(--muted);line-height:1.8}.company-key{display:inline-block;width:8px;height:8px;border-radius:3px;margin-right:8px}.company-chart-label{fill:#485167!important;font-size:12px!important}@media(max-width:950px){.comparison-notes{grid-template-columns:1fr}} .assistant-widget{position:fixed;right:24px;bottom:22px;z-index:30;font-family:inherit}.assistant-launcher{width:62px;height:62px;border:0;border-radius:50%;padding:0;background:linear-gradient(145deg,#7869f5,#394fc3);color:#fff;box-shadow:0 9px 28px #29366b55;display:grid;place-items:center;transition:transform .18s,box-shadow .18s}.assistant-launcher:hover{transform:translateY(-3px);box-shadow:0 12px 32px #29366b70;background:linear-gradient(145deg,#8376ff,#4259d2)}.assistant-launcher svg{width:39px;height:39px}.assistant-panel{position:absolute;right:0;bottom:76px;width:390px;height:min(610px,calc(100vh - 115px));min-height:390px;background:#fff;border:1px solid #dfe3ee;border-radius:16px;box-shadow:0 18px 60px #20294330;display:flex;flex-direction:column;overflow:hidden}.assistant-panel.hidden{display:none}.assistant-panel-head{display:flex;align-items:center;gap:10px;padding:14px 16px;color:#fff;background:linear-gradient(115deg,#343c81,#5968d6);height:auto;flex:0 0 auto}.assistant-panel-head .assistant-avatar{width:38px;height:38px;border-radius:12px;background:#ffffff25;display:grid;place-items:center}.assistant-panel-head .assistant-avatar svg{width:27px;height:27px}.assistant-panel-title{flex:1}.assistant-panel-title strong{display:block;font-size:13px}.assistant-panel-title span{font-size:10px;color:#e2e5ff}.assistant-panel-head button{color:white;background:transparent;border:0;padding:5px;font-size:21px;line-height:1}.assistant-messages{flex:1;overflow:auto;padding:15px;background:#f7f8fc;display:flex;flex-direction:column;gap:12px}.assistant-message{max-width:94%;padding:10px 12px;border-radius:12px;background:#fff;border:1px solid #e7e9f0;font-size:12px;line-height:1.65;overflow-wrap:anywhere}.assistant-message.user{align-self:flex-end;background:#e9ecff;border-color:#dce1ff}.assistant-message.assistant{align-self:flex-start}.assistant-message.error{border-color:#f0caca;background:#fff8f8;color:#9e3941}.assistant-message p{margin:0 0 7px}.assistant-message p:last-child{margin-bottom:0}.assistant-message a{overflow-wrap:anywhere}.assistant-message-title{font-weight:650;color:#39478f;margin-bottom:5px}.assistant-message-sources{border-top:1px solid #eaecf2;margin-top:8px;padding-top:7px;display:grid;gap:5px;font-size:10px}.assistant-message-sources a{color:#4659bc}.assistant-message .assistant-note{font-size:10px;color:#72788a;margin-top:7px}.assistant-typing{align-self:flex-start;color:#757d91;font-size:11px;background:#fff;border:1px solid #e7e9f0;border-radius:12px;padding:8px 11px}.assistant-controls{border-top:1px solid #eceef3;padding:9px 12px 0;background:#fff}.assistant-controls details summary{font-size:10px;color:#5d6680;cursor:pointer}.assistant-controls .assistant-settings{display:grid;gap:8px;padding:8px 0}.assistant-controls .assistant-settings input[type=password]{width:100%;padding:8px 9px;border:1px solid #dce1ec;border-radius:7px;font-size:11px}.assistant-controls .assistant-toggle{display:flex;gap:6px;align-items:center;font-size:10px;color:#59647d}.assistant-chat-form{display:flex;gap:8px;align-items:flex-end;padding:10px 12px 12px;background:#fff}.assistant-chat-form textarea{resize:none;min-height:43px;max-height:110px;flex:1;border:1px solid #dce1ec;border-radius:9px;padding:10px;font:inherit;font-size:12px}.assistant-chat-form button{width:43px;height:43px;padding:0;border-radius:9px;font-size:18px}.assistant-panel-footer{font-size:9px;color:#8990a0;padding:0 12px 10px;background:#fff}.assistant-full-link{display:block;text-align:center;font-size:10px;margin:0 12px 10px;color:#5362bb}.assistant-launcher:focus-visible,.assistant-panel button:focus-visible,.assistant-chat-form textarea:focus-visible{outline:3px solid #ffb94e;outline-offset:3px}@media(max-width:600px){.assistant-widget{right:14px;bottom:14px}.assistant-launcher{width:56px;height:56px}.assistant-panel{position:fixed;right:16px;bottom:80px;width:min(390px,calc(100vw - 40px));height:min(650px,calc(100vh - 100px));min-height:340px}.assistant-messages{padding:12px}}@media(min-width:601px) and (max-width:900px){.assistant-widget{right:18px;bottom:18px}}
+</style></head><body>
 <aside><div class="brand"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M5 23V14l7-6 7 6v9M19 14l7-6v15M5 23h21" stroke="#8e9fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="8" r="3" fill="#a3afff"/></svg><div>AI Observatory<small>RESEARCH INTELLIGENCE</small></div></div><div class="nav-label">WORKSPACE</div><nav aria-label="Main navigation" id="nav"></nav><div class="bottom"><b><span class="dot"></span>Sources before speculation</b>Google, Meta, OpenAI and Anthropic<br>Student research project · 2026<br><span id="sidecount"></span></div></aside>
 <div class="work"><header><div class="crumb">Research workspace <span style="margin:0 11px;color:#c4c8d2">/</span> <b id="crumb">Overview</b></div><div class="actions"><span class="badge green" id="verified">Reviewed 20 Oct 2026</span><button id="refresh" title="Reload published data; collection runs through GitHub Actions">↻ &nbsp;Reload published data</button><button id="export">Export data ↓</button></div></header>
 <main><div class="pagehead"><div><div class="eyebrow">GOOGLE · META · OPENAI · ANTHROPIC</div><h1 id="pagetitle">Four companies. A shared set of questions.</h1><p class="sub" id="pagesub">Explore how models, distribution and business economics shape the AI race.</p></div><div class="filters"><div class="seg" id="companyfilter" aria-label="Filter by company"><button class="active" data-company="All">All companies</button><button data-company="Google">Google</button><button data-company="Meta">Meta</button><button data-company="OpenAI">OpenAI</button><button data-company="Anthropic">Anthropic</button></div><span class="badge">Research lens · AI strategy</span></div></div>
 <p class="note" style="margin-bottom:18px"><b>GitHub Pages edition:</b> compare four companies using the same parameters. Financials use FY2025 annual results, including attributed private-company reporting. Gemini uses your own key. News reflects the published snapshot; Stock Performance uses Gemini with Google Search.</p><div id="content"><p class="empty">Loading reviewed research…</p></div>
 <div class="footer"><span>AI Observatory &nbsp; / &nbsp; Google, Meta, OpenAI and Anthropic &nbsp; / &nbsp; Academic research</span><span id="footerdate">Financials: FY2025 · Source review: 20 Oct 2026</span></div></main></div><div id="toast" class="toast hidden" role="status"></div>
+<style>
+.assistant-launcher{width:78px;height:98px;border-radius:16px;background:transparent;box-shadow:none;overflow:visible;transition:none}
+.assistant-launcher:hover{background:transparent;box-shadow:none;transform:none}
+.assistant-launcher svg.robot-standing{width:78px;height:98px;overflow:visible;filter:drop-shadow(0 5px 5px #252e5b30)}
+.robot-body{transform-box:fill-box;transform-origin:50% 100%}
+.robot-arm-left{transform-box:fill-box;transform-origin:88% 20%}
+.robot-arm-right{transform-box:fill-box;transform-origin:12% 20%}
+.robot-head{transform-box:fill-box;transform-origin:50% 100%}
+.robot-pupil{transform-box:fill-box;transform-origin:center}
+.robot-shadow{transform-box:fill-box;transform-origin:center}
+.assistant-widget.robot-moving .robot-body{animation:robot-idle 900ms ease-in-out 1}
+.assistant-widget.robot-moving .robot-arm-left{animation:robot-arm-idle-left 900ms ease-in-out 1}
+.assistant-widget.robot-moving .robot-arm-right{animation:robot-wave 900ms ease-in-out 1}
+.assistant-widget.robot-moving .robot-head{animation:robot-head-tilt 900ms ease-in-out 1}
+.assistant-widget.robot-moving .robot-pupil{animation:robot-blink 900ms ease-in-out 1}
+.assistant-widget.robot-moving .robot-shadow{animation:robot-shadow 900ms ease-in-out 1}
+.assistant-widget.robot-reaction-wave .robot-arm-right{animation:robot-wave 850ms ease-in-out 1}
+.assistant-widget.robot-reaction-bounce .robot-body{animation:robot-reaction-bounce 850ms ease-in-out 1}
+.assistant-widget.robot-reaction-bounce .robot-arm-left{animation:robot-arm-idle-left 850ms ease-in-out 1}
+.assistant-widget.robot-reaction-bounce .robot-arm-right{animation:robot-arm-idle-right 850ms ease-in-out 1}
+.assistant-widget.robot-reaction-curious .robot-head{animation:robot-reaction-curious 850ms ease-in-out 1}
+.assistant-widget.robot-reaction-curious .robot-arm-left{animation:robot-reaction-curious-gesture 850ms ease-in-out 1}
+.assistant-widget.robot-reaction-cheer .robot-body{animation:robot-reaction-cheer 850ms ease-in-out 1}
+.assistant-widget.robot-reaction-cheer .robot-arm-left{animation:robot-reaction-cheer-left 850ms ease-in-out 1}
+.assistant-widget.robot-reaction-cheer .robot-arm-right{animation:robot-reaction-cheer-right 850ms ease-in-out 1}
+.assistant-widget.robot-reaction-cheer .robot-shadow{animation:robot-shadow 850ms ease-in-out 1}
+.assistant-widget::after{content:'Need a hand?';position:absolute;right:74px;bottom:31px;padding:6px 10px;border-radius:12px;background:#252d55;color:#fff;font-size:10px;white-space:nowrap;opacity:0;transform:translateX(5px);pointer-events:none;transition:opacity .18s,transform .18s}
+.assistant-widget:not(:has(.assistant-panel:not(.hidden))):hover::after,.assistant-widget:not(:has(.assistant-panel:not(.hidden))):focus-within::after{opacity:1;transform:translateX(0)}
+@keyframes robot-idle{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-4px) rotate(-1.5deg)}}
+@keyframes robot-arm-idle-left{0%,100%{transform:rotate(0)}50%{transform:rotate(-7deg)}}
+@keyframes robot-arm-idle-right{0%,100%{transform:rotate(0)}50%{transform:rotate(7deg)}}
+@keyframes robot-wave{0%,100%{transform:rotate(0)}45%{transform:rotate(-35deg)}75%{transform:rotate(-16deg)}}
+@keyframes robot-head-tilt{0%,74%,100%{transform:rotate(0)}81%{transform:rotate(-5deg)}90%{transform:rotate(3deg)}}
+@keyframes robot-reaction-bounce{0%,100%{transform:translateY(0) rotate(0)}28%{transform:translateY(-8px) rotate(-3deg)}55%{transform:translateY(0) rotate(2deg)}78%{transform:translateY(-3px) rotate(-1deg)}}
+@keyframes robot-reaction-cheer{0%,100%{transform:translateY(0)}35%{transform:translateY(-9px)}65%{transform:translateY(-3px)}}
+@keyframes robot-reaction-cheer-left{0%,100%{transform:rotate(0)}40%,72%{transform:rotate(-45deg)}}
+@keyframes robot-reaction-cheer-right{0%,100%{transform:rotate(0)}40%,72%{transform:rotate(45deg)}}
+@keyframes robot-reaction-curious{0%,100%{transform:rotate(0)}28%,64%{transform:rotate(-12deg)}84%{transform:rotate(5deg)}}
+@keyframes robot-reaction-curious-gesture{0%,100%{transform:rotate(0)}35%,65%{transform:rotate(-22deg)}}
+@keyframes robot-blink{0%,91%,94%,100%{transform:scaleY(1)}92%,93%{transform:scaleY(.12)}}
+@keyframes robot-shadow{0%,100%{transform:scaleX(1);opacity:.7}50%{transform:scaleX(.78);opacity:.4}}
+@media(prefers-reduced-motion:reduce){.assistant-widget.robot-moving .robot-body,.assistant-widget.robot-moving .robot-arm-left,.assistant-widget.robot-moving .robot-arm-right,.assistant-widget.robot-moving .robot-head,.assistant-widget.robot-moving .robot-pupil,.assistant-widget.robot-moving .robot-shadow,.assistant-widget[class*="robot-reaction-"] .robot-body,.assistant-widget[class*="robot-reaction-"] .robot-arm-left,.assistant-widget[class*="robot-reaction-"] .robot-arm-right,.assistant-widget[class*="robot-reaction-"] .robot-head,.assistant-widget[class*="robot-reaction-"] .robot-shadow{animation:none!important}.assistant-launcher,.assistant-widget::after{transition:none}}
+</style>
+<div class="assistant-widget" id="assistant-widget">
+ <section class="assistant-panel hidden" id="assistant-panel" role="dialog" aria-label="Dashboard research assistant" aria-modal="false">
+  <header class="assistant-panel-head">
+   <span class="assistant-avatar" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none"><rect x="7" y="10" width="26" height="21" rx="7" fill="#f4f3ff"/><path d="M20 5v5" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><circle cx="20" cy="4" r="2" fill="#ffb94e"/><circle cx="15" cy="20" r="3" fill="#6877ef"/><circle cx="25" cy="20" r="3" fill="#6877ef"/><path d="M15 26h10" stroke="#9b61d0" stroke-width="2.2" stroke-linecap="round"/><path d="M4 17v8m32-8v8" stroke="#ffb94e" stroke-width="3" stroke-linecap="round"/></svg></span>
+   <span class="assistant-panel-title"><strong>Research assistant</strong><span>Ask about companies, stocks, products or costs</span></span>
+   <button type="button" id="assistant-close" aria-label="Close research assistant">×</button>
+  </header>
+  <div class="assistant-messages" id="assistant-messages" role="log" aria-live="polite" aria-relevant="additions text">
+   <div class="assistant-message assistant"><div class="assistant-message-title">Hi! I can help you explore the dashboard.</div>Ask a question and I’ll search the reviewed sources. Open settings below to optionally use Gemini with Google Search.</div>
+  </div>
+  <div class="assistant-controls"><details><summary>Optional Gemini web research</summary><div class="assistant-settings"><input type="password" id="assistant-api-key" autocomplete="off" aria-label="Gemini API key" placeholder="Your Gemini API key (optional)"><label class="assistant-toggle"><input type="checkbox" id="assistant-generate"> Use Gemini with Google Search</label><span class="tiny">Your key stays in page memory and is sent directly to Google.</span></div></details></div>
+  <form class="assistant-chat-form" id="assistant-chat-form"><textarea id="assistant-question" aria-label="Ask the dashboard research assistant" maxlength="1200" rows="1" placeholder="Ask a research question…" required></textarea><button class="primary" id="assistant-send" type="submit" aria-label="Send question">➤</button></form>
+  <div class="assistant-panel-footer">Answers cite dashboard sources. Verify claims and linked evidence.</div>
+  <a class="assistant-full-link" href="#research" data-assistant-research>Open full Research assistant →</a>
+ </section>
+ <button type="button" class="assistant-launcher" id="assistant-launcher" aria-label="Open research assistant" aria-controls="assistant-panel" aria-expanded="false">
+  <svg class="robot-standing" viewBox="0 0 72 92" fill="none" aria-hidden="true">
+   <defs><linearGradient id="robot-head-fill" x1="16" y1="15" x2="56" y2="49" gradientUnits="userSpaceOnUse"><stop stop-color="#8278ff"/><stop offset="1" stop-color="#4d54bd"/></linearGradient><linearGradient id="robot-body-fill" x1="21" y1="52" x2="51" y2="78" gradientUnits="userSpaceOnUse"><stop stop-color="#f9f7ff"/><stop offset="1" stop-color="#c9d2ff"/></linearGradient></defs>
+   <ellipse class="robot-shadow" cx="36" cy="87" rx="18" ry="3" fill="#313b75" opacity=".55"/>
+   <path d="M36 8v6" stroke="#f3f3ff" stroke-width="2.5" stroke-linecap="round"/><circle cx="36" cy="6.5" r="3" fill="#ffb94e"/><circle cx="36" cy="6.5" r="1.2" fill="#fff1bd"/>
+   <g class="robot-body">
+   <path d="M25 70h8v9h-8zm14 0h8v9h-8z" fill="#8278e8"/>
+   <path d="M25 77h8v7H22c0-3.9 1.3-7 3-7zm14 0h8c1.7 0 3 3.1 3 7H39z" fill="#292e58" stroke="#1c2149" stroke-width="1.5" stroke-linejoin="round"/>
+   <g class="robot-arm-left"><path d="M22 55 15 59l-4 11 5 2 6-9 5-2" fill="#ffad59" stroke="#593d91" stroke-width="2" stroke-linejoin="round"/><circle cx="14" cy="73" r="3.5" fill="#f5f5ff" stroke="#514e9f" stroke-width="1.8"/><path d="M12 74 9 78m7-4 2 4" stroke="#6867c5" stroke-width="1.8" stroke-linecap="round"/></g>
+   <g class="robot-arm-right"><path d="m50 55 7 4 4 11-5 2-6-9-5-2" fill="#ffad59" stroke="#593d91" stroke-width="2" stroke-linejoin="round"/><circle cx="58" cy="73" r="3.5" fill="#f5f5ff" stroke="#514e9f" stroke-width="1.8"/><path d="m60 74 3 4m-7-4-2 4" stroke="#6867c5" stroke-width="1.8" stroke-linecap="round"/></g>
+   <path d="M24 48h24v23a5 5 0 0 1-5 5H29a5 5 0 0 1-5-5V48Z" fill="url(#robot-body-fill)" stroke="#4a4c9e" stroke-width="2"/><path d="M36 49v25" stroke="#a2a9e6" stroke-width="1.5"/><rect x="32.5" y="56" width="7" height="6" rx="2" fill="#ffb94e"/><circle cx="36" cy="67" r="1.4" fill="#5f67c4"/>
+   </g>
+   <g class="robot-head"><path d="M14 24a10 10 0 0 1 10-10h24a10 10 0 0 1 10 10v18a10 10 0 0 1-10 10H24a10 10 0 0 1-10-10V24Z" fill="url(#robot-head-fill)" stroke="#302d78" stroke-width="2.5"/><path d="M14 27h-3a4 4 0 0 0-4 4v5a4 4 0 0 0 4 4h3zm44 0h3a4 4 0 0 1 4 4v5a4 4 0 0 1-4 4h-3z" fill="#ff9a52" stroke="#563d91" stroke-width="2"/><rect x="19" y="20" width="34" height="25" rx="7" fill="#25284d" stroke="#302d78" stroke-width="1.5"/><circle class="robot-pupil" cx="28" cy="31" r="5.2" fill="#dffaff"/><circle class="robot-pupil" cx="44" cy="31" r="5.2" fill="#dffaff"/><circle cx="28" cy="31" r="3.1" fill="#63d9ef"/><circle cx="44" cy="31" r="3.1" fill="#63d9ef"/><circle cx="29" cy="30" r="1.1" fill="#fff"/><circle cx="45" cy="30" r="1.1" fill="#fff"/><path d="M31 39c2.8 2.2 7.2 2.2 10 0" stroke="#ffb94e" stroke-width="2" stroke-linecap="round"/></g>
+  </svg>
+ </button>
+</div>
 <script src="./rag-core.js"></script>
 <script src="./pages-api.js"></script>
 <script>
@@ -209,4 +284,94 @@ async function refresh(silent=false){$('#refresh').disabled=true;$('#refresh').t
 $('#refresh').onclick=()=>refresh();$('#export').onclick=()=>PagesAPI.exportData();
 PagesAPI.load().then(d=>{DATA=d;live=d.live;stockReport=PRELOADED_STOCK_REPORT;stockSnapshot=PRELOADED_STOCK_REPORT;let h=location.hash.slice(1);if(pages[h])page=h;render();if(!live)refresh(true);setInterval(()=>refresh(true),900000)}).catch(e=>{$('#content').innerHTML='<p class="error">'+esc(e.message)+'. Reload the page to try again.</p>'});
 window.addEventListener('hashchange',()=>{const h=location.hash.slice(1);if(pages[h]&&h!==page){page=h;presentation=false;render()}});
+</script><script>
+let assistantMessages=[],assistantBusy=false;
+const robotMotionPreference=window.matchMedia('(prefers-reduced-motion: reduce)');
+const robotReactions=['wave','bounce','curious','cheer'];
+let robotReactionIndex=0,robotReactionTimeout;
+function reactRobot(){
+ const widget=$('#assistant-widget'),panel=$('#assistant-panel');
+ if(document.hidden||robotMotionPreference.matches||!panel.classList.contains('hidden'))return;
+ window.clearTimeout(robotReactionTimeout);
+ widget.classList.remove(...robotReactions.map(reaction=>'robot-reaction-'+reaction),'robot-moving');
+ const reaction=robotReactions[robotReactionIndex%robotReactions.length];
+ robotReactionIndex++;
+ void widget.offsetWidth;
+ widget.classList.add('robot-reaction-'+reaction);
+ robotReactionTimeout=window.setTimeout(()=>widget.classList.remove('robot-reaction-'+reaction),900);
+}
+$('#assistant-launcher').addEventListener('mouseenter',reactRobot);
+$('#assistant-launcher').addEventListener('focus',event=>{if(event.target.matches(':focus-visible'))reactRobot();});
+function animateRobot(){
+ const widget=$('#assistant-widget'),panel=$('#assistant-panel');
+ if(document.hidden||robotMotionPreference.matches||!panel.classList.contains('hidden'))return;
+ widget.classList.add('robot-moving');
+ window.setTimeout(()=>widget.classList.remove('robot-moving'),950);
+}
+window.setTimeout(animateRobot,2200);
+window.setInterval(animateRobot,8000);
+function assistantAnswerHTML(answer,sources){
+ const sourceById=new Map(sources.map(source=>[source.id,source]));
+ return esc(answer).replace(/\[([A-Z]\d+)\]/g,(match,id)=>{
+  const source=sourceById.get(id);
+  return source&&/^https:\/\//i.test(source.url)?'<a target="_blank" rel="noopener noreferrer" href="'+esc(source.url)+'">['+esc(id)+'] ↗</a>':match;
+ });
+}
+function renderAssistantMessages(){
+ const log=$('#assistant-messages');
+ if(!log)return;
+ const messages=assistantMessages.map(message=>{
+  if(message.role==='user')return '<div class="assistant-message user">'+esc(message.text)+'</div>';
+  if(message.role==='error')return '<div class="assistant-message error" role="alert">'+esc(message.text)+'</div>';
+  const sources=message.result.sources||[];
+  const sourceLinks=sources.map(source=>/^https:\/\//i.test(source.url)?'<a target="_blank" rel="noopener noreferrer" href="'+esc(source.url)+'">'+esc(source.title||source.id)+' ↗</a>':'').filter(Boolean).join('');
+  return '<div class="assistant-message assistant"><div class="assistant-message-title">'+(message.result.mode==='Agentic Gemini RAG'?'Research answer':'From reviewed dashboard sources')+'</div><div class="assistant-message-answer">'+assistantAnswerHTML(message.result.answer,sources)+'</div>'+(message.result.limitation?'<div class="assistant-note"><b>Evidence limit:</b> '+esc(message.result.limitation)+'</div>':'')+(message.result.notice?'<div class="assistant-note" role="status">'+esc(message.result.notice)+'</div>':'')+(sourceLinks?'<div class="assistant-message-sources"><b>Sources</b>'+sourceLinks+'</div>':'')+(message.result.trace?.length?'<details class="assistant-note"><summary>Research steps</summary>'+message.result.trace.map(step=>'<p>'+esc(step)+'</p>').join('')+'</details>':'')+'</div>';
+ }).join('');
+ log.innerHTML=messages+(assistantBusy?'<div class="assistant-typing" role="status">Searching sources and preparing an answer…</div>':'');
+ log.scrollTop=log.scrollHeight;
+}
+function setAssistantOpen(open){
+ const panel=$('#assistant-panel'),button=$('#assistant-launcher');
+ panel.classList.toggle('hidden',!open);
+ button.setAttribute('aria-expanded',String(open));
+ button.setAttribute('aria-label',open?'Close research assistant':'Open research assistant');
+ if(open){$('#assistant-api-key').value=ragSession.apiKey;$('#assistant-generate').checked=ragSession.generate;renderAssistantMessages();$('#assistant-question').focus();}
+}
+async function submitAssistantQuestion(event){
+ event.preventDefault();
+ if(assistantBusy)return;
+ const input=$('#assistant-question'),question=input.value.trim();
+ if(!question)return;
+ if(!DATA){assistantMessages.push({role:'error',text:'Dashboard research data is still loading. Please try again shortly.'});renderAssistantMessages();return;}
+ const generate=$('#assistant-generate').checked,apiKey=$('#assistant-api-key').value.trim();
+ ragSession.apiKey=apiKey;ragSession.generate=generate;
+ assistantMessages.push({role:'user',text:question});
+ assistantMessages=assistantMessages.slice(-20);
+ input.value='';assistantBusy=true;$('#assistant-send').disabled=true;renderAssistantMessages();
+ try{
+  const result=await PagesAPI.ask({question,company,generate,apiKey:apiKey||undefined});
+  assistantMessages.push({role:'assistant',result});
+ }catch(error){
+  assistantMessages.push({role:'error',text:error.message||'The research request could not be completed. Please try again.'});
+ }finally{
+  assistantBusy=false;$('#assistant-send').disabled=false;renderAssistantMessages();input.focus();
+ }
+}
+document.addEventListener('click',event=>{
+ if(event.target.closest('#assistant-launcher')){reactRobot();setAssistantOpen($('#assistant-panel').classList.contains('hidden'));return;}
+ if(event.target.closest('#assistant-close')){setAssistantOpen(false);return;}
+ if(event.target.closest('[data-assistant-research]')){event.preventDefault();setAssistantOpen(false);page='research';presentation=false;render();window.scrollTo(0,0);location.hash='research';}
+});
+document.addEventListener('submit',event=>{if(event.target.id==='assistant-chat-form')submitAssistantQuestion(event);});
+document.addEventListener('input',event=>{
+ if(['apikey','compare-api-key','stock-api-key','assistant-api-key'].includes(event.target.id)){
+  ragSession.apiKey=event.target.value;
+  const assistantKey=$('#assistant-api-key');if(assistantKey&&assistantKey!==event.target)assistantKey.value=event.target.value;
+ }
+});
+document.addEventListener('change',event=>{
+ if(event.target.id==='assistant-generate'){ragSession.generate=event.target.checked;const researchToggle=$('#generate');if(researchToggle)researchToggle.checked=event.target.checked;}
+ if(event.target.id==='generate'){ragSession.generate=event.target.checked;const assistantToggle=$('#assistant-generate');if(assistantToggle)assistantToggle.checked=event.target.checked;}
+});
+document.addEventListener('keydown',event=>{if(event.key==='Escape'&&!$('#assistant-panel').classList.contains('hidden'))setAssistantOpen(false);});
 </script></body></html>
