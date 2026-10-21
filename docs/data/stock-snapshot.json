@@ -1,0 +1,266 @@
+{
+  "range": "1M",
+  "checkedAt": "2026-10-20T20:00:00.000Z",
+  "snapshot": true,
+  "summary": "Fixed historical snapshot captured at the October 20, 2026 market close. The chart and one-month change use Yahoo Finance daily closing prices from September 21 through October 20, 2026. Market capitalization, valuation ratios and technical indicators are not included in this snapshot; use Compare Stock with Gemini Search for a fresh cited report. This is not live market data.",
+  "sources": [
+    {
+      "title": "Alphabet Inc. (GOOGL) Historical Data — Yahoo Finance",
+      "url": "https://finance.yahoo.com/quote/GOOGL/history/"
+    },
+    {
+      "title": "Meta Platforms, Inc. (META) Historical Data — Yahoo Finance",
+      "url": "https://finance.yahoo.com/quote/META/history/"
+    }
+  ],
+  "stocks": [
+    {
+      "requestedName": "Alphabet Inc.",
+      "company": "Alphabet Inc.",
+      "symbol": "GOOGL",
+      "price": 340.28,
+      "currency": "USD",
+      "quoteDate": "2026-10-20",
+      "quoteType": "last close",
+      "history": [
+        {
+          "time": "2026-09-21",
+          "close": 354.97
+        },
+        {
+          "time": "2026-09-22",
+          "close": 351.16
+        },
+        {
+          "time": "2026-09-23",
+          "close": 337.83
+        },
+        {
+          "time": "2026-09-24",
+          "close": 342.36
+        },
+        {
+          "time": "2026-09-25",
+          "close": 343.92
+        },
+        {
+          "time": "2026-09-28",
+          "close": 342.75
+        },
+        {
+          "time": "2026-09-29",
+          "close": 340.92
+        },
+        {
+          "time": "2026-09-30",
+          "close": 344.08
+        },
+        {
+          "time": "2026-10-01",
+          "close": 338.24
+        },
+        {
+          "time": "2026-10-02",
+          "close": 343.5
+        },
+        {
+          "time": "2026-10-05",
+          "close": 346.47
+        },
+        {
+          "time": "2026-10-06",
+          "close": 347.68
+        },
+        {
+          "time": "2026-10-07",
+          "close": 350.5
+        },
+        {
+          "time": "2026-10-08",
+          "close": 348.29
+        },
+        {
+          "time": "2026-10-09",
+          "close": 351.66
+        },
+        {
+          "time": "2026-10-12",
+          "close": 352.72
+        },
+        {
+          "time": "2026-10-13",
+          "close": 353.78
+        },
+        {
+          "time": "2026-10-14",
+          "close": 347.64
+        },
+        {
+          "time": "2026-10-15",
+          "close": 349.22
+        },
+        {
+          "time": "2026-10-16",
+          "close": 340.59
+        },
+        {
+          "time": "2026-10-19",
+          "close": 344.18
+        },
+        {
+          "time": "2026-10-20",
+          "close": 340.28
+        }
+      ],
+      "previousClose": 344.18,
+      "dayLow": 338.36,
+      "dayHigh": 344.77,
+      "dailyChangePercent": -1.13,
+      "periodReturns": {
+        "1D": -1.13,
+        "1W": null,
+        "1M": -4.14,
+        "3M": null,
+        "6M": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "week52Low": 244.15,
+      "week52High": 408.61,
+      "marketCapUsdBillions": null,
+      "trailingPE": null,
+      "volume": 18215400,
+      "averageDailyVolume": null,
+      "beta": null,
+      "dividendYieldPercent": null,
+      "rsi14": null,
+      "sma50": null,
+      "sma200": null,
+      "note": "Fixed close snapshot for 2026-10-20. One-month return is calculated from the first available close (2026-09-21); valuation and technical fields are not in this snapshot."
+    },
+    {
+      "requestedName": "Meta Platforms, Inc.",
+      "company": "Meta Platforms, Inc.",
+      "symbol": "META",
+      "price": 694.25,
+      "currency": "USD",
+      "quoteDate": "2026-10-20",
+      "quoteType": "last close",
+      "history": [
+        {
+          "time": "2026-09-21",
+          "close": 741.25
+        },
+        {
+          "time": "2026-09-22",
+          "close": 736.6
+        },
+        {
+          "time": "2026-09-23",
+          "close": 744.1
+        },
+        {
+          "time": "2026-09-24",
+          "close": 777.59
+        },
+        {
+          "time": "2026-09-25",
+          "close": 751.66
+        },
+        {
+          "time": "2026-09-28",
+          "close": 715.62
+        },
+        {
+          "time": "2026-09-29",
+          "close": 738.79
+        },
+        {
+          "time": "2026-09-30",
+          "close": 725.18
+        },
+        {
+          "time": "2026-10-01",
+          "close": 725.93
+        },
+        {
+          "time": "2026-10-02",
+          "close": 728.08
+        },
+        {
+          "time": "2026-10-05",
+          "close": 741.9
+        },
+        {
+          "time": "2026-10-06",
+          "close": 738.88
+        },
+        {
+          "time": "2026-10-07",
+          "close": 721.31
+        },
+        {
+          "time": "2026-10-08",
+          "close": 720.89
+        },
+        {
+          "time": "2026-10-09",
+          "close": 718.67
+        },
+        {
+          "time": "2026-10-12",
+          "close": 742.96
+        },
+        {
+          "time": "2026-10-13",
+          "close": 762.5
+        },
+        {
+          "time": "2026-10-14",
+          "close": 737.54
+        },
+        {
+          "time": "2026-10-15",
+          "close": 736.72
+        },
+        {
+          "time": "2026-10-16",
+          "close": 709.33
+        },
+        {
+          "time": "2026-10-19",
+          "close": 705.44
+        },
+        {
+          "time": "2026-10-20",
+          "close": 694.25
+        }
+      ],
+      "previousClose": 705.44,
+      "dayLow": 681.05,
+      "dayHigh": 696.51,
+      "dailyChangePercent": -1.59,
+      "periodReturns": {
+        "1D": -1.59,
+        "1W": null,
+        "1M": -6.34,
+        "3M": null,
+        "6M": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "week52Low": 520.26,
+      "week52High": 779.82,
+      "marketCapUsdBillions": null,
+      "trailingPE": null,
+      "volume": 16957600,
+      "averageDailyVolume": null,
+      "beta": null,
+      "dividendYieldPercent": null,
+      "rsi14": null,
+      "sma50": null,
+      "sma200": null,
+      "note": "Fixed close snapshot for 2026-10-20. One-month return is calculated from the first available close (2026-09-21); valuation and technical fields are not in this snapshot."
+    }
+  ]
+}

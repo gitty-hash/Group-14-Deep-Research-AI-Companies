@@ -1,10 +1,12 @@
 import {readFileSync,writeFileSync,mkdirSync,copyFileSync} from 'node:fs';
 import {seed} from './seed.mjs';
+import {stockSnapshot} from './stock-snapshot.mjs';
 let html=readFileSync('template.html','utf8');
 function replace(before,after){if(!html.includes(before))throw new Error('Template replacement not found: '+before.slice(0,80));html=html.replace(before,after);}
+replace('const PRELOADED_STOCK_REPORT=null;','const PRELOADED_STOCK_REPORT='+JSON.stringify(stockSnapshot)+';');
+replace("const r=await fetch('/api/ask',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({question:q,company,generate,apiKey:key||undefined})});const a=await r.json();if(!r.ok)throw new Error(a.error||'Request failed');", "const a=await PagesAPI.ask({question:q,company,generate,apiKey:key||undefined});");
 replace('<script>','<script src="./rag-core.js"></script>\n<script src="./pages-api.js"></script>\n<script>');
 replace('const PUBLIC_EDITION=false','const PUBLIC_EDITION=true');
-replace("const r=await fetch('/api/ask',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({question:q,company,generate,apiKey:key||undefined})});const a=await r.json();if(!r.ok)throw new Error(a.error||'Request failed');", "const a=await PagesAPI.ask({question:q,company,generate,apiKey:key||undefined});");
 replace("const r=await fetch('/api/refresh',{method:'POST'}),d=await r.json();if(!r.ok)throw new Error(d.error||'Source check failed');", "const d=await PagesAPI.refresh();");
 replace("$('#verified').textContent=ok+'/'+d.logs.length+' checks succeeded';if(!silent)toast('Source check complete: '+ok+' of '+d.logs.length+' checks succeeded. See Sources for details.');", "$('#verified').textContent='Published '+d.checkedAt.slice(0,10);if(!silent)toast('Loaded published snapshot '+d.checkedAt.slice(0,10)+'. '+ok+' of '+d.logs.length+' source checks succeeded at collection.');");
 replace("$('#refresh').onclick=()=>refresh();$('#export').onclick=()=>{location.href='/api/export'};", "$('#refresh').onclick=()=>refresh();$('#export').onclick=()=>PagesAPI.exportData();");
@@ -17,8 +19,8 @@ replace('Evidence search works without a key. Gemini RAG sends your question and
 replace('No server-side key is configured. Enter your own key to enable generation.','Enter your own key to enable generation. There is no shared GitHub Pages key.');
 replace("(live.persistent?'Shared storage active.':'Temporary cache only; shared storage unavailable.')", "'Published JSON snapshot on GitHub Pages.'");
 replace('No source collection has run yet. Use Check sources.','No published update record is available. Run the GitHub Actions workflow.');
-replace('<div id="content"><p class="empty">Loading reviewed research…</p></div>', '<p class="note" style="margin-bottom:18px"><b>GitHub Pages edition:</b> compare four companies using the same parameters. Financials use FY2025 annual results, including attributed private-company reporting. Gemini uses your own key. News and prices reflect the last published snapshot.</p><div id="content"><p class="empty">Loading reviewed research…</p></div>');
+replace('<div id="content"><p class="empty">Loading reviewed research…</p></div>', '<p class="note" style="margin-bottom:18px"><b>GitHub Pages edition:</b> compare four companies using the same parameters. Financials use FY2025 annual results, including attributed private-company reporting. Gemini uses your own key. News reflects the published snapshot; Stock Performance uses Gemini with Google Search.</p><div id="content"><p class="empty">Loading reviewed research…</p></div>');
 mkdirSync('docs/data',{recursive:true});
 writeFileSync('docs/index.html',html);copyFileSync('pages-api.js','docs/pages-api.js');copyFileSync('rag-core.js','docs/rag-core.js');
-writeFileSync('docs/data/research.json',JSON.stringify(seed,null,2)+'\n');writeFileSync('docs/.nojekyll','');
+writeFileSync('docs/data/research.json',JSON.stringify(seed,null,2)+'\n');writeFileSync('docs/data/stock-snapshot.json',JSON.stringify(stockSnapshot,null,2)+'\n');writeFileSync('docs/.nojekyll','');
 console.log('Built four-company GitHub Pages site in docs/');

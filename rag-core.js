@@ -13,6 +13,7 @@ const ResearchRAG = (() => {
     if (!docs.length) return [];
     const avg = docs.reduce((n,d) => n+d.tokens.length,0)/docs.length;
     const annualQuestion=/\b(revenue|revenues|financial|profit|margin|growth)\b/i.test(question)&&!/\b(q[1-4]|2026|2023|quarter|quarterly|monthly)\b|run.?rate/i.test(question);
+    const newsQuestion=/\b(latest|recent|today|news|current|currently|happening|market)\b/i.test(question);
     const phrases = ['claude code','antigravity'].filter(p => question.toLowerCase().includes(p));
     const ranked = docs.map(d => {
       let score=0;
@@ -21,6 +22,10 @@ const ResearchRAG = (() => {
         score+=Math.log(1+(docs.length-n+.5)/(n+.5))*(tf*2.2)/(tf+1.2*(.25+.75*d.tokens.length/avg));
       }
       if(annualQuestion&&d.comparisonPeriod==='FY2025') score+=6;
+      if(newsQuestion&&d.kind==='news'){
+        const ageDays=Math.max(0,(Date.now()-Date.parse(d.date||''))/86400000);
+        if(Number.isFinite(ageDays)&&ageDays<=30)score+=8*(1-ageDays/60);
+      }
       for(const phrase of phrases) if((d.title+' '+d.note).toLowerCase().includes(phrase)) score+=6;
       const {tokens:unused,...result}=d;
       return {...result,score};
@@ -41,12 +46,16 @@ const ResearchRAG = (() => {
     else {const companies=[...new Set(hits.map(h=>h.company))];candidates=companies.map(name=>hits.find(h=>h.company===name));}
     // Select complete source sentences, without generating new factual claims.
     for(const hit of candidates.slice(0,4)) {
+      if(hit.kind==='news'){
+        selected.push({hit,text:`Recent official-news headline: “${hit.title}” (${hit.date?.slice(0,10)||'undated'}). Headlines are discovery leads; open the publisher’s article for details.`});
+        continue;
+      }
       const sentences=hit.note.split(/(?<=[.!?])\s+(?=[A-Z])/);
       const ranked=sentences.map((text,index)=>({text:text.trim(),index,score:tokens(text).filter(t=>q.includes(t)).length})).filter(s=>s.text).sort((a,b)=>b.score-a.score||a.index-b.index);
       if(ranked.length) selected.push({hit,text:comparison?sentences[0].trim():ranked[0].text});
     }
     const answer=(comparison?'The reviewed product overviews do not establish a performance winner. [A5] [G7]\n\n':'')+selected.map(s=>s.text+' ['+s.hit.id+']').join('\n\n');
-    return {mode:'Source summary',answer,sources:selected.map(s=>s.hit),limitation:comparison?'These product descriptions do not establish that one tool performs better on the same task. A controlled comparison would be needed.':'',trace:['BM25 retrieval','Relevant complete sentences selected from reviewed notes','No AI generation used']};
+    return {mode:'Source summary',answer,sources:selected.map(s=>s.hit),limitation:comparison?'These product descriptions do not establish that one tool performs better on the same task. A controlled comparison would be needed.':'',trace:['Company scope analyzed','BM25 retrieved '+hits.length+' relevant reviewed notes and recent news leads','Relevant sentences and dated official-news headlines selected','No AI generation used']};
   }
   function schema(hits) {
     return {type:'object',properties:{sentences:{type:'array',maxItems:4,items:{type:'object',properties:{text:{type:'string'},sourceIds:{type:'array',minItems:1,maxItems:4,items:{type:'string',enum:hits.map(h=>h.id)}}},required:['text','sourceIds']}},limitation:{type:'string'},insufficientEvidence:{type:'boolean'}},required:['sentences','limitation','insufficientEvidence']};
