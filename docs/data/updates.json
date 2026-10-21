@@ -1,6 +1,13 @@
 {
-  "checkedAt": "2026-10-21T18:09:11.023Z",
+  "checkedAt": "2026-10-21T19:10:24.324Z",
   "news": [
+    {
+      "company": "OpenAI",
+      "title": "How AT&T is rethinking in-house legal work with OpenAI",
+      "url": "https://openai.com/index/att-legal",
+      "date": "2026-10-21T17:00:00.000Z",
+      "publisher": "openai.com"
+    },
     {
       "company": "OpenAI",
       "title": "ChatGPT Ads expands to 26 new countries as over 100,000 advertisers have used the platform",
@@ -76,13 +83,6 @@
       "title": "Terminal X matches senior investor judgment 88.6% with GPT-6.1",
       "url": "https://openai.com/index/terminal-x",
       "date": "2026-10-20T07:00:00.000Z",
-      "publisher": "openai.com"
-    },
-    {
-      "company": "OpenAI",
-      "title": "OpenAI acquires Orchestra Bio",
-      "url": "https://openai.com/index/openai-to-acquire-orchestra-bio",
-      "date": "2026-10-20T00:00:00.000Z",
       "publisher": "openai.com"
     },
     {
@@ -203,11 +203,6 @@
       "output": 50
     },
     {
-      "id": "gpt-6.1-sol",
-      "input": 2,
-      "output": 10
-    },
-    {
       "id": "muse-wonder-1.0",
       "input": 4,
       "output": 20
@@ -216,6 +211,26 @@
       "id": "muse-spark-1.3",
       "input": 1.25,
       "output": 4.25
+    },
+    {
+      "id": "gpt-6.1-sol",
+      "input": 2,
+      "output": 10
+    },
+    {
+      "id": "gemini-4-argon",
+      "input": 2,
+      "output": 10
+    },
+    {
+      "id": "gemini-3.8-flash",
+      "input": 0.75,
+      "output": 3.75
+    },
+    {
+      "id": "gemini-3.5-flash-lite",
+      "input": 0.3,
+      "output": 2.5
     },
     {
       "id": "claude-fable-5-1",
@@ -236,21 +251,6 @@
       "id": "claude-haiku-5-5",
       "input": 0.1,
       "output": 0.5
-    },
-    {
-      "id": "gemini-4-argon",
-      "input": 2,
-      "output": 10
-    },
-    {
-      "id": "gemini-3.8-flash",
-      "input": 0.75,
-      "output": 3.75
-    },
-    {
-      "id": "gemini-3.5-flash-lite",
-      "input": 0.3,
-      "output": 2.5
     }
   ],
   "logs": [
@@ -260,23 +260,7 @@
       "status": "ok",
       "items": 4,
       "hash": "90eba65070bff6ad9b944c43891a08c252bdeab184e36e1557b56fb6ced28437",
-      "checkedAt": "2026-10-21T18:09:11.023Z"
-    },
-    {
-      "company": "OpenAI",
-      "source": "https://openai.com/news/rss.xml",
-      "status": "ok",
-      "items": 8,
-      "hash": "26dc2f019b0e5fa3aaacd146cd723d88c568411c25cdf0ae00da20f2fe8c711b",
-      "checkedAt": "2026-10-21T18:09:11.023Z"
-    },
-    {
-      "company": "Anthropic",
-      "source": "https://www.anthropic.com/news",
-      "status": "ok",
-      "items": 8,
-      "hash": "aa26d27454a34273c7b8ef64da0b8f607020778ddd7bb306d38c6599a7144c74",
-      "checkedAt": "2026-10-21T18:09:11.023Z"
+      "checkedAt": "2026-10-21T19:10:24.324Z"
     },
     {
       "company": "Google",
@@ -284,55 +268,71 @@
       "status": "ok",
       "items": 7,
       "hash": "cbb636d2cae2ac1bb446d45a21c46f51422f5e85394c302e32bbafaff597c96d",
-      "checkedAt": "2026-10-21T18:09:11.023Z"
+      "checkedAt": "2026-10-21T19:10:24.324Z"
+    },
+    {
+      "company": "OpenAI",
+      "source": "https://openai.com/news/rss.xml",
+      "status": "ok",
+      "items": 8,
+      "hash": "5434caf406e106340d653a947725d00e1d357c48313d64e790ddae0d264f297c",
+      "checkedAt": "2026-10-21T19:10:24.324Z"
+    },
+    {
+      "company": "Anthropic",
+      "source": "https://www.anthropic.com/news",
+      "status": "ok",
+      "items": 8,
+      "hash": "3f766d0f5122e86d39fc8a2cadf33023630dc8c9b7232f4b353eaa173b93f5d4",
+      "checkedAt": "2026-10-21T19:10:24.324Z"
     },
     {
       "company": "OpenAI",
       "source": "https://developers.openai.com/api/docs/models/gpt-6-luna",
       "status": "ok",
       "items": 1,
-      "hash": "22997da0ac40d862dfa856585b25d601cf21001915834ae296a1069ae68c7383",
-      "checkedAt": "2026-10-21T18:09:11.023Z"
+      "hash": "6f0cd297eaf351a0d4117a5bb4cd719fb68027f84ed11b8feec92a72d454d846",
+      "checkedAt": "2026-10-21T19:10:24.324Z"
     },
     {
       "company": "OpenAI",
       "source": "https://developers.openai.com/api/docs/models/gpt-6-astra",
       "status": "ok",
       "items": 1,
-      "hash": "f9df290556350f9c5021237a8fcb2f421246ceeaa177c300d6848654bc9b1f9c",
-      "checkedAt": "2026-10-21T18:09:11.023Z"
-    },
-    {
-      "company": "OpenAI",
-      "source": "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
-      "status": "ok",
-      "items": 1,
-      "hash": "3bf0cc0a8fd7f5c76a53a7b80e92de5134e598cc767ab48f5cbbe9d258ed0af3",
-      "checkedAt": "2026-10-21T18:09:11.023Z"
+      "hash": "089eeb527d232655c31b4f47a33dddc622ddb5c74b082c42892077569fc155f3",
+      "checkedAt": "2026-10-21T19:10:24.324Z"
     },
     {
       "company": "Meta",
       "source": "https://dev.meta.ai/docs/pricing-rate-limits",
       "status": "ok",
       "items": 2,
-      "hash": "45a6e651cda5775a33a3f43de489bee3ae81964256f37f92a4a33677635779b2",
-      "checkedAt": "2026-10-21T18:09:11.023Z"
+      "hash": "55047b4ac09d2ffa6f8b3ec108930f734a765e6d750de346f61fef717c6f8bb8",
+      "checkedAt": "2026-10-21T19:10:24.324Z"
     },
     {
-      "company": "Anthropic",
-      "source": "https://platform.claude.com/docs/en/about-claude/pricing",
+      "company": "OpenAI",
+      "source": "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
       "status": "ok",
-      "items": 4,
-      "hash": "945e24cf22c9b6441312a78aaffa9cc2bba103ac72b56b22c62ece0d02e558de",
-      "checkedAt": "2026-10-21T18:09:11.023Z"
+      "items": 1,
+      "hash": "0212d27ae7544681ccd8b8fbd30aaef14152babab88eb1d3ce9a8a10ee68b244",
+      "checkedAt": "2026-10-21T19:10:24.324Z"
     },
     {
       "company": "Google",
       "source": "https://ai.google.dev/gemini-api/docs/pricing",
       "status": "ok",
       "items": 3,
-      "hash": "3cccbc4065d7fd92c5ecae901f65bcdc234e37dcc035f7b431c284a5c2613720",
-      "checkedAt": "2026-10-21T18:09:11.023Z"
+      "hash": "5cfd7dd0aa74d542102f00e5ae932a1169a401f5b2b65e1fd23c4f6515317561",
+      "checkedAt": "2026-10-21T19:10:24.324Z"
+    },
+    {
+      "company": "Anthropic",
+      "source": "https://platform.claude.com/docs/en/about-claude/pricing",
+      "status": "ok",
+      "items": 4,
+      "hash": "1ddc8171b9ca987b12092db3ddd3200c52cab3ff3de4faa665cc76be1c691d62",
+      "checkedAt": "2026-10-21T19:10:24.324Z"
     }
   ],
   "persistent": false,
