@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-21T17:00:28.265Z",
+  "checkedAt": "2026-10-21T17:04:41.940Z",
   "news": [
     {
       "company": "OpenAI",
@@ -193,16 +193,6 @@
   ],
   "prices": [
     {
-      "id": "muse-wonder-1.0",
-      "input": 4,
-      "output": 20
-    },
-    {
-      "id": "muse-spark-1.3",
-      "input": 1.25,
-      "output": 4.25
-    },
-    {
       "id": "gpt-6.1-sol",
       "input": 2,
       "output": 10
@@ -251,32 +241,26 @@
       "id": "claude-haiku-5-5",
       "input": 0.1,
       "output": 0.5
+    },
+    {
+      "id": "muse-wonder-1.0",
+      "input": 4,
+      "output": 20
+    },
+    {
+      "id": "muse-spark-1.3",
+      "input": 1.25,
+      "output": 4.25
     }
   ],
   "logs": [
-    {
-      "company": "Meta",
-      "source": "https://about.fb.com/feed/",
-      "status": "ok",
-      "items": 4,
-      "hash": "90eba65070bff6ad9b944c43891a08c252bdeab184e36e1557b56fb6ced28437",
-      "checkedAt": "2026-10-21T17:00:28.265Z"
-    },
-    {
-      "company": "Anthropic",
-      "source": "https://www.anthropic.com/news",
-      "status": "ok",
-      "items": 8,
-      "hash": "fa3a63a10e029143bacd112b685751242b28302c49c5bfa8eff7d71b53d13d0a",
-      "checkedAt": "2026-10-21T17:00:28.265Z"
-    },
     {
       "company": "Google",
       "source": "https://blog.google/rss/",
       "status": "ok",
       "items": 7,
       "hash": "cbb636d2cae2ac1bb446d45a21c46f51422f5e85394c302e32bbafaff597c96d",
-      "checkedAt": "2026-10-21T17:00:28.265Z"
+      "checkedAt": "2026-10-21T17:04:41.940Z"
     },
     {
       "company": "OpenAI",
@@ -284,15 +268,23 @@
       "status": "ok",
       "items": 8,
       "hash": "f2e4dc843a28e81ee2e90f0cbd0f965bed9f4dedddc2096fc18698edbb360108",
-      "checkedAt": "2026-10-21T17:00:28.265Z"
+      "checkedAt": "2026-10-21T17:04:41.940Z"
     },
     {
       "company": "Meta",
-      "source": "https://dev.meta.ai/docs/pricing-rate-limits",
+      "source": "https://about.fb.com/feed/",
       "status": "ok",
-      "items": 2,
-      "hash": "2c5718e8d60761da531739a22282f6d4cdbd1e65686d8daea7d49803b56d2ed0",
-      "checkedAt": "2026-10-21T17:00:28.265Z"
+      "items": 4,
+      "hash": "90eba65070bff6ad9b944c43891a08c252bdeab184e36e1557b56fb6ced28437",
+      "checkedAt": "2026-10-21T17:04:41.940Z"
+    },
+    {
+      "company": "Anthropic",
+      "source": "https://www.anthropic.com/news",
+      "status": "ok",
+      "items": 8,
+      "hash": "2a4bfd726d7c939839c49972bf89ee92dac7a8adb2c974d2dbc4de6464740b60",
+      "checkedAt": "2026-10-21T17:04:41.940Z"
     },
     {
       "company": "OpenAI",
@@ -300,7 +292,7 @@
       "status": "ok",
       "items": 1,
       "hash": "041546c0b363711b994404200cc4dc01743e4d4fc988a8ccea81208b87f693ef",
-      "checkedAt": "2026-10-21T17:00:28.265Z"
+      "checkedAt": "2026-10-21T17:04:41.940Z"
     },
     {
       "company": "OpenAI",
@@ -308,7 +300,7 @@
       "status": "ok",
       "items": 1,
       "hash": "e11e576126ae693b6c897360a6a98bb681d9a7cc078ddb81a7253a099022ae46",
-      "checkedAt": "2026-10-21T17:00:28.265Z"
+      "checkedAt": "2026-10-21T17:04:41.940Z"
     },
     {
       "company": "OpenAI",
@@ -316,23 +308,31 @@
       "status": "ok",
       "items": 1,
       "hash": "669500243859fbe52aee68bd4a2214daf2a9ce1a7b795e953caacb869a4dbe5b",
-      "checkedAt": "2026-10-21T17:00:28.265Z"
+      "checkedAt": "2026-10-21T17:04:41.940Z"
     },
     {
       "company": "Google",
       "source": "https://ai.google.dev/gemini-api/docs/pricing",
       "status": "ok",
       "items": 3,
-      "hash": "d86e509868d717ed33a831a1fe7d199a581f4dff49c5f18a2d8c5851eb6fec06",
-      "checkedAt": "2026-10-21T17:00:28.265Z"
+      "hash": "d3a348385bb0f2badcf90c6a6632b501a83fe42016c589b534fd8a9721849771",
+      "checkedAt": "2026-10-21T17:04:41.940Z"
     },
     {
       "company": "Anthropic",
       "source": "https://platform.claude.com/docs/en/about-claude/pricing",
       "status": "ok",
       "items": 4,
-      "hash": "cfb24d37d93df1fca2380bcfd0030eaf199054d9c11ec565acc98c96ad4975e5",
-      "checkedAt": "2026-10-21T17:00:28.265Z"
+      "hash": "e08d2e1effc5ec4b5fa9b24cc6059f6c1f3e213c0bd8d1cf0e40a19df334e1a0",
+      "checkedAt": "2026-10-21T17:04:41.940Z"
+    },
+    {
+      "company": "Meta",
+      "source": "https://dev.meta.ai/docs/pricing-rate-limits",
+      "status": "ok",
+      "items": 2,
+      "hash": "5892d25fda399853cc612686798328e5740e7bcc0b5dd3108cc0a40e29fe08f9",
+      "checkedAt": "2026-10-21T17:04:41.940Z"
     }
   ],
   "persistent": false,
