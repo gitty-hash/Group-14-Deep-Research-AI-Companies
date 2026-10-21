@@ -41,7 +41,7 @@ export function createDashboardServer({apiKey = '', requestGemini = fetch} = {})
       if (pathname === '/api/config' && request.method === 'GET') return json(response, 200, {generationConfigured: Boolean(key)});
       if (Object.hasOwn(upstreamRoutes, pathname)) {
         if (request.method !== 'POST') return json(response, 405, {error: 'Use POST for research requests.'});
-        if (!key) return json(response, 503, {error: 'Live research is currently unavailable. Reviewed source search is still available.'});
+        if (!key) return json(response, 503, {error: 'Please provide a Gemini API key in the .env file and restart the dashboard server.', code: 'GEMINI_KEY_MISSING'});
         if (!request.headers['content-type']?.startsWith('application/json')) return json(response, 415, {error: 'Use application/json.'});
         const body = await readBody(request);
         if (!body || typeof body !== 'object' || Array.isArray(body)) return json(response, 400, {error: 'Invalid research request.'});

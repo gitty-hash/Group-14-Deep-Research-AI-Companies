@@ -83,7 +83,11 @@ await withServer({apiKey: key, requestGemini: async (url, options) => { calls.pu
 
 await withServer({}, async base => {
   assert.deepEqual(await (await fetch(base + '/api/config')).json(), {generationConfigured: false});
-  assert.equal((await fetch(base + '/api/gemini', post(research))).status, 503);
+  const missingKey = await fetch(base + '/api/gemini', post(research));
+  assert.equal(missingKey.status, 503);
+  const failure = await missingKey.json();
+  assert.equal(failure.code, 'GEMINI_KEY_MISSING');
+  assert.match(failure.error, /provide a Gemini API key in the \.env file/);
   assert.equal((await fetch(base + '/')).status, 200);
 });
 

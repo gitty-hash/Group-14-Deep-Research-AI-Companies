@@ -12,12 +12,12 @@ The project is designed as a research and presentation tool: it brings comparabl
 - **Interface:** Static, responsive dashboard with interactive charts, company filters and a searchable source library.
 - **Data:** Reviewed FY2025 company financials, selected model and pricing information, dated stock snapshots, and periodically collected official company news and pricing pages.
 - **Research assistant:** A floating animated robot chat launcher plus the full research tab, using local BM25 retrieval over reviewed documents and recent news, with Gemini generation and Google Search grounding configured by the local server.
-- **Deployment:** Existing GitHub Pages site; the updated Gemini integration runs locally through `server.mjs`. A backend is required before deploying the updated live-research features.
+- **Deployment:** GitHub Pages dashboard with a public Sites-hosted Gemini API backend. Local development uses `server.mjs` and `.env`.
 - **Runtime:** Node.js 22 or newer for building, tests and collection. No npm dependency installation is required.
 
 ### How the application is put together
 
-The browser dashboard is built with HTML, CSS and JavaScript, and renders its comparisons and charts in the page. Reviewed company information and collected updates are served as JSON files from `docs/`. Node.js scripts assemble the static site, validate the application, and collect approved public-source updates. The research assistant ranks source notes locally with BM25; Gemini calls through the local Node server add Google Search research and citation checks. The server reads its key from `.env`; the browser never receives the credential. GitHub Actions runs the build, tests, data collection and deployment.
+The browser dashboard is built with HTML, CSS and JavaScript, and renders its comparisons and charts in the page. Reviewed company information and collected updates are served as JSON files from `docs/`. Node.js scripts assemble the static site, validate the application, and collect approved public-source updates. The research assistant ranks source notes locally with BM25; Gemini calls through a private-key API service add Google Search research and citation checks. Local development reads the key from `.env`; the public backend reads a Sites server secret. The browser never receives the credential. GitHub Actions runs the build, tests, data collection and deployment.
 
 ## Guided dashboard walkthrough
 
@@ -66,7 +66,7 @@ The global company filter also applies to this view. **All** displays Google and
 
 1. Open **Research assistant**, or select the floating robot button in the bottom-right corner from any dashboard tab for a quick chat. The robot performs four short reactions—wave, bounce, curious head tilt and cheer—with matching eye and mouth expressions on successive hover or click interactions.
 2. Enter a question about the companies, their strategy, products, financials or recent AI-industry developments.
-3. Search the reviewed source collection, or enable Gemini web research for a generated answer grounded in retrieved evidence and Google Search. Gemini is enabled automatically when the server key is configured; there are no key-entry fields in the dashboard.
+3. Search the reviewed source collection, or enable Gemini web research for a generated answer grounded in retrieved evidence and Google Search. Tick the Gemini option to use the server key. Both checkboxes remain selectable; a missing key prompts the owner to provide it in `.env` and restart the server. There are no key-entry fields in the dashboard.
 4. Follow the inline evidence references and source links. Expand the research steps to inspect how evidence was retrieved; choose **Open full Research assistant** for the complete research view.
 
 Retrieval combines reviewed company materials with recent collected official news. News headlines are discovery leads, not independently verified article summaries. If Gemini Search fails or produces missing or invalid citations, the interface falls back to retrieved evidence; generated text with invalid local references is withheld. Asking about multiple named companies retrieves evidence for each, even when a company filter is selected.
@@ -129,21 +129,26 @@ The dashboard's **Reload published data** button loads the already-published JSO
    ```sh
    node test.mjs
    node server.test.mjs
+   node api-routing.test.mjs
    ```
 
 No package installation is required. Serve the dashboard with `node server.mjs` for Gemini features. A plain static server can display the snapshots and local source search, but cannot read `.env` or run Gemini requests. Optionally run `node scripts/refresh-data.mjs` to refresh the published news and pricing snapshot.
 
-## Deployment status
+## Deployment
 
-The GitHub Pages workflow publishes the generated `docs/` folder, including the updated interface without API-key entry fields. It does not publish `.env` or run `server.mjs`. The Pages site supports reviewed-source search and historical snapshots; Gemini web research and live comparisons require the local server or a separately hosted backend.
+The GitHub Pages workflow publishes the generated `docs/` folder. The public dashboard sends Gemini requests to [the hosted Gemini API](https://group14-observatory-gemini-api.frostystoat7.chatgpt.site), whose URL is declared in `runtime-config.json` and copied into the public build. This file contains only the API origin, never a key. Localhost always uses its own `server.mjs` and `.env` instead.
 
-GitHub Pages serves static files and cannot privately load an environment key. Before publishing this updated Gemini integration, deploy an authenticated backend that keeps `GEMINI_API_KEY` in its server environment and connect the dashboard to it. The included development server listens only on `127.0.0.1`; it is intended for local use. On static hosting, live research is unavailable and source retrieval and historical snapshots remain available.
+The backend source is maintained in the sibling `gemini-api-sites` checkout and its Sites source repository. It permits browser requests from `https://gitty-hash.github.io`, limits request sizes and per-client bursts, and keeps the Gemini credential in a Sites server secret. The GitHub Pages workflow does not publish `.env` or run `server.mjs`.
 
 ## Gemini configuration and privacy
 
-`GEMINI_API_KEY` is read from the ignored local `.env` file by `server.mjs`. The research assistant, floating chat, company comparison and stock comparison all call the same-origin server. The server adds the key only when contacting Google's Gemini API. The key is never embedded in HTML, JavaScript, exported research data, browser storage or request bodies sent by the browser. Only a boolean indicating whether generation is configured is returned by `/api/config`.
+Tick the Gemini option to generate a cited answer using Google Search and retrieved documents. Leave it unchecked to search reviewed sources locally. Both the full assistant and floating chat checkboxes remain selectable. If the running backend has no key, the dashboard requests a Gemini API key in `.env` or the backend environment.
 
-The server serves files only from `docs/`; requests for `.env`, repository files and traversal paths are blocked. Gemini failures retain the assistant's retrieved-source fallback. Validation uses mocked upstream requests without spending real Gemini quota. Model access, Google Search grounding, quotas, billing and data terms depend on the configured Google account.
+For local development, edit the ignored `.env` file and restart `node server.mjs`. For the public dashboard, update the `GEMINI_API_KEY` server secret on the **AI Observatory Gemini API** Site and redeploy that backend. Editing the local `.env` alone does not change the hosted secret. Model access, Google Search grounding, quotas, billing and data terms depend on the configured Google account.
+
+The research assistant, floating chat, company comparison and stock comparison all use the configured backend. It adds the key only when contacting Google's Gemini API. The key is never embedded in HTML, JavaScript, exported data, browser storage or browser request bodies. `/api/config` exposes only whether a key is configured. `.env` and repository files are not served by the local server.
+
+The test suites use mocked upstream requests. The configured local key and hosted integration were also verified with real, cited Gemini research responses before publication. Gemini failures retain the assistant's retrieved-source fallback.
 
 ## Repository map
 
@@ -157,6 +162,8 @@ The server serves files only from `docs/`; requests for `.env`, repository files
 | `server.mjs` | Local static server and private Gemini proxy; loads `.env` |
 | `.env.example` | Safe configuration template; real key belongs only in ignored `.env` |
 | `server.test.mjs` | Server routing, private credentials, error and access checks |
+| `runtime-config.json` | Public hosted API origin; never contains a credential |
+| `api-routing.test.mjs` | Hosted API routing and local `.env` priority checks |
 | `rag-core.js` | BM25 retrieval, evidence selection, Gemini prompts and citation validation |
 | `collector.mjs` | Official news and API-pricing collection and parsing |
 | `scripts/refresh-data.mjs` | Runs collection and writes `docs/data/updates.json` |
