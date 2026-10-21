@@ -64,7 +64,7 @@ The global company filter also applies to this view. **All** displays Google and
 
 ### 5. Ask the research assistant
 
-1. Open **Research assistant**, or select the floating robot button in the bottom-right corner from any dashboard tab for a quick chat. The robot performs four short reactions—wave, bounce, curious head tilt and cheer—on successive hover or click interactions.
+1. Open **Research assistant**, or select the floating robot button in the bottom-right corner from any dashboard tab for a quick chat. The robot performs four short reactions—wave, bounce, curious head tilt and cheer—with matching eye and mouth expressions on successive hover or click interactions.
 2. Enter a question about the companies, their strategy, products, financials or recent AI-industry developments.
 3. Search the reviewed source collection without a key, or open the chat settings and provide your own Gemini API key to request a generated answer grounded in retrieved evidence and Google Search.
 4. Follow the inline evidence references and source links. Expand the research steps to inspect how evidence was retrieved; choose **Open full Research assistant** for the complete research view.
