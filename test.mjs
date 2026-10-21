@@ -164,7 +164,7 @@ assert(!/NaN|Infinity/.test(renderedStocks),'Stock chart SVG must not contain in
 const defaultStockUI=renderStockPerformance(seed,null,[],'1M','All',value=>String(value??''),false,'');
 assert(defaultStockUI.includes('Alphabet Inc.'));
 assert(defaultStockUI.includes('Meta Platforms, Inc.'));
-assert(defaultStockUI.includes('Google and Meta stock information is preloaded below'));
+assert(defaultStockUI.includes('Google and Meta stock information for all seven chart ranges is preloaded below'));
 assert(defaultStockUI.includes('GOOGL')&&defaultStockUI.includes('META'),'Google and Meta should be visible before the first comparison.');
 assert.equal((defaultStockUI.match(/class="stock-chart-svg/g)||[]).length,3,'Default Google/Meta metric charts should be visible before loading Gemini data.');
 assert(defaultStockUI.includes('data-stock-period="1D"'));
@@ -199,17 +199,48 @@ assert.equal(stockSnapshot.stocks[0].periodReturns['1M'],-4.14);
 assert.equal(stockSnapshot.stocks[1].periodReturns['1M'],-6.34);
 assert.equal(stockSnapshot.stocks[0].history.length,22);
 assert.equal(stockSnapshot.stocks[1].history.length,22);
-assert.equal(stockSnapshot.sources.length,2);
+assert.equal(stockSnapshot.sources.length,4);
 assert(stockSnapshot.stocks.every(stock=>stock.history.at(-1).time==='2026-10-20'));
 assert(stockSnapshot.stocks.every(stock=>stock.periodReturns['1M']!==null));
+assert.deepEqual(stockSnapshot.stocks.map(stock=>[stock.marketCapUsdBillions,stock.trailingPE]),[[4162,17.07],[1769,26.16]]);
+const snapshotRanges=['1D','1W','1M','3M','6M','1Y','5Y'];
+const expectedHistoryLengths={'1D':27,'1W':5,'1M':22,'3M':15,'6M':28,'1Y':54,'5Y':61};
+for(const stock of stockSnapshot.stocks){
+ assert.deepEqual(Object.keys(stock.historyByRange),snapshotRanges);
+ for(const range of snapshotRanges){
+  const history=stock.historyByRange[range];
+  assert.equal(history.length,expectedHistoryLengths[range],`${stock.symbol} ${range} history should contain every verified sample.`);
+  assert(history.every((point,index)=>Number.isFinite(Date.parse(point.time))&&Number.isFinite(point.close)&&point.close>0&&(index===0||Date.parse(history[index-1].time)<Date.parse(point.time))),`${stock.symbol} ${range} history should be positive and chronological.`);
+  assert(history.at(-1).time.startsWith('2026-10-20'));
+  assert(Math.abs(history.at(-1).close-stock.price)<0.01);
+  assert(Number.isFinite(stock.periodReturns[range]),`${stock.symbol} ${range} return should be preloaded.`);
+ }
+}
 const initialSnapshotUI=renderStockPerformance(seed,stockSnapshot,[],'1M','All',value=>String(value??''),false,'');
-assert(initialSnapshotUI.includes('Google and Meta stock information is preloaded below'));
+assert(initialSnapshotUI.includes('Google and Meta stock information for all seven chart ranges is preloaded below'));
 assert(initialSnapshotUI.includes('Fixed snapshot · 2026-10-20'));
 assert(initialSnapshotUI.includes('$340.28'));
 assert(initialSnapshotUI.includes('$694.25'));
 assert(initialSnapshotUI.includes('Historical price movement · 1M'));
 assert(initialSnapshotUI.includes('Historical Data — Yahoo Finance'));
+assert(initialSnapshotUI.includes('$4,162B'));
+assert(initialSnapshotUI.includes('$1,769B'));
+assert(initialSnapshotUI.includes('Alphabet Inc. 17.07'));
+assert(initialSnapshotUI.includes('Meta Platforms, Inc. 26.16'));
+assert(initialSnapshotUI.includes('quote-page market capitalization'));
+assert(initialSnapshotUI.includes('Yahoo Finance trailing P/E'));
 assert(initialSnapshotUI.includes('Fixed historical snapshot captured'));
+for(const range of snapshotRanges){
+ const rendered=renderStockPerformance(seed,stockSnapshot,[],range,'All',value=>String(value??''),false,'');
+ const trendChart=rendered.match(/class="stock-chart-panel stock-history-panel stock-return-line">([\s\S]*?)<\/article>/)?.[1]||'';
+ const lines=[...trendChart.matchAll(/<polyline[^>]* points="([^"]+)"/g)];
+ assert(rendered.includes(`data-stock-period="${range}" class="active"`));
+ assert.equal(lines.length,2,`${range} snapshot should render separate Google and Meta trend lines.`);
+ assert.equal(lines[0][1].split(' ').length,expectedHistoryLengths[range],`${range} chart should use all Google history points.`);
+ assert.equal(lines[1][1].split(' ').length,expectedHistoryLengths[range],`${range} chart should use all Meta history points.`);
+ assert(trendChart.includes(stockSnapshot.stocks[0].historyByRange[range][0].time));
+ assert(!trendChart.includes('No preloaded history is available'));
+}
 const expandedStockReport={...stockReport,stocks:[...stockReport.stocks,
  {...stockReport.stocks[0],requestedName:'NVIDIA',company:'NVIDIA Corporation',symbol:'NASDAQ:NVDA'},
  {...stockReport.stocks[0],requestedName:'AMD',company:'Advanced Micro Devices, Inc.',symbol:'NASDAQ:AMD'}

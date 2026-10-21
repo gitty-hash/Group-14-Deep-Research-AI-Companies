@@ -1,80 +1,197 @@
-# Group 14 Deep Research on AI Companies
+# AI Strategy Observatory
 
-An interactive dashboard comparing Google, Meta, OpenAI and Anthropic for students and business researchers.
+An interactive research dashboard for comparing Google, Meta, OpenAI and Anthropic across business performance, products, model access, API costs, public-stock data and cited AI-industry research.
 
-**GitHub Pages address:** https://gitty-hash.github.io/Group-14-Deep-Research-AI-Companies/
+**Live dashboard:** [gitty-hash.github.io/Group-14-Deep-Research-AI-Companies](https://gitty-hash.github.io/Group-14-Deep-Research-AI-Companies/)
 
-The public dashboard is deployed through GitHub Actions.
+The project is designed as a research and presentation tool: it brings comparable metrics and source links into one interface while distinguishing reviewed facts, reported estimates and on-demand AI-generated research.
 
-## What works on GitHub Pages
+## Project at a glance
 
-- Financial comparisons and chart controls.
-- A Stock Performance workspace using Gemini and Google Search for cited quote snapshots, period returns (1D through 5Y), valuation, volume, beta and technical metrics; compare Alphabet (GOOGL), Meta (META) and up to two added listed companies.
-- On-demand FY2025 company comparisons using Gemini Google Search grounding, with autocomplete suggestions, cited source links and an option to remove the added company.
-- Product and strategy comparisons, with access-route filters.
-- A workload-based API cost calculator.
-- Agentic research assistant combining BM25 retrieval across reviewed documents and the latest 30 days of collected official AI news with optional Gemini Google Search research.
-- Answers validate inline reviewed-source IDs and HTTPS web citations, display supporting links and research steps, and fall back visibly to retrieved evidence if Gemini Search fails.
-- A searchable source library with collected news, pricing and collection logs.
-- Research-method explanations and a five-minute presentation view.
+- **Research question:** How do the four companies differ in business performance, product strategy, distribution and economics?
+- **Interface:** Static, responsive dashboard with interactive charts, company filters and a searchable source library.
+- **Data:** Reviewed FY2025 company financials, selected model and pricing information, dated stock snapshots, and periodically collected official company news and pricing pages.
+- **Research assistant:** Local BM25 retrieval over reviewed documents and recent news, with optional Gemini generation and Google Search grounding.
+- **Deployment:** GitHub Pages, built and deployed by GitHub Actions.
+- **Runtime:** Node.js 22 or newer for building, tests and collection. No npm dependency installation is required.
 
-The website is public. The Gemini key belongs to the viewer, stays in page memory, and is sent only to Google's Gemini API when the research agent is enabled. It is not written to browser storage, the repository or GitHub Pages. Do not commit API keys or add them to GitHub Actions for this version. Source summaries retrieve from reviewed company notes and recent dated news headlines without a key. The Gemini agent receives query-relevant local evidence, performs Google Search, and returns a concise answer with validated local source IDs and HTTPS search citations. Failed search, missing citations or invalid local IDs falls back visibly to retrieved source evidence; generated text with invalid references is withheld. News headlines are discovery leads and are not treated as verified article summaries. Explicit multi-company questions retrieve both named companies even when a single-company filter was selected. The reviewed corpus includes Claude Code and Google Antigravity documentation; product descriptions do not establish a tested winner.
+### How the application is put together
 
-The Overview's **Compare** control accepts custom public or private company names, with common-name suggestions. It sends the company name and the viewer's Gemini key directly to Google's Gemini API, which uses Google Search grounding to research FY2025 revenue, gross margin, gross profit, net income/loss and revenue growth. Results are added to the currently selected factor chart, and Google Search citations are shown below it. Gemini may report a measure as unavailable when it cannot substantiate it. These on-demand results are not independently reviewed or saved; **Remove comparison** restores the baseline chart. Google Search grounding, model access and API billing depend on the viewer's account and key.
+The browser dashboard is built with HTML, CSS and JavaScript, and renders its comparisons and charts in the page. Reviewed company information and collected updates are served as JSON files from `docs/`. Node.js scripts assemble the static site, validate the application, and collect approved public-source updates. The research assistant ranks source notes locally with BM25; optional Gemini calls add Google Search research and citation checks. GitHub Actions runs the build, tests, data collection and deployment.
 
-The Stock Performance workspace starts with a fixed, Yahoo Finance-cited snapshot for Alphabet (GOOGL) and Meta (META), dated October 20, 2026. It includes each close, daily range/change, 52-week range, session volume, and a daily-close trend over September 21–October 20; the 1M return is calculated from those dated closes. The snapshot is not live, and valuation/technical fields are unavailable in it. Enter a Gemini key and choose Compare Stock to request a fresh Google Search-grounded report, with 1D/1W/1M/3M/6M/1Y/5Y returns, a selected-range dated history, valuation, volume, beta and technical metrics when cited sources report them. The global company selector also filters this workspace: All shows Google and Meta, Google or Meta focuses on that listed company, and OpenAI or Anthropic explains why no listed-stock chart is available. Up to two user-added listed companies can be compared alongside a selected public company. The historical line chart indexes each series to 0% at its first point; missing history is never invented or interpolated. Gemini Search is not a dedicated market-data feed, and results can be delayed, unavailable or incorrectly reported. The key stays in page memory and is sent directly to Google; results are not independently reviewed or saved. Verify linked sources; this research is not investment advice.
+## Guided dashboard walkthrough
 
-## One-time publishing setup
+Open the [live dashboard](https://gitty-hash.github.io/Group-14-Deep-Research-AI-Companies/) and follow these steps to understand the main features.
 
-1. Open this repository's **Settings > Pages**.
-2. Under **Build and deployment**, set **Source** to **GitHub Actions**.
-3. Open **Actions > Update data and deploy GitHub Pages > Run workflow** if no deployment is already running.
-4. Wait for a successful run and open the Pages address above.
+### 1. Compare company business performance
 
-If repository Actions are disabled, enable them for this repository first. The deployment uses GitHub's built-in token with contents, Pages and identity permissions; it requires no personal access token or Gemini secret.
+1. Open **Overview**.
+2. Use the company filter to view **All companies**, **Google**, **Meta**, **OpenAI** or **Anthropic**.
+3. Select a business-performance measure to update the chart and comparison table.
+4. Review the source links and basis notes shown with the figures.
+5. Select **Compare** to research another public or private company. Enter its name and your own Gemini API key, then submit. Remove the added comparison to return to the reviewed baseline.
 
-## Data updates
+The baseline uses FY2025 annual financial information. Alphabet and Meta figures are based on company filings; private-company figures use attributed reporting. A custom comparison is produced on demand, is not independently reviewed or saved, and may leave figures unavailable when Gemini cannot substantiate them.
 
-The workflow runs after relevant pushes, on manual request, and daily at **15:00 UTC / 8:00 a.m. Phoenix time**. GitHub schedules are best effort; they can run late and may stop after inactivity in a public repository. Use the collection timestamp to judge freshness.
+### 2. Explore products and strategy
 
-The workflow checks official news for all four companies and six supported API pricing pages (ten source checks in total). It records collection errors and content hashes, preserves earlier prices or headlines where extraction fails, saves `docs/data/updates.json`, and deploys the resulting site. A successful fetch does not independently verify publisher claims. Newly discovered headlines do not enter the reviewed answer corpus automatically.
+1. Open **Products and strategy**.
+2. Use the access-route filter to compare selected hosted API and open-weight offerings.
+3. Review each entry's intended use, distribution approach, business context and citations.
 
-**Reload published data** reads the JSON snapshot already published by the workflow. It does not run the collection job from the browser. The open page rechecks that published file every 15 minutes.
+The catalogue is intentionally selected rather than exhaustive. Vendor capability descriptions are not independent product tests or a quality ranking.
 
-Financial comparisons use **FY2025 annual revenue, gross margin, gross profit, net income/loss and revenue growth** for all four companies. Alphabet and Meta use SEC annual filings. OpenAI uses reported financial statements (Ed Zitron, corroborated by Ars Technica); Anthropic uses Reuters prospectus reporting, Reuters Breakingviews analysis and Yahoo Finance. The underlying private-company documents were not independently inspected here.
+### 3. Estimate model API costs
 
-Gross margin is calculated from reported revenue and cost of revenue for Alphabet, Meta and OpenAI. Anthropic’s approximately 40% is a reported implied estimate. The separately reported 33% adjusted OpenAI margin is a different basis and is not used in the chart. Cost classifications differ, so the chart is not a fully standardized profitability ranking. Revenue growth compares 2025 with 2024; Anthropic uses the reported rounded 1,088% rate. Run rates and forecasts are excluded. Company-wide results include businesses beyond AI. Financial inputs are manually reviewed, not replaced by the automated news collector.
+1. Open **Model cost explorer**.
+2. Set the requests per month, input tokens and output tokens for a representative workload.
+3. Toggle Meta Contributor mode if you want to include its lower-cost option, which permits submitted content to be used for training.
+4. Compare the estimates and inspect the pricing-basis notes and source links.
 
-Gross profit is revenue less cost of revenue for Alphabet, Meta and OpenAI. Anthropic’s gross profit is an estimate from its reported revenue and approximate implied margin, not a disclosed gross-profit line item. Net income/loss uses consolidated results for Alphabet and Meta, the loss attributable to OpenAI after noncontrolling interests, and Anthropic’s reported GAAP net loss. OpenAI and Anthropic losses include substantial noncash financing charges; they do not measure cash burn. The chart supports positive and negative values around a zero baseline.
+The calculator applies one workload to the selected model catalogue. It estimates token charges, not quality or total cost of ownership. It excludes items such as taxes, retries, tools/search, long-context premiums, caching or batch discounts, and self-hosting operations.
 
-The original private Sites deployment and its cloud schedule are independent. They do not publish updates to this repository.
+### 4. Review Stock Performance
 
-## Local use
+1. Open **Stock Performance**. Alphabet (GOOGL) and Meta (META) are shown by default.
+2. Select **1D**, **1W**, **1M**, **3M**, **6M**, **1Y** or **5Y** to change the dated price-history chart.
+3. Review the market-capitalization and trailing-P/E comparison charts, quote cards, historical returns and linked sources.
+4. To add listed companies, enter a company name or ticker and choose **Add company**. Up to two additional companies can be included.
+5. Enter your Gemini API key and choose **Compare Stock** to request a cited Google Search-grounded report for the selected companies and range.
 
-Requires Node.js 22 or newer. No npm installation is required.
+The default Google and Meta chart series are a fixed Yahoo Finance snapshot dated October 20, 2026: 15-minute samples for 1D, daily samples for 1W/1M, weekly samples for 3M/6M/1Y, and monthly samples for 5Y. The snapshot's market capitalization and trailing P/E values were checked before the October 21 market open. These are historical values, not live quotes. The line chart indexes each stock to 0% at the first point so different share prices can be compared. The snapshot does not include every technical indicator. Gemini Search is not a dedicated market-data feed; on-demand results can be delayed, sparse or incorrect. Verify the citations; this is not investment advice.
 
-```sh
-node build.mjs
-node scripts/refresh-data.mjs
-node test.mjs
-```
+The global company filter also applies to this view. **All** displays Google and Meta; **Google** or **Meta** focuses on that listed company. OpenAI and Anthropic are private companies and do not have exchange-listed shares.
 
-Serve `docs/` with a static HTTP server. Opening `index.html` directly as a file is unsupported because the application loads JSON files through HTTP.
+### 5. Ask the research assistant
 
-## Files
+1. Open **Research assistant**.
+2. Enter a question about the companies, their strategy, products, financials or recent AI-industry developments.
+3. Search the reviewed source collection without a key, or provide your own Gemini API key to request a generated answer grounded in retrieved evidence and Google Search.
+4. Follow the inline evidence references and source links. Expand the research steps to inspect how evidence was retrieved.
 
-| File | Role |
+Retrieval combines reviewed company materials with recent collected official news. News headlines are discovery leads, not independently verified article summaries. If Gemini Search fails or produces missing or invalid citations, the interface falls back to retrieved evidence; generated text with invalid local references is withheld. Asking about multiple named companies retrieves evidence for each, even when a company filter is selected.
+
+### 6. Inspect sources and collection status
+
+1. Open **Source library** to search the reviewed collection, inspect source types and view the latest collection status.
+2. Review collection timestamps and any failed-source notes to understand how current the published news and pricing data are.
+3. Use the links beside financial figures, product entries, stock data and research answers to check claims against their original context.
+
+## Data, definitions and research limitations
+
+### Financial comparison
+
+The baseline comparison covers FY2025 revenue, gross margin, gross profit, net income or loss, and revenue growth. These are company-wide results, not AI-only revenue or AI-only research spending. Revenue growth compares 2025 with 2024; Anthropic uses its reported rounded rate.
+
+- Gross profit is revenue less cost of revenue for Alphabet, Meta and OpenAI. Anthropic's gross profit is estimated from reported revenue and an approximate implied margin; it is not a disclosed gross-profit line item.
+- Gross-margin calculations use reported revenue and cost-of-revenue classifications for Alphabet, Meta and OpenAI. Anthropic's approximately 40% figure is a reported implied estimate. Different cost classifications mean this is not a fully standardized profitability ranking.
+- Net income/loss uses consolidated results for Alphabet and Meta, the loss attributable to OpenAI after noncontrolling interests, and Anthropic's reported GAAP net loss.
+- OpenAI and Anthropic losses include substantial noncash financing charges and should not be interpreted as cash burn.
+- Private-company data uses attributed reporting and was not independently confirmed against private-company source documents.
+
+Financial inputs are manually reviewed. The automated news and pricing collector does not overwrite them.
+
+### Scheduled and manual updates
+
+The GitHub Actions workflow builds and tests the site, checks official company news and supported API pricing sources, saves the published update record, and deploys GitHub Pages. It runs on relevant pushes to `main`, can be started manually, and is scheduled daily at **15:00 UTC**. Scheduled workflow times are best effort and may be delayed.
+
+The collector checks four official news sources and six supported API pricing pages. It records timestamps, results, errors and content hashes; if an extraction fails, previously collected information is retained where possible. A successful fetch does not independently verify a publisher's claims. Newly collected news does not automatically become part of the reviewed answer corpus.
+
+The dashboard's **Reload published data** button loads the already-published JSON snapshot. It does not start a new collection run. To run the collection locally, use `node scripts/refresh-data.mjs` from the repository root; this needs network access and updates `docs/data/updates.json`.
+
+## Run the project locally
+
+### Prerequisites
+
+- Git
+- Node.js 22 or newer
+- A web browser
+- Optional: Python 3 for the simple static-server command below
+
+### Step-by-step setup
+
+1. Clone the repository and enter its folder:
+
+   ```sh
+   git clone https://github.com/gitty-hash/Group-14-Deep-Research-AI-Companies.git
+   cd Group-14-Deep-Research-AI-Companies
+   ```
+
+2. Build the static site and its data files:
+
+   ```sh
+   node build.mjs
+   ```
+
+3. Serve the generated `docs/` directory over HTTP. Do not open `docs/index.html` directly as a `file://` URL: the dashboard loads JSON files using HTTP.
+
+   **Windows PowerShell** (if Python is installed):
+
+   ```powershell
+   py -m http.server 8000 --directory docs
+   ```
+
+   **macOS/Linux:**
+
+   ```sh
+   python3 -m http.server 8000 --directory docs
+   ```
+
+4. Open [http://localhost:8000](http://localhost:8000) in a browser. Navigate to **Stock Performance** or another section using the sidebar.
+5. To check the project, open a second terminal at the repository root and run:
+
+   ```sh
+   node test.mjs
+   ```
+
+6. Optional: refresh official news and pricing data locally:
+
+   ```sh
+   node scripts/refresh-data.mjs
+   ```
+
+   Reload the dashboard after collection to read the updated JSON.
+
+No package installation is needed for build or tests. The Python command above is only a convenient local HTTP server; it is not a project dependency.
+
+## Publish with GitHub Pages
+
+The project is configured to publish the built `docs/` directory with GitHub Actions.
+
+1. In the repository on GitHub, open **Settings → Pages**.
+2. Under **Build and deployment**, choose **GitHub Actions** as the source.
+3. Open **Actions** and select **Update data and deploy GitHub Pages**.
+4. For a first-time or manual deployment, choose **Run workflow** and confirm the `main` branch.
+5. Wait for the workflow to finish successfully, then open the [published dashboard](https://gitty-hash.github.io/Group-14-Deep-Research-AI-Companies/).
+
+After setup, relevant pushes to `main`, the daily schedule and manual workflow runs trigger deployment. The workflow uses GitHub's built-in token and does not require a personal access token or a shared Gemini secret.
+
+## Gemini key and privacy
+
+The public dashboard does not provide a shared Gemini API key. A viewer can enter their own key for on-demand research and stock comparison. The key stays in page memory, is sent directly to Google's Gemini API, and is not written to browser storage, this repository or GitHub Pages. It is cleared when the page session ends or the page is reloaded. Do not paste keys into chat, commit them, or include them in screenshots or shared documents. Gemini model access, Google Search grounding, quotas, billing and data terms depend on the viewer's Google account.
+
+## Repository map
+
+| Path | Purpose |
 | --- | --- |
-| `template.html` | Dashboard layout and UI source |
-| `pages-api.js` | Browser data loading and calls to the shared RAG engine |
-| `rag-core.js` | Shared BM25 retrieval, source summaries, Gemini prompt and citation validation |
-| `seed.mjs` | Reviewed facts, sources and baseline prices |
-| `collector.mjs` | Official-source collection and parsing |
-| `scripts/refresh-data.mjs` | Writes a new published update record |
-| `build.mjs` | Builds static files under `docs/` |
-| `test.mjs` | Application and collection checks |
-| `.github/workflows/pages.yml` | Data refresh and deployment workflow |
+| `template.html` | Dashboard layout, styles, navigation, charts and browser interactions |
+| `seed.mjs` | Reviewed company data, source library, baseline model and pricing catalogue |
+| `stock-history.json` | Fixed dated GOOGL and META close series for the seven chart ranges |
+| `stock-snapshot.mjs` | Builds the preloaded stock metrics, returns and citations |
+| `pages-api.js` | Browser-side data access and validated Gemini request helpers |
+| `rag-core.js` | BM25 retrieval, evidence selection, Gemini prompts and citation validation |
+| `collector.mjs` | Official news and API-pricing collection and parsing |
+| `scripts/refresh-data.mjs` | Runs collection and writes `docs/data/updates.json` |
+| `build.mjs` | Builds the static GitHub Pages site and JSON data under `docs/` |
+| `test.mjs` | Checks retrieval, citations, data validation, charts, calculations and collection behavior |
+| `.github/workflows/pages.yml` | Build, test, scheduled/manual collection and GitHub Pages deployment |
+| `docs/` | Generated static site published by GitHub Pages; rebuild instead of hand-editing generated files |
 
-## Limits
+## Known limitations
 
-Gemini calls depend on the viewer's key, quota, model access and account terms. The code checks missing or unknown citation IDs, but readers must still verify generated claims. The selected catalog has 14 model/access entries. Model prices do not establish equivalent quality. The calculator preserves one workload across company filters and limits input to 100,000 tokens per request to stay within the shared standard pricing tier. Estimates exclude long-context premiums, search/tools, retries, taxes, caching or batch discounts and self-hosting costs.
+- Public-market snapshots are dated and should not be treated as live quotes. Google Search grounding is not a dedicated market-data service.
+- Unavailable data is left unavailable rather than estimated. Technical indicators are not present in the default fixed stock snapshot.
+- Gemini-generated comparisons and research answers are on-demand outputs, not independently reviewed research. Always check citations and original sources.
+- The product catalogue is selected, not exhaustive; vendor claims are not independent benchmarks.
+- The cost calculator estimates token charges under stated assumptions and does not compare model quality or total operating costs.
+- Public-company financials include non-AI business lines. Private-company figures rely on attributed reporting and may use different reporting bases.
