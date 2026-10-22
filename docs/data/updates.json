@@ -1,6 +1,27 @@
 {
-  "checkedAt": "2026-10-22T04:08:21.499Z",
+  "checkedAt": "2026-10-22T19:05:34.058Z",
   "news": [
+    {
+      "company": "OpenAI",
+      "title": "What FDE means at OpenAI",
+      "url": "https://openai.com/index/forward-deployed-engineering-means",
+      "date": "2026-10-22T06:00:00.000Z",
+      "publisher": "openai.com"
+    },
+    {
+      "company": "OpenAI",
+      "title": "Uber brings ChatGPT Work to all employees with OpenAI",
+      "url": "https://openai.com/index/uber-chatgpt-work-rollout",
+      "date": "2026-10-22T00:00:00.000Z",
+      "publisher": "openai.com"
+    },
+    {
+      "company": "Anthropic",
+      "title": "Donating Agent Skills to the Agentic AI Foundation",
+      "url": "https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation",
+      "date": "2026-10-22T00:00:00.000Z",
+      "publisher": "www.anthropic.com"
+    },
     {
       "company": "OpenAI",
       "title": "Broad access through consistent standards",
@@ -38,23 +59,9 @@
     },
     {
       "company": "OpenAI",
-      "title": "How we built ChatGPT’s novel ad stack for user trust and relevance",
-      "url": "https://openai.com/index/building-chatgpt-ad-stack",
-      "date": "2026-10-21T07:00:00.000Z",
-      "publisher": "openai.com"
-    },
-    {
-      "company": "OpenAI",
       "title": "Using thousands of AI agents to uncover new leads in biological data",
       "url": "https://openai.com/index/scaling-ai-research-for-complex-biological-data",
       "date": "2026-10-21T04:50:00.000Z",
-      "publisher": "openai.com"
-    },
-    {
-      "company": "OpenAI",
-      "title": "Cloudflare links vulnerability discovery to defense with OpenAI",
-      "url": "https://openai.com/index/cloudflare-cyber",
-      "date": "2026-10-21T00:00:00.000Z",
       "publisher": "openai.com"
     },
     {
@@ -182,31 +189,9 @@
       "url": "https://www.anthropic.com/news/2026-usage-policy-update",
       "date": "2026-10-08T00:00:00.000Z",
       "publisher": "www.anthropic.com"
-    },
-    {
-      "company": "Anthropic",
-      "title": "Building on our commitment to American scientific discovery",
-      "url": "https://www.anthropic.com/news/genesis-mission-commitment",
-      "date": "2026-10-08T00:00:00.000Z",
-      "publisher": "www.anthropic.com"
     }
   ],
   "prices": [
-    {
-      "id": "gpt-6-astra",
-      "input": 10,
-      "output": 50
-    },
-    {
-      "id": "gpt-6-luna",
-      "input": 0.1,
-      "output": 0.5
-    },
-    {
-      "id": "gpt-6.1-sol",
-      "input": 2,
-      "output": 10
-    },
     {
       "id": "muse-wonder-1.0",
       "input": 4,
@@ -216,6 +201,36 @@
       "id": "muse-spark-1.3",
       "input": 1.25,
       "output": 4.25
+    },
+    {
+      "id": "gpt-6-astra",
+      "input": 10,
+      "output": 50
+    },
+    {
+      "id": "gpt-6.1-sol",
+      "input": 2,
+      "output": 10
+    },
+    {
+      "id": "gemini-4-argon",
+      "input": 2,
+      "output": 10
+    },
+    {
+      "id": "gemini-3.8-flash",
+      "input": 0.75,
+      "output": 3.75
+    },
+    {
+      "id": "gemini-3.5-flash-lite",
+      "input": 0.3,
+      "output": 2.5
+    },
+    {
+      "id": "gpt-6-luna",
+      "input": 0.1,
+      "output": 0.5
     },
     {
       "id": "claude-fable-5-1",
@@ -236,21 +251,6 @@
       "id": "claude-haiku-5-5",
       "input": 0.1,
       "output": 0.5
-    },
-    {
-      "id": "gemini-4-argon",
-      "input": 2,
-      "output": 10
-    },
-    {
-      "id": "gemini-3.8-flash",
-      "input": 0.75,
-      "output": 3.75
-    },
-    {
-      "id": "gemini-3.5-flash-lite",
-      "input": 0.3,
-      "output": 2.5
     }
   ],
   "logs": [
@@ -260,79 +260,79 @@
       "status": "ok",
       "items": 4,
       "hash": "90eba65070bff6ad9b944c43891a08c252bdeab184e36e1557b56fb6ced28437",
-      "checkedAt": "2026-10-22T04:08:21.499Z"
-    },
-    {
-      "company": "Google",
-      "source": "https://blog.google/rss/",
-      "status": "ok",
-      "items": 7,
-      "hash": "cbb636d2cae2ac1bb446d45a21c46f51422f5e85394c302e32bbafaff597c96d",
-      "checkedAt": "2026-10-22T04:08:21.499Z"
+      "checkedAt": "2026-10-22T19:05:34.058Z"
     },
     {
       "company": "OpenAI",
       "source": "https://openai.com/news/rss.xml",
       "status": "ok",
       "items": 8,
-      "hash": "53b4913acb455bd5913f92a8a69f56ff92eccc3e6de59eb584590ac53842d2ad",
-      "checkedAt": "2026-10-22T04:08:21.499Z"
+      "hash": "db5080e34b91f9108686ddec607fecc53f45be1e55b46c4449fe2fbbd80f84b9",
+      "checkedAt": "2026-10-22T19:05:34.058Z"
+    },
+    {
+      "company": "Google",
+      "source": "https://blog.google/rss/",
+      "status": "ok",
+      "items": 7,
+      "hash": "be8c69efd5cbf5026126025671798c5457d9df1c7b7405c887c38683c058ac25",
+      "checkedAt": "2026-10-22T19:05:34.058Z"
     },
     {
       "company": "Anthropic",
       "source": "https://www.anthropic.com/news",
       "status": "ok",
       "items": 8,
-      "hash": "1a6f8c3e81a5aba51ce86de02e18b3c9fb697a52b508aa2f23f3818e6a5fae82",
-      "checkedAt": "2026-10-22T04:08:21.499Z"
-    },
-    {
-      "company": "OpenAI",
-      "source": "https://developers.openai.com/api/docs/models/gpt-6-astra",
-      "status": "ok",
-      "items": 1,
-      "hash": "bf4fcd935487ba3cfff7a97d6a93044ace86d8ef9dfad9e9150a98dc89ffa481",
-      "checkedAt": "2026-10-22T04:08:21.499Z"
-    },
-    {
-      "company": "OpenAI",
-      "source": "https://developers.openai.com/api/docs/models/gpt-6-luna",
-      "status": "ok",
-      "items": 1,
-      "hash": "e12e8ae153639834af1afba3a34bd66fca7bab54554a8d4f77e4f0a8894de507",
-      "checkedAt": "2026-10-22T04:08:21.499Z"
-    },
-    {
-      "company": "OpenAI",
-      "source": "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
-      "status": "ok",
-      "items": 1,
-      "hash": "887afbc95fde655df2d9b3643f29bb8a40c6c11979c25420bf44dab7bcd0c37c",
-      "checkedAt": "2026-10-22T04:08:21.499Z"
+      "hash": "08895afa4965c4fd3b90160b1f97d38600105d1f98c356beebfb6652b3626bed",
+      "checkedAt": "2026-10-22T19:05:34.058Z"
     },
     {
       "company": "Meta",
       "source": "https://dev.meta.ai/docs/pricing-rate-limits",
       "status": "ok",
       "items": 2,
-      "hash": "a339ddb667806bc53db3d7ea179280d59ebc9861e35583feb0bc928c8f8beb7c",
-      "checkedAt": "2026-10-22T04:08:21.499Z"
+      "hash": "764f677c9d5f06397f15da64dc927cc9940b998b9912d3bf9ab325130a7451a7",
+      "checkedAt": "2026-10-22T19:05:34.058Z"
     },
     {
-      "company": "Anthropic",
-      "source": "https://platform.claude.com/docs/en/about-claude/pricing",
+      "company": "OpenAI",
+      "source": "https://developers.openai.com/api/docs/models/gpt-6-astra",
       "status": "ok",
-      "items": 4,
-      "hash": "5a5f9cb2a1c257106e47d3880679e7bbc991f44463adc0b72058ba61ec3fbc72",
-      "checkedAt": "2026-10-22T04:08:21.499Z"
+      "items": 1,
+      "hash": "3730390ec8db5009fa130e5ef0350aa376c3fcd11082842f975950f04139ad13",
+      "checkedAt": "2026-10-22T19:05:34.058Z"
+    },
+    {
+      "company": "OpenAI",
+      "source": "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
+      "status": "ok",
+      "items": 1,
+      "hash": "b3b5a7efed9c4860cdb1810262975320c176392111261f061571e5d48dc5108e",
+      "checkedAt": "2026-10-22T19:05:34.058Z"
     },
     {
       "company": "Google",
       "source": "https://ai.google.dev/gemini-api/docs/pricing",
       "status": "ok",
       "items": 3,
-      "hash": "ff5f2c01594ce9fbaf997dbdeed880b67632e1082b7dfc161552103e89c638ab",
-      "checkedAt": "2026-10-22T04:08:21.499Z"
+      "hash": "3bf8bfc6250ffa0d774c799593cfc08dddacad37ec98049790a7b379df461d14",
+      "checkedAt": "2026-10-22T19:05:34.058Z"
+    },
+    {
+      "company": "OpenAI",
+      "source": "https://developers.openai.com/api/docs/models/gpt-6-luna",
+      "status": "ok",
+      "items": 1,
+      "hash": "919a898bb85222f643cbb2430a7c244a06f8cf25e22f75c97c63d1a750f13fa7",
+      "checkedAt": "2026-10-22T19:05:34.058Z"
+    },
+    {
+      "company": "Anthropic",
+      "source": "https://platform.claude.com/docs/en/about-claude/pricing",
+      "status": "ok",
+      "items": 4,
+      "hash": "7346b4ac8500faf3c1d67879cafff098b6223ee491c479c3884d439d6b3b6592",
+      "checkedAt": "2026-10-22T19:05:34.058Z"
     }
   ],
   "persistent": false,
