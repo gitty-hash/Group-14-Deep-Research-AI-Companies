@@ -1,6 +1,13 @@
 {
-  "checkedAt": "2026-10-22T19:05:34.058Z",
+  "checkedAt": "2026-10-22T22:06:49.516Z",
   "news": [
+    {
+      "company": "OpenAI",
+      "title": "Build more responsive apps with the Decisions API",
+      "url": "https://openai.com/index/decisions-api",
+      "date": "2026-10-22T19:00:00.000Z",
+      "publisher": "openai.com"
+    },
     {
       "company": "OpenAI",
       "title": "What FDE means at OpenAI",
@@ -9,18 +16,25 @@
       "publisher": "openai.com"
     },
     {
-      "company": "OpenAI",
-      "title": "Uber brings ChatGPT Work to all employees with OpenAI",
-      "url": "https://openai.com/index/uber-chatgpt-work-rollout",
-      "date": "2026-10-22T00:00:00.000Z",
-      "publisher": "openai.com"
-    },
-    {
       "company": "Anthropic",
       "title": "Donating Agent Skills to the Agentic AI Foundation",
       "url": "https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation",
       "date": "2026-10-22T00:00:00.000Z",
       "publisher": "www.anthropic.com"
+    },
+    {
+      "company": "Anthropic",
+      "title": "Open call for guest investigators in the life sciences",
+      "url": "https://www.anthropic.com/news/open-call-guest-investigators-life-sciences",
+      "date": "2026-10-22T00:00:00.000Z",
+      "publisher": "www.anthropic.com"
+    },
+    {
+      "company": "OpenAI",
+      "title": "Uber brings ChatGPT Work to all employees with OpenAI",
+      "url": "https://openai.com/index/uber-chatgpt-work-rollout",
+      "date": "2026-10-22T00:00:00.000Z",
+      "publisher": "openai.com"
     },
     {
       "company": "OpenAI",
@@ -55,13 +69,6 @@
       "title": "Patch the Planet: global response coordination as agents uncover critical vulnerabilities",
       "url": "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities",
       "date": "2026-10-21T07:00:00.000Z",
-      "publisher": "openai.com"
-    },
-    {
-      "company": "OpenAI",
-      "title": "Using thousands of AI agents to uncover new leads in biological data",
-      "url": "https://openai.com/index/scaling-ai-research-for-complex-biological-data",
-      "date": "2026-10-21T04:50:00.000Z",
       "publisher": "openai.com"
     },
     {
@@ -182,13 +189,6 @@
       "url": "https://www.anthropic.com/news/anthropic-cyber-mission",
       "date": "2026-10-08T00:00:00.000Z",
       "publisher": "www.anthropic.com"
-    },
-    {
-      "company": "Anthropic",
-      "title": "2026 Usage Policy update",
-      "url": "https://www.anthropic.com/news/2026-usage-policy-update",
-      "date": "2026-10-08T00:00:00.000Z",
-      "publisher": "www.anthropic.com"
     }
   ],
   "prices": [
@@ -203,29 +203,14 @@
       "output": 4.25
     },
     {
-      "id": "gpt-6-astra",
-      "input": 10,
-      "output": 50
-    },
-    {
       "id": "gpt-6.1-sol",
       "input": 2,
       "output": 10
     },
     {
-      "id": "gemini-4-argon",
-      "input": 2,
-      "output": 10
-    },
-    {
-      "id": "gemini-3.8-flash",
-      "input": 0.75,
-      "output": 3.75
-    },
-    {
-      "id": "gemini-3.5-flash-lite",
-      "input": 0.3,
-      "output": 2.5
+      "id": "gpt-6-astra",
+      "input": 10,
+      "output": 50
     },
     {
       "id": "gpt-6-luna",
@@ -251,6 +236,21 @@
       "id": "claude-haiku-5-5",
       "input": 0.1,
       "output": 0.5
+    },
+    {
+      "id": "gemini-4-argon",
+      "input": 2,
+      "output": 10
+    },
+    {
+      "id": "gemini-3.8-flash",
+      "input": 0.75,
+      "output": 3.75
+    },
+    {
+      "id": "gemini-3.5-flash-lite",
+      "input": 0.3,
+      "output": 2.5
     }
   ],
   "logs": [
@@ -260,15 +260,7 @@
       "status": "ok",
       "items": 4,
       "hash": "90eba65070bff6ad9b944c43891a08c252bdeab184e36e1557b56fb6ced28437",
-      "checkedAt": "2026-10-22T19:05:34.058Z"
-    },
-    {
-      "company": "OpenAI",
-      "source": "https://openai.com/news/rss.xml",
-      "status": "ok",
-      "items": 8,
-      "hash": "db5080e34b91f9108686ddec607fecc53f45be1e55b46c4449fe2fbbd80f84b9",
-      "checkedAt": "2026-10-22T19:05:34.058Z"
+      "checkedAt": "2026-10-22T22:06:49.516Z"
     },
     {
       "company": "Google",
@@ -276,63 +268,71 @@
       "status": "ok",
       "items": 7,
       "hash": "be8c69efd5cbf5026126025671798c5457d9df1c7b7405c887c38683c058ac25",
-      "checkedAt": "2026-10-22T19:05:34.058Z"
+      "checkedAt": "2026-10-22T22:06:49.516Z"
     },
     {
       "company": "Anthropic",
       "source": "https://www.anthropic.com/news",
       "status": "ok",
       "items": 8,
-      "hash": "08895afa4965c4fd3b90160b1f97d38600105d1f98c356beebfb6652b3626bed",
-      "checkedAt": "2026-10-22T19:05:34.058Z"
+      "hash": "1985b1691f58ad6900a86255077b90b56f977895898d958b8157aa8d5f76b258",
+      "checkedAt": "2026-10-22T22:06:49.516Z"
+    },
+    {
+      "company": "OpenAI",
+      "source": "https://openai.com/news/rss.xml",
+      "status": "ok",
+      "items": 8,
+      "hash": "cb12dcc4af14042ba6230247a51f236fc71f9e640f72483b4ac34768dcbb9044",
+      "checkedAt": "2026-10-22T22:06:49.516Z"
     },
     {
       "company": "Meta",
       "source": "https://dev.meta.ai/docs/pricing-rate-limits",
       "status": "ok",
       "items": 2,
-      "hash": "764f677c9d5f06397f15da64dc927cc9940b998b9912d3bf9ab325130a7451a7",
-      "checkedAt": "2026-10-22T19:05:34.058Z"
-    },
-    {
-      "company": "OpenAI",
-      "source": "https://developers.openai.com/api/docs/models/gpt-6-astra",
-      "status": "ok",
-      "items": 1,
-      "hash": "3730390ec8db5009fa130e5ef0350aa376c3fcd11082842f975950f04139ad13",
-      "checkedAt": "2026-10-22T19:05:34.058Z"
+      "hash": "ba6a12f416fcd1fbdd3258cbb03ee9cd360a048c6a35471d5c84b70f05c60ba3",
+      "checkedAt": "2026-10-22T22:06:49.516Z"
     },
     {
       "company": "OpenAI",
       "source": "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
       "status": "ok",
       "items": 1,
-      "hash": "b3b5a7efed9c4860cdb1810262975320c176392111261f061571e5d48dc5108e",
-      "checkedAt": "2026-10-22T19:05:34.058Z"
+      "hash": "e1594760ce9dd7f7e432ec2b600296b8af5de5bff8b4378aa0a2edca035a8b4f",
+      "checkedAt": "2026-10-22T22:06:49.516Z"
     },
     {
-      "company": "Google",
-      "source": "https://ai.google.dev/gemini-api/docs/pricing",
+      "company": "OpenAI",
+      "source": "https://developers.openai.com/api/docs/models/gpt-6-astra",
       "status": "ok",
-      "items": 3,
-      "hash": "3bf8bfc6250ffa0d774c799593cfc08dddacad37ec98049790a7b379df461d14",
-      "checkedAt": "2026-10-22T19:05:34.058Z"
+      "items": 1,
+      "hash": "b64b9af30eee8a05ce924fd72ea9b390f534433d306f1cdd6360c69c3a4f4b79",
+      "checkedAt": "2026-10-22T22:06:49.516Z"
     },
     {
       "company": "OpenAI",
       "source": "https://developers.openai.com/api/docs/models/gpt-6-luna",
       "status": "ok",
       "items": 1,
-      "hash": "919a898bb85222f643cbb2430a7c244a06f8cf25e22f75c97c63d1a750f13fa7",
-      "checkedAt": "2026-10-22T19:05:34.058Z"
+      "hash": "c2fd090feaee94e08a3766c382e703782c9925d7adb1e1832e4d8c50b8b96f5a",
+      "checkedAt": "2026-10-22T22:06:49.516Z"
     },
     {
       "company": "Anthropic",
       "source": "https://platform.claude.com/docs/en/about-claude/pricing",
       "status": "ok",
       "items": 4,
-      "hash": "7346b4ac8500faf3c1d67879cafff098b6223ee491c479c3884d439d6b3b6592",
-      "checkedAt": "2026-10-22T19:05:34.058Z"
+      "hash": "bfcaee53bbf7e2d4a67dc17cc0efea05bf19a880a627d6f9aa592caf83eec7cd",
+      "checkedAt": "2026-10-22T22:06:49.516Z"
+    },
+    {
+      "company": "Google",
+      "source": "https://ai.google.dev/gemini-api/docs/pricing",
+      "status": "ok",
+      "items": 3,
+      "hash": "f5bf760bd8202fd0aa85afb05c9d4e3b4628d30b815c78a671e8c44f133113e9",
+      "checkedAt": "2026-10-22T22:06:49.516Z"
     }
   ],
   "persistent": false,
