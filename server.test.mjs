@@ -13,15 +13,16 @@ async function withServer(options, run) {
   finally { await new Promise((resolve, reject) => server.close(error => error ? reject(error) : resolve())); }
 }
 
-const key = 'private-server-test-credential';
+const key = 'visitor-test-credential';
+const ownerKey = 'unused-owner-test-credential';
 const calls = [];
 let result = {ok: true, json: async () => ({steps: [{type: 'google_search_call'}]})};
-const post = input => ({method: 'POST', headers: {'content-type': 'application/json'}, body: JSON.stringify(input)});
+const post = input => ({method: 'POST', headers: {'content-type': 'application/json', 'x-gemini-api-key': key}, body: JSON.stringify(input)});
 const research = {model: 'gemini-3.8-flash', input: 'Compare the supplied reviewed evidence.', tools: [{type: 'google_search'}]};
 
-await withServer({apiKey: key, requestGemini: async (url, options) => { calls.push({url, options}); return result; }}, async base => {
+await withServer({apiKey: ownerKey, requestGemini: async (url, options) => { calls.push({url, options}); return result; }}, async base => {
   const config = await fetch(base + '/api/config');
-  assert.deepEqual(await config.json(), {generationConfigured: true});
+  assert.deepEqual(await config.json(), {generationConfigured: false, keyMode: 'visitor'});
   assert.equal(config.headers.get('cache-control'), 'no-store');
   const html = await fetch(base + '/');
   assert.equal(html.status, 200);
@@ -36,7 +37,7 @@ await withServer({apiKey: key, requestGemini: async (url, options) => { calls.pu
     assert(!(await response.text()).includes(key));
   }
   assert.equal((await fetch(base + '/api/gemini')).status, 405);
-  assert.equal((await fetch(base + '/api/gemini', {method: 'POST', body: '{}'})).status, 415);
+  assert.equal((await fetch(base + '/api/gemini', {method: 'POST', headers: {'x-gemini-api-key': key}, body: '{}'})).status, 415);
   assert.equal((await fetch(base + '/api/gemini', {...post({}), body: '{broken'})).status, 400);
   assert.equal((await fetch(base + '/api/gemini', post(null))).status, 400);
   assert.equal((await fetch(base + '/api/gemini', post({...research, model: 'unapproved-model'}))).status, 400);
@@ -54,13 +55,22 @@ await withServer({apiKey: key, requestGemini: async (url, options) => { calls.pu
   assert.equal(wrongHostStatus, 403);
   assert.equal(calls.length, 0);
 
-  const response = await fetch(base + '/api/gemini', post({...research, apiKey: 'ignored-browser-key', tools: [{type: 'unapproved_tool'}]}));
+  const response = await fetch(base + '/api/gemini', post({...research, apiKey: 'ignored-body-key', tools: [{type: 'unapproved_tool'}]}));
   assert.equal(response.status, 200);
   assert.equal(calls[0].url, 'https://generativelanguage.googleapis.com/v1beta/interactions');
   assert.equal(calls[0].options.headers['x-goog-api-key'], key);
   assert.deepEqual(JSON.parse(calls[0].options.body), research);
   assert(!calls[0].options.body.includes(key));
   assert(!(await response.text()).includes(key));
+
+  const secondKey = 'second-visitor-test-key';
+  const second = post(research); second.headers['x-gemini-api-key'] = secondKey;
+  assert.equal((await fetch(base + '/api/gemini', second)).status, 200);
+  assert.equal(calls.at(-1).options.headers['x-goog-api-key'], secondKey);
+  const missing = post({...research, apiKey: ownerKey}); delete missing.headers['x-gemini-api-key'];
+  assert.equal((await fetch(base + '/api/gemini', missing)).status, 401);
+  const invalid = post(research); invalid.headers['x-gemini-api-key'] = 'bad key';
+  assert.equal((await fetch(base + '/api/gemini', invalid)).status, 400);
 
   const content = {contents: [{parts: [{text: 'Summarize supplied notes.'}]}], generationConfig: {responseMimeType: 'application/json'}};
   assert.equal((await fetch(base + '/api/gemini/content', post(content))).status, 200);
@@ -82,12 +92,13 @@ await withServer({apiKey: key, requestGemini: async (url, options) => { calls.pu
 });
 
 await withServer({}, async base => {
-  assert.deepEqual(await (await fetch(base + '/api/config')).json(), {generationConfigured: false});
-  const missingKey = await fetch(base + '/api/gemini', post(research));
-  assert.equal(missingKey.status, 503);
+  assert.deepEqual(await (await fetch(base + '/api/config')).json(), {generationConfigured: false, keyMode: 'visitor'});
+  const withoutKey = post(research); delete withoutKey.headers['x-gemini-api-key'];
+  const missingKey = await fetch(base + '/api/gemini', withoutKey);
+  assert.equal(missingKey.status, 401);
   const failure = await missingKey.json();
   assert.equal(failure.code, 'GEMINI_KEY_MISSING');
-  assert.match(failure.error, /provide a Gemini API key in the \.env file/);
+  assert.match(failure.error, /Add your own Gemini API key/);
   assert.equal((await fetch(base + '/')).status, 200);
 });
 
@@ -100,4 +111,4 @@ for (const path of await readdir('docs', {recursive: true, withFileTypes: true})
   assert(!path.name.startsWith('.env'), 'An environment file must not be public.');
   if (localKey) assert(!(await readFile(path.parentPath + '/' + path.name, 'utf8')).includes(localKey), 'A public artifact contains the local credential.');
 }
-console.log('Private Gemini proxy, credential isolation, static paths, origin checks and failure handling passed. No real Gemini requests were made.');
+console.log('Visitor-key Gemini proxy, credential isolation, static paths, origin checks and failure handling passed. No real Gemini requests were made.');

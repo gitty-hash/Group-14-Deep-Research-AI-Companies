@@ -28,6 +28,7 @@ jobs:
       - run: node test.mjs
       - run: node server.test.mjs
       - run: node api-routing.test.mjs
+      - run: node export.test.mjs
       - name: Collect official news and prices
         run: node scripts/refresh-data.mjs
       - name: Save published update record

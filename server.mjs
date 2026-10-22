@@ -28,9 +28,8 @@ async function readBody(request) {
   catch { throw Object.assign(new Error('Request must contain valid JSON.'), {status: 400}); }
 }
 
-// The factory accepts a fake upstream for tests. Only the executable loads .env.
-export function createDashboardServer({apiKey = '', requestGemini = fetch} = {}) {
-  const key = String(apiKey).trim();
+// No shared credential: every Gemini request must provide the visitor's key.
+export function createDashboardServer({requestGemini = fetch} = {}) {
   return createServer(async (request, response) => {
     try {
       const host = request.headers.host;
@@ -38,10 +37,12 @@ export function createDashboardServer({apiKey = '', requestGemini = fetch} = {})
       const origin = request.headers.origin;
       const pathname = decodeURIComponent(new URL(request.url, 'http://' + host).pathname);
       if ((pathname.startsWith('/api/') || !['GET', 'HEAD'].includes(request.method)) && ((origin && origin !== 'http://' + host) || request.headers['sec-fetch-site'] === 'cross-site')) return json(response, 403, {error: 'Cross-origin requests are not allowed.'});
-      if (pathname === '/api/config' && request.method === 'GET') return json(response, 200, {generationConfigured: Boolean(key)});
+      if (pathname === '/api/config' && request.method === 'GET') return json(response, 200, {generationConfigured: false, keyMode: 'visitor'});
       if (Object.hasOwn(upstreamRoutes, pathname)) {
         if (request.method !== 'POST') return json(response, 405, {error: 'Use POST for research requests.'});
-        if (!key) return json(response, 503, {error: 'Please provide a Gemini API key in the .env file and restart the dashboard server.', code: 'GEMINI_KEY_MISSING'});
+        const key = String(request.headers['x-gemini-api-key'] || '').trim();
+        if (!key) return json(response, 401, {error: 'Add your own Gemini API key in the dashboard header.', code: 'GEMINI_KEY_MISSING'});
+        if (!/^[A-Za-z0-9_-]{16,256}$/.test(key)) return json(response, 400, {error: 'Enter a valid Gemini API key in the dashboard header.', code: 'GEMINI_KEY_INVALID'});
         if (!request.headers['content-type']?.startsWith('application/json')) return json(response, 415, {error: 'Use application/json.'});
         const body = await readBody(request);
         if (!body || typeof body !== 'object' || Array.isArray(body)) return json(response, 400, {error: 'Invalid research request.'});
@@ -85,7 +86,7 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
   catch (error) { if (error.code !== 'ENOENT') throw new Error('Could not load the local .env file.'); }
   const port = Number(process.env.PORT || 8787);
   if (!Number.isInteger(port) || port < 1 || port > 65535) throw new Error('PORT must be between 1 and 65535.');
-  const server = createDashboardServer({apiKey: process.env.GEMINI_API_KEY});
+  const server = createDashboardServer();
   server.on('error', error => { console.error(error.code === 'EADDRINUSE' ? 'The dashboard port is already in use. Change PORT in .env.' : 'The local dashboard could not start.'); process.exitCode = 1; });
-  server.listen(port, '127.0.0.1', () => console.log('Dashboard ready at http://127.0.0.1:' + port + '\nGemini: ' + (process.env.GEMINI_API_KEY?.trim() ? 'configured' : 'not configured')));
+  server.listen(port, '127.0.0.1', () => console.log('Dashboard ready at http://127.0.0.1:' + port + '\nGemini: enter your own key in the dashboard header.'));
 }

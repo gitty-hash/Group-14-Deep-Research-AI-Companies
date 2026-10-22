@@ -1,9 +1,22 @@
-/* Public dashboard adapter. Gemini credentials are held only by server.mjs. */
+/* Public dashboard adapter. Each visitor's Gemini key lives only in this tab's memory. */
 (function(root){
   'use strict';
   let data=null;
   let apiBaseUrl='';
-  function requestGemini(path,options){return fetch(apiBaseUrl?new URL(path,apiBaseUrl):path,options);}
+  let geminiKey='';
+  function setGeminiKey(value){
+    const key=String(value||'').trim();
+    if(key&&!/^[A-Za-z0-9_-]{16,256}$/.test(key))throw new Error('Paste a valid Gemini API key, without spaces or quotes.');
+    geminiKey=key;
+    if(data)data.generationConfigured=Boolean(geminiKey)&&data.backendAvailable;
+    return Boolean(geminiKey);
+  }
+  function hasGeminiKey(){return Boolean(geminiKey);}
+  function requestGemini(path,options={}){
+    if(!['/api/gemini','/api/gemini/content'].includes(path))throw new Error('Unsupported Gemini request.');
+    if(!geminiKey||!data?.backendAvailable)throw new Error(generationSetupNotice());
+    return fetch(apiBaseUrl?new URL(path,apiBaseUrl):path,{...options,headers:{...options.headers,'x-gemini-api-key':geminiKey},credentials:'omit',cache:'no-store',redirect:'error'});
+  }
   function retrieve(question,company='All'){
     if(!data)throw new Error('Research data is still loading.');
     const cutoff=Date.now()-30*24*60*60*1000;
@@ -27,12 +40,17 @@
       try{const runtime=await fetchJSON('./data/runtime-config.json');if(runtime.geminiApiBaseUrl){const endpoint=new URL(runtime.geminiApiBaseUrl);if(endpoint.protocol!=='https:')throw new Error('Gemini backend must use HTTPS.');apiBaseUrl=endpoint.origin;}}catch{}
     }
     data.generationConfigured=false;data.backendAvailable=false;
-    try{const config=await fetchJSON(apiBaseUrl?new URL('/api/config',apiBaseUrl):'/api/config');data.backendAvailable=true;data.generationConfigured=config.generationConfigured===true;}catch{}
+    try{const config=await fetchJSON(apiBaseUrl?new URL('/api/config',apiBaseUrl):'/api/config');data.backendAvailable=config.keyMode==='visitor';data.generationConfigured=Boolean(geminiKey)&&data.backendAvailable;}catch{}
     return data;
   }
   async function refresh(){const update=await fetchJSON('./data/updates.json');if(data){data.live=update;data.newsLoadError='';}return update;}
-  function generationSetupNotice(){return data?.backendAvailable?'Please provide a Gemini API key in the .env file and restart the dashboard server.':'The Gemini backend could not be reached. Please try again later.';}
-  async function generationError(response){try{const detail=await response.json();if(detail.code==='GEMINI_KEY_MISSING')return 'Please provide a Gemini API key in the .env file and restart the dashboard server.';}catch{}return 'Gemini returned HTTP '+response.status+'. Please try again later.';}
+  function generationSetupNotice(){return !geminiKey?'Add your own Gemini API key using the Gemini API key button in the dashboard header.':'The visitor-key Gemini service could not be reached. Reload the dashboard or try again later.';}
+  async function generationError(response){
+    try{const detail=await response.json();if(detail.code==='GEMINI_KEY_MISSING'||detail.code==='GEMINI_KEY_INVALID')return 'Add a valid Gemini API key using the Gemini API key button in the dashboard header.';}catch{}
+    if([400,401,403].includes(response.status))return 'Gemini returned HTTP '+response.status+'. Check your API key, project permissions and access to the requested model.';
+    if(response.status===429)return 'Gemini returned HTTP 429. Your key or this service has reached a quota or rate limit. Check Google AI Studio or try again later.';
+    return 'Gemini returned HTTP '+response.status+'. Please try again later.';
+  }
   async function ask(body){
     const question=String(body.question||'').trim().slice(0,1200);if(!question)throw new Error('Enter a research question.');
     const hits=retrieve(question,body.company||'All');
@@ -200,5 +218,5 @@
     return {range,stocks:report.stocks,summary:report.summary.trim().slice(0,900),sources,checkedAt:new Date().toISOString()};
   }
 
-  root.PagesAPI={load,refresh,ask,compareCompany,stockPerformance,exportData,retrieve,requestGemini,_setDataForTests:d=>{data=d;}};
+  root.PagesAPI={load,refresh,ask,compareCompany,stockPerformance,exportData,retrieve,requestGemini,setGeminiKey,hasGeminiKey,_setDataForTests:d=>{data=d;}};
 })(globalThis);

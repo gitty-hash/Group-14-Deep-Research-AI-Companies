@@ -6,18 +6,32 @@ An interactive research dashboard for comparing Google, Meta, OpenAI and Anthrop
 
 The project is designed as a research and presentation tool: it brings comparable metrics and source links into one interface while distinguishing reviewed facts, reported estimates and on-demand AI-generated research.
 
+## Run the live dashboard ? for recruiters, professors and reviewers
+
+No download, installation or access to the author's Gemini account is needed.
+
+1. Open the [live dashboard](https://gitty-hash.github.io/Group-14-Deep-Research-AI-Companies/). Explore the reviewed company data, charts, dated stock snapshots, model cost calculator, source library and Word/Excel exports immediately; these do not need a key.
+2. To use live Gemini features, create or select **your own Gemini API key** in [Google AI Studio](https://aistudio.google.com/app/apikey). Sign in with your Google account. See Google's [API-key instructions](https://ai.google.dev/gemini-api/docs/api-key) for project setup.
+3. Select **Gemini API key** in the dashboard header. Paste the key into the masked field and select **Use key for this tab**. The header changes to **Gemini key: added**. This means the key is present; Google checks it when a research request is made.
+4. In **Research assistant**, enable **Use Gemini agent with Google Search and retrieved source documents**, enter a question and submit. The floating robot's Gemini option uses the same key. **Overview ? Compare** and **Stock Performance ? Compare Stock** also use it.
+5. To replace or remove it, reopen the header button and use the entry field or **Clear key**. Reloading or closing the page also clears it. Each browser tab starts without a key.
+
+Your requests use **your own Google project's quota and any applicable charges**, never the author's key. Availability depends on your account's model and Google Search access, regional availability, quota and billing configuration; a Google AI Studio key does not guarantee free usage or access to every model. See Google's [billing documentation](https://ai.google.dev/gemini-api/docs/billing/).
+
+**Troubleshooting:** If asked for a key, add it using the header button. For HTTP 400/401/403, check the copied key, project permissions and model access in Google AI Studio. HTTP 429 indicates a quota or rate limit; check your project or retry later. If the research service cannot be reached, reload or retry later. Reviewed source search and preloaded data remain available without Gemini.
+
 ## Project at a glance
 
 - **Research question:** How do the four companies differ in business performance, product strategy, distribution and economics?
 - **Interface:** Static, responsive dashboard with interactive charts, company filters and a searchable source library.
 - **Data:** Reviewed FY2025 company financials, selected model and pricing information, dated stock snapshots, and periodically collected official company news and pricing pages.
-- **Research assistant:** A floating animated robot chat launcher plus the full research tab, using local BM25 retrieval over reviewed documents and recent news, with Gemini generation and Google Search grounding configured by the local server.
-- **Deployment:** GitHub Pages dashboard with a public Sites-hosted Gemini API backend. Local development uses `server.mjs` and `.env`.
+- **Research assistant:** A floating animated robot chat launcher plus the full research tab, using local BM25 retrieval over reviewed documents and recent news, with optional Gemini generation and Google Search grounding using each visitor's own UI-entered key.
+- **Deployment:** GitHub Pages dashboard with a public Sites-hosted Gemini API backend. Local development uses `server.mjs`; both deployments require the visitor to enter their key in the UI.
 - **Runtime:** Node.js 22 or newer for building, tests and collection. No npm dependency installation is required.
 
 ### How the application is put together
 
-The browser dashboard is built with HTML, CSS and JavaScript, and renders its comparisons and charts in the page. Reviewed company information and collected updates are served as JSON files from `docs/`. Node.js scripts assemble the static site, validate the application, and collect approved public-source updates. The research assistant ranks source notes locally with BM25; Gemini calls through a private-key API service add Google Search research and citation checks. Local development reads the key from `.env`; the public backend reads a Sites server secret. The browser never receives the credential. GitHub Actions runs the build, tests, data collection and deployment.
+The browser dashboard is built with HTML, CSS and JavaScript, and renders its comparisons and charts in the page. Reviewed company information and collected updates are served as JSON files from `docs/`. Node.js scripts assemble the static site, validate the application, and collect approved public-source updates. The research assistant ranks source notes locally with BM25; Gemini calls through a visitor-key API proxy add Google Search research and citation checks. Each visitor enters their own key in the dashboard. The browser keeps it in memory and sends it in a request header to the proxy, which forwards it to Google. Neither the local server nor the public backend supplies a shared credential. GitHub Actions runs the build, tests, data collection and deployment.
 
 ## Guided dashboard walkthrough
 
@@ -66,7 +80,7 @@ The global company filter also applies to this view. **All** displays Google and
 
 1. Open **Research assistant**, or select the floating robot button in the bottom-right corner from any dashboard tab for a quick chat. The robot performs four short reactions—wave, bounce, curious head tilt and cheer—with matching eye and mouth expressions on successive hover or click interactions.
 2. Enter a question about the companies, their strategy, products, financials or recent AI-industry developments.
-3. Search the reviewed source collection, or enable Gemini web research for a generated answer grounded in retrieved evidence and Google Search. Tick the Gemini option to use the server key. Both checkboxes remain selectable; a missing key prompts the owner to provide it in `.env` and restart the server. There are no key-entry fields in the dashboard.
+3. Search the reviewed source collection, or enable Gemini web research for a generated answer grounded in retrieved evidence and Google Search. Add your own key with **Gemini API key** in the header, then tick the Gemini option. Both checkboxes remain selectable; without a key, source retrieval still works and the interface explains how to add one.
 4. Follow the inline evidence references and source links. Expand the research steps to inspect how evidence was retrieved; choose **Open full Research assistant** for the complete research view.
 
 Retrieval combines reviewed company materials with recent collected official news. News headlines are discovery leads, not independently verified article summaries. If Gemini Search fails or produces missing or invalid citations, the interface falls back to retrieved evidence; generated text with invalid local references is withheld. Asking about multiple named companies retrieves evidence for each, even when a company filter is selected.
@@ -117,46 +131,50 @@ The dashboard's **Reload published data** button loads the already-published JSO
 
 ### Setup
 
-1. From the repository folder, copy `.env.example` to `.env` if `.env` does not already exist:
+1. Clone the repository and enter its folder:
 
-   ```powershell
-   Copy-Item .env.example .env
+   ```sh
+   git clone https://github.com/gitty-hash/Group-14-Deep-Research-AI-Companies.git
+   cd Group-14-Deep-Research-AI-Companies
    ```
 
-2. Edit `.env` locally and set `GEMINI_API_KEY` to your Gemini key. `PORT` defaults to `8787`. The existing local `.env` has already been populated; do not overwrite it with the example. Never put a real key in `.env.example`.
-3. Build the dashboard and start the local server:
+2. Build the dashboard and start the local server. No package installation is required:
 
    ```sh
    node build.mjs
    node server.mjs
    ```
 
-4. Open [http://127.0.0.1:8787](http://127.0.0.1:8787). Restart `node server.mjs` after changing `.env`. Environment variables already set in the shell take precedence over `.env`.
-5. Run validation from another terminal:
+3. Open [http://127.0.0.1:8787](http://127.0.0.1:8787). For Gemini features, select **Gemini API key** in the header and enter your own key, exactly as on the live dashboard. No Gemini key belongs in `.env`, repository files or GitHub Actions secrets. `.env.example` contains only the optional `PORT` setting.
+4. Run validation from another terminal:
 
    ```sh
    node test.mjs
    node server.test.mjs
    node api-routing.test.mjs
+   node export.test.mjs
    ```
 
-No package installation is required. Serve the dashboard with `node server.mjs` for Gemini features. A plain static server can display the snapshots and local source search, but cannot read `.env` or run Gemini requests. Optionally run `node scripts/refresh-data.mjs` to refresh the published news and pricing snapshot.
+A plain static server can display snapshots and local source search. Use `node server.mjs` for local Gemini requests. To refresh published news and pricing locally, run `node scripts/refresh-data.mjs`; this uses public sources and needs no Gemini key.
 
 ## Deployment
 
-The GitHub Pages workflow publishes the generated `docs/` folder. The public dashboard sends Gemini requests to [the hosted Gemini API](https://group14-observatory-gemini-api.frostystoat7.chatgpt.site), whose URL is declared in `runtime-config.json` and copied into the public build. This file contains only the API origin, never a key. Localhost always uses its own `server.mjs` and `.env` instead.
+The GitHub Pages workflow builds and tests the dashboard, collects public-source updates and publishes `docs/`. The public dashboard sends Gemini requests to [the hosted Gemini API proxy](https://group14-observatory-gemini-api.frostystoat7.chatgpt.site), whose origin is declared in `runtime-config.json`. This configuration contains no credential. Localhost uses its own `server.mjs` proxy.
 
-The backend source is maintained in the sibling `gemini-api-sites` checkout and its Sites source repository. It permits browser requests from `https://gitty-hash.github.io`, limits request sizes and per-client bursts, and keeps the Gemini credential in a Sites server secret. The GitHub Pages workflow does not publish `.env` or run `server.mjs`.
+The backend source is maintained in the sibling `gemini-api-sites` checkout and its Sites source repository. It accepts browser requests from `https://gitty-hash.github.io`, permits the `x-gemini-api-key` request header, and enforces request-size and per-client burst limits. **Every Gemini request must include the visitor's key.** Missing or malformed keys are rejected before contacting Google. The backend ignores any legacy `GEMINI_API_KEY` environment value; the owner's hosted secret has been removed. `/api/config` reports `keyMode: "visitor"` and never returns a key.
 
-## Gemini configuration and privacy
+When forking or hosting at another origin, deploy the backend too, configure its `ALLOWED_ORIGIN` to your Pages origin, and update `runtime-config.json` to your backend's HTTPS origin. Never add a shared key to the backend. GitHub Pages serves static files and cannot run `server.mjs` itself.
 
-Tick the Gemini option to generate a cited answer using Google Search and retrieved documents. Leave it unchecked to search reviewed sources locally. Both the full assistant and floating chat checkboxes remain selectable. If the running backend has no key, the dashboard requests a Gemini API key in `.env` or the backend environment.
+## Gemini key handling and privacy
 
-For local development, edit the ignored `.env` file and restart `node server.mjs`. For the public dashboard, update the `GEMINI_API_KEY` server secret on the **AI Observatory Gemini API** Site and redeploy that backend. Editing the local `.env` alone does not change the hosted secret. Model access, Google Search grounding, quotas, billing and data terms depend on the configured Google account.
+- The masked entry field is available from every dashboard tab and from both research settings panels.
+- The key stays in a JavaScript closure in the current tab, separate from dashboard data. The application does not write it to local/session storage, cookies, a database, repository files, exports or application logs. The input is emptied after use or dismissal.
+- When the visitor requests Gemini research, their key is sent over HTTPS in `x-gemini-api-key` to the research proxy, then in Google's `x-goog-api-key` header to Google. The proxy handles the key transiently; it is not a direct browser-to-Google connection. It does not place the key in URLs or prompt/request bodies, and redacts the key if an upstream response echoes it.
+- **Clear key**, reloading and closing the page remove the application's in-memory key. A key is not shared with another tab or visitor. Requests already sent to Google may still finish after clearing the key.
+- The research assistant, floating chat, company comparison and stock comparison all use the visitor's current key. There is no fallback to the website owner's credential. Backend availability alone cannot enable generation, and the dashboard refuses legacy services that do not advertise visitor-key support.
+- Google processes prompts and retrieved evidence under the visitor's account and applicable [Gemini API terms](https://ai.google.dev/gemini-api/terms). Treat keys as secrets and use a trusted browser/device. Key validity, model access, quota, billing and Google Search availability are checked by Google at request time.
 
-The research assistant, floating chat, company comparison and stock comparison all use the configured backend. It adds the key only when contacting Google's Gemini API. The key is never embedded in HTML, JavaScript, exported data, browser storage or browser request bodies. `/api/config` exposes only whether a key is configured. `.env` and repository files are not served by the local server.
-
-The test suites use mocked upstream requests. The configured local key and hosted integration were also verified with real, cited Gemini research responses before publication. Gemini failures retain the assistant's retrieved-source fallback.
+The automated tests mock Google requests and verify key clearing/replacement, isolation between visitors, missing-key rejection even with a legacy owner environment value, CORS, legacy-backend rejection, and exclusion from public data and exports. No real visitor key is needed to run tests.
 
 ## Repository map
 
@@ -167,11 +185,11 @@ The test suites use mocked upstream requests. The configured local key and hoste
 | `stock-history.json` | Fixed dated GOOGL and META close series for the seven chart ranges |
 | `stock-snapshot.mjs` | Builds the preloaded stock metrics, returns and citations |
 | `pages-api.js` | Browser data access, same-origin research requests and response validation |
-| `server.mjs` | Local static server and private Gemini proxy; loads `.env` |
-| `.env.example` | Safe configuration template; real key belongs only in ignored `.env` |
+| `server.mjs` | Local static server and visitor-key Gemini proxy; `.env` supplies optional port only |
+| `.env.example` | Optional local port template; Gemini keys are entered only in the UI |
 | `server.test.mjs` | Server routing, private credentials, error and access checks |
 | `runtime-config.json` | Public hosted API origin; never contains a credential |
-| `api-routing.test.mjs` | Hosted API routing and local `.env` priority checks |
+| `api-routing.test.mjs` | Hosted/local visitor-key routing, clearing and legacy-backend rejection |
 | `rag-core.js` | BM25 retrieval, evidence selection, Gemini prompts and citation validation |
 | `office-export.js` | Browser-generated Word reports and Excel workbooks |
 | `export.test.mjs` | Office package, data, escaping and credential-exclusion checks |
