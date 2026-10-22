@@ -77,6 +77,14 @@ Retrieval combines reviewed company materials with recent collected official new
 2. Review collection timestamps and any failed-source notes to understand how current the published news and pricing data are.
 3. Current news collection and Gemini Search citations appear alongside their related updates or answers; use those links and the library links to check claims against their original context.
 
+### 7. Export a report or workbook
+
+1. Select **Export data** in the dashboard header.
+2. Choose **Word report (.docx)** for a formatted research summary or **Excel workbook (.xlsx)** for separate, filterable data sheets.
+3. The Word report includes the research overview, company comparisons, model pricing, available stock summary, insights, published news and cited sources. The workbook includes those data categories plus stock measures and dated price history.
+
+Exports are generated in the browser from the currently loaded published snapshot and include any current company or stock comparison. Values that are unavailable stay blank or are identified as unavailable. Financial, pricing and market-data caveats remain part of the exported material; exports do not independently verify research claims.
+
 ## Data, definitions and research limitations
 
 ### Financial comparison
@@ -165,6 +173,8 @@ The test suites use mocked upstream requests. The configured local key and hoste
 | `runtime-config.json` | Public hosted API origin; never contains a credential |
 | `api-routing.test.mjs` | Hosted API routing and local `.env` priority checks |
 | `rag-core.js` | BM25 retrieval, evidence selection, Gemini prompts and citation validation |
+| `office-export.js` | Browser-generated Word reports and Excel workbooks |
+| `export.test.mjs` | Office package, data, escaping and credential-exclusion checks |
 | `collector.mjs` | Official news and API-pricing collection and parsing |
 | `scripts/refresh-data.mjs` | Runs collection and writes `docs/data/updates.json` |
 | `build.mjs` | Builds the static GitHub Pages site and JSON data under `docs/` |

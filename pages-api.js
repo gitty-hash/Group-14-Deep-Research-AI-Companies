@@ -81,7 +81,7 @@
     }
   }
 
-  function exportData(){if(!data)return;const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download='group-14-four-company-ai-research.json';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000);}
+  function exportData(format='xlsx',context={}){if(!root.DashboardExport)throw new Error('Export tools could not load. Reload the dashboard and try again.');return root.DashboardExport.download(format,data,context);}
 
   async function compareCompany(body){
     const company=String(body.company||'').trim().replace(/\s+/g,' ').slice(0,120);

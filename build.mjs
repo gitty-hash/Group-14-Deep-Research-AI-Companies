@@ -6,11 +6,10 @@ let html=readFileSync('template.html','utf8');
 function replace(before,after){if(!html.includes(before))throw new Error('Template replacement not found: '+before.slice(0,80));html=html.replace(before,after);}
 replace('const PRELOADED_STOCK_REPORT=null;','const PRELOADED_STOCK_REPORT='+JSON.stringify(stockSnapshot)+';');
 const assetVersion=path=>createHash('sha256').update(readFileSync(path)).digest('hex').slice(0,12);
-replace('<script>',`<script src="./rag-core.js?v=${assetVersion('rag-core.js')}"></script>\n<script src="./pages-api.js?v=${assetVersion('pages-api.js')}"></script>\n<script>`);
+replace('<script>',`<script src="./office-export.js?v=${assetVersion('office-export.js')}"></script>\n<script src="./rag-core.js?v=${assetVersion('rag-core.js')}"></script>\n<script src="./pages-api.js?v=${assetVersion('pages-api.js')}"></script>\n<script>`);
 replace('const PUBLIC_EDITION=false','const PUBLIC_EDITION=true');
 replace("const r=await fetch('/api/refresh',{method:'POST'}),d=await r.json();if(!r.ok)throw new Error(d.error||'Source check failed');", "const d=await PagesAPI.refresh();");
 replace("$('#verified').textContent=ok+'/'+d.logs.length+' checks succeeded';if(!silent)toast('Source check complete: '+ok+' of '+d.logs.length+' checks succeeded. See Sources for details.');", "$('#verified').textContent='Published '+d.checkedAt.slice(0,10);if(!silent)toast('Loaded published snapshot '+d.checkedAt.slice(0,10)+'. '+ok+' of '+d.logs.length+' source checks succeeded at collection.');");
-replace("$('#refresh').onclick=()=>refresh();$('#export').onclick=()=>{location.href='/api/export'};", "$('#refresh').onclick=()=>refresh();$('#export').onclick=()=>PagesAPI.exportData();");
 replace("fetch('/api/data').then(r=>{if(!r.ok)throw new Error('Research data could not load');return r.json()})", "PagesAPI.load()");
 replace('↻ &nbsp;Check sources','↻ &nbsp;Reload published data');
 replace('Check official news and pricing sources','Reload published data; collection runs through GitHub Actions');
@@ -21,6 +20,6 @@ replace('No source collection has run yet. Use Check sources.','No published upd
 replace('<div id="content"><p class="empty">Loading reviewed research…</p></div>', '<p class="note" style="margin-bottom:18px"><b>Research workspace:</b> compare four companies using the same parameters. Financials use FY2025 annual results, including attributed private-company reporting. Gemini research is available through the dashboard service. News reflects the published snapshot; Stock Performance uses Gemini with Google Search.</p><div id="content"><p class="empty">Loading reviewed research…</p></div>');
 mkdirSync('docs/data',{recursive:true});
 copyFileSync('runtime-config.json','docs/data/runtime-config.json');
-writeFileSync('docs/index.html',html);copyFileSync('pages-api.js','docs/pages-api.js');copyFileSync('rag-core.js','docs/rag-core.js');
+writeFileSync('docs/index.html',html);copyFileSync('pages-api.js','docs/pages-api.js');copyFileSync('rag-core.js','docs/rag-core.js');copyFileSync('office-export.js','docs/office-export.js');
 writeFileSync('docs/data/research.json',JSON.stringify(seed,null,2)+'\n');writeFileSync('docs/data/stock-snapshot.json',JSON.stringify(stockSnapshot,null,2)+'\n');writeFileSync('docs/.nojekyll','');
 console.log('Built four-company GitHub Pages site in docs/');
