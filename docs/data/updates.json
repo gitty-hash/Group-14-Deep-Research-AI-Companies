@@ -1,6 +1,41 @@
 {
-  "checkedAt": "2026-10-26T20:21:34.751Z",
+  "checkedAt": "2026-10-27T19:55:35.608Z",
   "news": [
+    {
+      "company": "Google",
+      "title": "8 examples of Gemini 4 Argon in action",
+      "url": "https://blog.google/products-and-platforms/products/gemini/gemini-4-argon-in-action/",
+      "date": "2026-10-27T15:00:00.000Z",
+      "publisher": "blog.google"
+    },
+    {
+      "company": "OpenAI",
+      "title": "OpenAI expands partnership with Oracle to bring its apps to ChatGPT",
+      "url": "https://openai.com/index/oracle-apps-in-chatgpt",
+      "date": "2026-10-27T07:00:00.000Z",
+      "publisher": "openai.com"
+    },
+    {
+      "company": "OpenAI",
+      "title": "How Check Point accelerates vulnerability research with Daybreak",
+      "url": "https://openai.com/index/check-point-daybreak",
+      "date": "2026-10-27T00:00:00.000Z",
+      "publisher": "openai.com"
+    },
+    {
+      "company": "OpenAI",
+      "title": "Greptile takes bug detection beyond code review with GPT-6 Astra",
+      "url": "https://openai.com/index/greptile-code-review-codex-astra",
+      "date": "2026-10-26T22:00:00.000Z",
+      "publisher": "openai.com"
+    },
+    {
+      "company": "Google",
+      "title": "15 college students share their favorite Gemini features",
+      "url": "https://blog.google/products-and-platforms/products/gemini/college-student-favorite-features/",
+      "date": "2026-10-26T16:00:00.000Z",
+      "publisher": "blog.google"
+    },
     {
       "company": "Google",
       "title": "Our newest AI Quest: Mapping the human brain",
@@ -9,11 +44,18 @@
       "publisher": "blog.google"
     },
     {
-      "company": "Google",
-      "title": "15 college students share their favorite Gemini features",
-      "url": "https://blog.google/products-and-platforms/products/gemini/college-student-favorite-features/",
-      "date": "2026-10-26T16:00:00.000Z",
-      "publisher": "blog.google"
+      "company": "OpenAI",
+      "title": "Working with academic communities to build scientific understanding",
+      "url": "https://openai.com/index/building-scientific-understanding-with-academic-communities",
+      "date": "2026-10-26T14:30:00.000Z",
+      "publisher": "openai.com"
+    },
+    {
+      "company": "OpenAI",
+      "title": "GPT-6.1 Sol helps CodeRabbit strengthen security across complex codebases",
+      "url": "https://openai.com/index/gpt-6-1-sol-coderabbit-code-security",
+      "date": "2026-10-26T13:45:00.000Z",
+      "publisher": "openai.com"
     },
     {
       "company": "OpenAI",
@@ -37,25 +79,11 @@
       "publisher": "openai.com"
     },
     {
-      "company": "OpenAI",
-      "title": "Introducing GPT-6.1 Terra",
-      "url": "https://openai.com/index/introducing-gpt-6-1-terra",
-      "date": "2026-10-26T00:00:00.000Z",
-      "publisher": "openai.com"
-    },
-    {
       "company": "Anthropic",
-      "title": "Anthropic files S-1 with the SEC for proposed initial public offering",
-      "url": "https://www.anthropic.com/news/s1-sec",
+      "title": "Expanding the Cyber Verification Program",
+      "url": "https://www.anthropic.com/news/cyber-verification-program",
       "date": "2026-10-26T00:00:00.000Z",
       "publisher": "www.anthropic.com"
-    },
-    {
-      "company": "OpenAI",
-      "title": "Rapidly scaling online storage to serve over 1 billion ChatGPT users (Part II)",
-      "url": "https://openai.com/index/scaling-storage-one-billion-users-part-two",
-      "date": "2026-10-23T17:00:00.000Z",
-      "publisher": "openai.com"
     },
     {
       "company": "Google",
@@ -63,27 +91,6 @@
       "url": "https://blog.google/products-and-platforms/products/gemini/gemini-4-argon-builders/",
       "date": "2026-10-23T16:00:00.000Z",
       "publisher": "blog.google"
-    },
-    {
-      "company": "OpenAI",
-      "title": "Securing our frontier model training environment",
-      "url": "https://openai.com/index/securing-our-frontier-model-training-environment",
-      "date": "2026-10-23T10:00:00.000Z",
-      "publisher": "openai.com"
-    },
-    {
-      "company": "OpenAI",
-      "title": "OpenAI and Poland’s NASK partner to advance AI safety and security",
-      "url": "https://openai.com/index/openai-nask-ai-safety-security-partnership",
-      "date": "2026-10-23T00:00:00.000Z",
-      "publisher": "openai.com"
-    },
-    {
-      "company": "OpenAI",
-      "title": "Build more responsive apps with the Decisions API",
-      "url": "https://openai.com/index/decisions-api",
-      "date": "2026-10-22T19:00:00.000Z",
-      "publisher": "openai.com"
     },
     {
       "company": "Anthropic",
@@ -125,20 +132,6 @@
       "title": "New Gemini tools for small business owners",
       "url": "https://blog.google/innovation-and-ai/products/gemini-app/new-tools-small-business-owners/",
       "date": "2026-10-20T16:00:00.000Z",
-      "publisher": "blog.google"
-    },
-    {
-      "company": "Google",
-      "title": "How to shape your slides and videos with Gemini Notebook",
-      "url": "https://blog.google/innovation-and-ai/products/gemini-notebook/co-create-slides-videos/",
-      "date": "2026-10-19T17:00:00.000Z",
-      "publisher": "blog.google"
-    },
-    {
-      "company": "Google",
-      "title": "4 tips for styling outfits with Gemini",
-      "url": "https://blog.google/products-and-platforms/products/gemini/stylist-outfit-tips-gemini/",
-      "date": "2026-10-19T16:00:00.000Z",
       "publisher": "blog.google"
     },
     {
@@ -193,11 +186,6 @@
   ],
   "prices": [
     {
-      "id": "gpt-6-luna",
-      "input": 0.1,
-      "output": 0.5
-    },
-    {
       "id": "gpt-6-astra",
       "input": 10,
       "output": 50
@@ -223,14 +211,9 @@
       "output": 10
     },
     {
-      "id": "muse-wonder-1.0",
-      "input": 4,
-      "output": 20
-    },
-    {
-      "id": "muse-spark-1.3",
-      "input": 1.25,
-      "output": 4.25
+      "id": "gpt-6-luna",
+      "input": 0.1,
+      "output": 0.5
     },
     {
       "id": "claude-fable-5-1",
@@ -251,6 +234,16 @@
       "id": "claude-haiku-5-5",
       "input": 0.1,
       "output": 0.5
+    },
+    {
+      "id": "muse-wonder-1.0",
+      "input": 4,
+      "output": 20
+    },
+    {
+      "id": "muse-spark-1.3",
+      "input": 1.25,
+      "output": 4.25
     }
   ],
   "logs": [
@@ -260,79 +253,79 @@
       "status": "ok",
       "items": 3,
       "hash": "7bb899c84675fa7adc68e682d6858956752aef04226b64bbc1b0a51f724dd6ab",
-      "checkedAt": "2026-10-26T20:21:34.751Z"
+      "checkedAt": "2026-10-27T19:55:35.608Z"
     },
     {
       "company": "OpenAI",
       "source": "https://openai.com/news/rss.xml",
       "status": "ok",
       "items": 8,
-      "hash": "a5ed6ba2cebce627d2844d55539a987cc31b9330b4c64ab3c917db4cf1f62e54",
-      "checkedAt": "2026-10-26T20:21:34.751Z"
+      "hash": "e1b5e7bebf53a1aa28cc55f35c8dd280206d49f3fbdb818058c009465042c4af",
+      "checkedAt": "2026-10-27T19:55:35.608Z"
+    },
+    {
+      "company": "Google",
+      "source": "https://blog.google/rss/",
+      "status": "ok",
+      "items": 7,
+      "hash": "c4222d3d97e105510da27b331f0ea55c99920cc1d6cbdc70357b09457c26ed06",
+      "checkedAt": "2026-10-27T19:55:35.608Z"
     },
     {
       "company": "Anthropic",
       "source": "https://www.anthropic.com/news",
       "status": "ok",
       "items": 8,
-      "hash": "c2d4a043a39f6f47af79cc4a71ed5433ddd614629d256dfa68f4b48000f92435",
-      "checkedAt": "2026-10-26T20:21:34.751Z"
-    },
-    {
-      "company": "Google",
-      "source": "https://blog.google/rss/",
-      "status": "ok",
-      "items": 8,
-      "hash": "5f5d7b3290bc210155a76a2ef1603247b789c701071b592baee010c478bfcd20",
-      "checkedAt": "2026-10-26T20:21:34.751Z"
-    },
-    {
-      "company": "OpenAI",
-      "source": "https://developers.openai.com/api/docs/models/gpt-6-luna",
-      "status": "ok",
-      "items": 1,
-      "hash": "023fa706c730aaaaa50cb0c232ccd99aa2535e4faeb5f535b4bf0b867ca6653e",
-      "checkedAt": "2026-10-26T20:21:34.751Z"
+      "hash": "ef4e906961c5cfc44547e5e22a9d63440b649836eeb397ec9d73df7f1cb03a27",
+      "checkedAt": "2026-10-27T19:55:35.608Z"
     },
     {
       "company": "OpenAI",
       "source": "https://developers.openai.com/api/docs/models/gpt-6-astra",
       "status": "ok",
       "items": 1,
-      "hash": "5c5f45440ca3f5fe337354f7a08f09cea6a2c7ca656e7703fc3e5e08ad93bb8d",
-      "checkedAt": "2026-10-26T20:21:34.751Z"
+      "hash": "ae1ffd0354b9fea78973878af3ce4bddde873ca132c1118f398b4b46ae8f9d16",
+      "checkedAt": "2026-10-27T19:55:35.608Z"
     },
     {
       "company": "Google",
       "source": "https://ai.google.dev/gemini-api/docs/pricing",
       "status": "ok",
       "items": 3,
-      "hash": "a27de0f47b578a9353b6b2bd3e0e329455924c15c2621dc775c05dc9e9056955",
-      "checkedAt": "2026-10-26T20:21:34.751Z"
+      "hash": "a8af87af812372893fbf48b87ee32231280fafdfcc8dca0106a5d26463a4168f",
+      "checkedAt": "2026-10-27T19:55:35.608Z"
     },
     {
       "company": "OpenAI",
       "source": "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
       "status": "ok",
       "items": 1,
-      "hash": "e3d041b85b18110ce511141a2db883075e4e1bb8ed83171145728f5f9cb5f88e",
-      "checkedAt": "2026-10-26T20:21:34.751Z"
+      "hash": "01fe746e46a386ac1cbd90b8da73920b2d95c357f4ab613ff6ee69533f8bddbd",
+      "checkedAt": "2026-10-27T19:55:35.608Z"
     },
     {
-      "company": "Meta",
-      "source": "https://dev.meta.ai/docs/pricing-rate-limits",
+      "company": "OpenAI",
+      "source": "https://developers.openai.com/api/docs/models/gpt-6-luna",
       "status": "ok",
-      "items": 2,
-      "hash": "055652b665f1380045929253b921085aa8a207d8975e236adaafd3c222b071d4",
-      "checkedAt": "2026-10-26T20:21:34.751Z"
+      "items": 1,
+      "hash": "8331819f50464b87f7016bffc969f7396dce3ae6619dda671d5d02f711535891",
+      "checkedAt": "2026-10-27T19:55:35.608Z"
     },
     {
       "company": "Anthropic",
       "source": "https://platform.claude.com/docs/en/about-claude/pricing",
       "status": "ok",
       "items": 4,
-      "hash": "883228d92d6420e26af73186e20df02f4b41b15b4119b42f7242283392e61274",
-      "checkedAt": "2026-10-26T20:21:34.751Z"
+      "hash": "6926699df36cd38349c0eb92f2790081c6c28839ca3a3b4cf824dad19f5db88a",
+      "checkedAt": "2026-10-27T19:55:35.608Z"
+    },
+    {
+      "company": "Meta",
+      "source": "https://dev.meta.ai/docs/pricing-rate-limits",
+      "status": "ok",
+      "items": 2,
+      "hash": "2db8a129aafafd98754dcca6bab03193c9eee1e786e4f90238fe8dd170e81d4e",
+      "checkedAt": "2026-10-27T19:55:35.608Z"
     }
   ],
   "persistent": false,
