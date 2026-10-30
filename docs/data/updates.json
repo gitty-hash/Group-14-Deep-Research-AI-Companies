@@ -1,6 +1,20 @@
 {
-  "checkedAt": "2026-10-29T20:06:28.412Z",
+  "checkedAt": "2026-10-30T19:52:45.252Z",
   "news": [
+    {
+      "company": "OpenAI",
+      "title": "Making it easier for websites to express AI training preferences",
+      "url": "https://openai.com/index/helping-websites-express-ai-training-preferences",
+      "date": "2026-10-30T09:30:00.000Z",
+      "publisher": "openai.com"
+    },
+    {
+      "company": "OpenAI",
+      "title": "Community safety report and new protections for teens",
+      "url": "https://openai.com/index/community-safety-report-and-new-protections-for-teens",
+      "date": "2026-10-30T09:00:00.000Z",
+      "publisher": "openai.com"
+    },
     {
       "company": "OpenAI",
       "title": "An updated Model Spec for more capable and beneficial AI",
@@ -65,6 +79,13 @@
       "publisher": "blog.google"
     },
     {
+      "company": "OpenAI",
+      "title": "Credit Saison achieves 954% ROI in a ChatGPT Enterprise pilot",
+      "url": "https://openai.com/index/credit-saison",
+      "date": "2026-10-29T00:00:00.000Z",
+      "publisher": "openai.com"
+    },
+    {
       "company": "Google",
       "title": "Ads in AI Mode expand to new markets.",
       "url": "https://blog.google/products/ads-commerce/ads-in-ai-mode-global/",
@@ -93,13 +114,6 @@
       "publisher": "openai.com"
     },
     {
-      "company": "OpenAI",
-      "title": "Legora is building the agentic operating system for legal work",
-      "url": "https://openai.com/index/legora",
-      "date": "2026-10-28T09:30:00.000Z",
-      "publisher": "openai.com"
-    },
-    {
       "company": "Meta",
       "title": "Muse Is Now Available in Singapore: The World’s First Personal AI Agent Built for Everyone",
       "url": "https://about.fb.com/news/2026/10/muse-is-now-available-in-singapore-the-worlds-first-personal-ai-agent-built-for-everyone/",
@@ -112,20 +126,6 @@
       "url": "https://www.anthropic.com/news/ai-for-science-expands-foundations-research-institutions",
       "date": "2026-10-28T00:00:00.000Z",
       "publisher": "www.anthropic.com"
-    },
-    {
-      "company": "OpenAI",
-      "title": "Retell uses OpenAI models to help power 100M monthly calls",
-      "url": "https://openai.com/index/retell-ai",
-      "date": "2026-10-27T15:00:00.000Z",
-      "publisher": "openai.com"
-    },
-    {
-      "company": "OpenAI",
-      "title": "OpenAI expands partnership with Oracle to bring its apps to ChatGPT",
-      "url": "https://openai.com/index/oracle-apps-in-chatgpt",
-      "date": "2026-10-27T07:00:00.000Z",
-      "publisher": "openai.com"
     },
     {
       "company": "Anthropic",
@@ -193,16 +193,6 @@
   ],
   "prices": [
     {
-      "id": "gpt-6.1-sol",
-      "input": 2,
-      "output": 10
-    },
-    {
-      "id": "gpt-6-astra",
-      "input": 10,
-      "output": 50
-    },
-    {
       "id": "gemini-4-argon",
       "input": 2,
       "output": 10
@@ -218,9 +208,9 @@
       "output": 2.5
     },
     {
-      "id": "gpt-6-luna",
-      "input": 0.1,
-      "output": 0.5
+      "id": "gpt-6.1-sol",
+      "input": 2,
+      "output": 10
     },
     {
       "id": "muse-wonder-1.0",
@@ -231,6 +221,16 @@
       "id": "muse-spark-1.3",
       "input": 1.25,
       "output": 4.25
+    },
+    {
+      "id": "gpt-6-luna",
+      "input": 0.1,
+      "output": 0.5
+    },
+    {
+      "id": "gpt-6-astra",
+      "input": 10,
+      "output": 50
     },
     {
       "id": "claude-fable-5-1",
@@ -255,84 +255,84 @@
   ],
   "logs": [
     {
-      "company": "Meta",
-      "source": "https://about.fb.com/feed/",
-      "status": "ok",
-      "items": 3,
-      "hash": "290fa1adb80e5e7d633ff753dedfe4ad3ca15323831d015930787aafd871c27c",
-      "checkedAt": "2026-10-29T20:06:28.412Z"
-    },
-    {
       "company": "OpenAI",
       "source": "https://openai.com/news/rss.xml",
       "status": "ok",
       "items": 8,
-      "hash": "81b22c812123d3e3fd7987e5668242487c343a0807b80a45a11d07d04635fbc6",
-      "checkedAt": "2026-10-29T20:06:28.412Z"
+      "hash": "61235e3d4e30e207730d8958bc0ac563305844bcdd5c55d5b6f8b86295201055",
+      "checkedAt": "2026-10-30T19:52:45.252Z"
+    },
+    {
+      "company": "Meta",
+      "source": "https://about.fb.com/feed/",
+      "status": "ok",
+      "items": 3,
+      "hash": "313060311b09c0a880a107f641950b7dfe77a4cc19ec08cdfa09847b24601950",
+      "checkedAt": "2026-10-30T19:52:45.252Z"
     },
     {
       "company": "Anthropic",
       "source": "https://www.anthropic.com/news",
       "status": "ok",
       "items": 8,
-      "hash": "e6a1065ccd788dedd1dd0b7bc5ead3aa23c175e91287d61eab9f9273ac7f84f1",
-      "checkedAt": "2026-10-29T20:06:28.412Z"
+      "hash": "8938d217336aa58a2af283c1565d53b08d184a9d8ee2871f91a7d3bcb87857e6",
+      "checkedAt": "2026-10-30T19:52:45.252Z"
     },
     {
       "company": "Google",
       "source": "https://blog.google/rss/",
       "status": "ok",
       "items": 8,
-      "hash": "ca5c9680651122a10fd7e367e37dc8ec34976214070776d897b057f5b685d65e",
-      "checkedAt": "2026-10-29T20:06:28.412Z"
-    },
-    {
-      "company": "OpenAI",
-      "source": "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
-      "status": "ok",
-      "items": 1,
-      "hash": "7b699ef19fe6972d4b305d490c9bfa804c732cb6bd292a8da6648351201d9554",
-      "checkedAt": "2026-10-29T20:06:28.412Z"
-    },
-    {
-      "company": "OpenAI",
-      "source": "https://developers.openai.com/api/docs/models/gpt-6-astra",
-      "status": "ok",
-      "items": 1,
-      "hash": "8f8ad3b984afecc0b12fe30ba2d1a5be4dadd28908401323c0ce1f06409db8ff",
-      "checkedAt": "2026-10-29T20:06:28.412Z"
+      "hash": "6f810a800f5a9061a3dbc66a24efe2a855d94e09fe82fb99cfb9a80952a67a37",
+      "checkedAt": "2026-10-30T19:52:45.252Z"
     },
     {
       "company": "Google",
       "source": "https://ai.google.dev/gemini-api/docs/pricing",
       "status": "ok",
       "items": 3,
-      "hash": "336b285a4548afe70f0b7bd9c53922a48ed84ec6f1ca85c21db19437f8c27616",
-      "checkedAt": "2026-10-29T20:06:28.412Z"
+      "hash": "fa3ab1e11d76549a9a5696199609b39bc6187c08fbe58546bfb8ad5860e74908",
+      "checkedAt": "2026-10-30T19:52:45.252Z"
     },
     {
       "company": "OpenAI",
-      "source": "https://developers.openai.com/api/docs/models/gpt-6-luna",
+      "source": "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
       "status": "ok",
       "items": 1,
-      "hash": "12879f437274c161de7909eba334629030887661589fca1bab19e6584fde8b53",
-      "checkedAt": "2026-10-29T20:06:28.412Z"
+      "hash": "4bb0e18c5e5194de190ec2da251ec1e20c9f57a1d5b2b659501c7eb80fb6dff5",
+      "checkedAt": "2026-10-30T19:52:45.252Z"
     },
     {
       "company": "Meta",
       "source": "https://dev.meta.ai/docs/pricing-rate-limits",
       "status": "ok",
       "items": 2,
-      "hash": "d1ff0686bd4798195ee8102f4082e977b39c948c7ac42fb4869a503324233e97",
-      "checkedAt": "2026-10-29T20:06:28.412Z"
+      "hash": "8e55398c3b404fbd4ab4b11b59a0c2d4cf1628682b882e96680ef6acd542b5e9",
+      "checkedAt": "2026-10-30T19:52:45.252Z"
+    },
+    {
+      "company": "OpenAI",
+      "source": "https://developers.openai.com/api/docs/models/gpt-6-luna",
+      "status": "ok",
+      "items": 1,
+      "hash": "307ec9533c5efc4042de08cd309b6cc688e57b33786278728c135c6cba5d87bc",
+      "checkedAt": "2026-10-30T19:52:45.252Z"
+    },
+    {
+      "company": "OpenAI",
+      "source": "https://developers.openai.com/api/docs/models/gpt-6-astra",
+      "status": "ok",
+      "items": 1,
+      "hash": "d8e4fa55c4e057ea4934e76d7414e60780a1aaeb95f8492c89d34bc790bb956c",
+      "checkedAt": "2026-10-30T19:52:45.252Z"
     },
     {
       "company": "Anthropic",
       "source": "https://platform.claude.com/docs/en/about-claude/pricing",
       "status": "ok",
       "items": 4,
-      "hash": "4d5abb36f1f32723adaa9a81e07bdd9f75203e41aff0da5213d1957698cff3a4",
-      "checkedAt": "2026-10-29T20:06:28.412Z"
+      "hash": "a480992228cfcf3ac73905e0111d12dd9d89e34e088006f32ba17ff0d4ff76b3",
+      "checkedAt": "2026-10-30T19:52:45.252Z"
     }
   ],
   "persistent": false,
