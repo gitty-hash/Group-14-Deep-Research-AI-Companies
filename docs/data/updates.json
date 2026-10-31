@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-30T19:52:45.252Z",
+  "checkedAt": "2026-10-31T19:10:04.616Z",
   "news": [
     {
       "company": "OpenAI",
@@ -13,6 +13,13 @@
       "title": "Community safety report and new protections for teens",
       "url": "https://openai.com/index/community-safety-report-and-new-protections-for-teens",
       "date": "2026-10-30T09:00:00.000Z",
+      "publisher": "openai.com"
+    },
+    {
+      "company": "OpenAI",
+      "title": "Fair use benefits everyone",
+      "url": "https://openai.com/index/fair-use-benefits-everyone",
+      "date": "2026-10-30T00:00:00.000Z",
       "publisher": "openai.com"
     },
     {
@@ -107,13 +114,6 @@
       "publisher": "openai.com"
     },
     {
-      "company": "OpenAI",
-      "title": "The future of the firm",
-      "url": "https://openai.com/index/the-future-of-the-firm",
-      "date": "2026-10-28T10:00:00.000Z",
-      "publisher": "openai.com"
-    },
-    {
       "company": "Meta",
       "title": "Muse Is Now Available in Singapore: The World’s First Personal AI Agent Built for Everyone",
       "url": "https://about.fb.com/news/2026/10/muse-is-now-available-in-singapore-the-worlds-first-personal-ai-agent-built-for-everyone/",
@@ -193,24 +193,19 @@
   ],
   "prices": [
     {
-      "id": "gemini-4-argon",
-      "input": 2,
-      "output": 10
-    },
-    {
-      "id": "gemini-3.8-flash",
-      "input": 0.75,
-      "output": 3.75
-    },
-    {
-      "id": "gemini-3.5-flash-lite",
-      "input": 0.3,
-      "output": 2.5
+      "id": "gpt-6-astra",
+      "input": 10,
+      "output": 50
     },
     {
       "id": "gpt-6.1-sol",
       "input": 2,
       "output": 10
+    },
+    {
+      "id": "gpt-6-luna",
+      "input": 0.1,
+      "output": 0.5
     },
     {
       "id": "muse-wonder-1.0",
@@ -221,16 +216,6 @@
       "id": "muse-spark-1.3",
       "input": 1.25,
       "output": 4.25
-    },
-    {
-      "id": "gpt-6-luna",
-      "input": 0.1,
-      "output": 0.5
-    },
-    {
-      "id": "gpt-6-astra",
-      "input": 10,
-      "output": 50
     },
     {
       "id": "claude-fable-5-1",
@@ -251,88 +236,103 @@
       "id": "claude-haiku-5-5",
       "input": 0.1,
       "output": 0.5
+    },
+    {
+      "id": "gemini-4-argon",
+      "input": 2,
+      "output": 10
+    },
+    {
+      "id": "gemini-3.8-flash",
+      "input": 0.75,
+      "output": 3.75
+    },
+    {
+      "id": "gemini-3.5-flash-lite",
+      "input": 0.3,
+      "output": 2.5
     }
   ],
   "logs": [
-    {
-      "company": "OpenAI",
-      "source": "https://openai.com/news/rss.xml",
-      "status": "ok",
-      "items": 8,
-      "hash": "61235e3d4e30e207730d8958bc0ac563305844bcdd5c55d5b6f8b86295201055",
-      "checkedAt": "2026-10-30T19:52:45.252Z"
-    },
     {
       "company": "Meta",
       "source": "https://about.fb.com/feed/",
       "status": "ok",
       "items": 3,
       "hash": "313060311b09c0a880a107f641950b7dfe77a4cc19ec08cdfa09847b24601950",
-      "checkedAt": "2026-10-30T19:52:45.252Z"
+      "checkedAt": "2026-10-31T19:10:04.616Z"
+    },
+    {
+      "company": "OpenAI",
+      "source": "https://openai.com/news/rss.xml",
+      "status": "ok",
+      "items": 8,
+      "hash": "ed53978fe070e760ec8bd7cab611da09a8177ec3cfcce058b460221642623aa0",
+      "checkedAt": "2026-10-31T19:10:04.616Z"
     },
     {
       "company": "Anthropic",
       "source": "https://www.anthropic.com/news",
       "status": "ok",
       "items": 8,
-      "hash": "8938d217336aa58a2af283c1565d53b08d184a9d8ee2871f91a7d3bcb87857e6",
-      "checkedAt": "2026-10-30T19:52:45.252Z"
+      "hash": "b236fea4e80b3a068269567cc418b85679bbd973337a3c61eb09abaa0479ea82",
+      "checkedAt": "2026-10-31T19:10:04.616Z"
     },
     {
       "company": "Google",
       "source": "https://blog.google/rss/",
       "status": "ok",
       "items": 8,
-      "hash": "6f810a800f5a9061a3dbc66a24efe2a855d94e09fe82fb99cfb9a80952a67a37",
-      "checkedAt": "2026-10-30T19:52:45.252Z"
-    },
-    {
-      "company": "Google",
-      "source": "https://ai.google.dev/gemini-api/docs/pricing",
-      "status": "ok",
-      "items": 3,
-      "hash": "fa3ab1e11d76549a9a5696199609b39bc6187c08fbe58546bfb8ad5860e74908",
-      "checkedAt": "2026-10-30T19:52:45.252Z"
-    },
-    {
-      "company": "OpenAI",
-      "source": "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
-      "status": "ok",
-      "items": 1,
-      "hash": "4bb0e18c5e5194de190ec2da251ec1e20c9f57a1d5b2b659501c7eb80fb6dff5",
-      "checkedAt": "2026-10-30T19:52:45.252Z"
-    },
-    {
-      "company": "Meta",
-      "source": "https://dev.meta.ai/docs/pricing-rate-limits",
-      "status": "ok",
-      "items": 2,
-      "hash": "8e55398c3b404fbd4ab4b11b59a0c2d4cf1628682b882e96680ef6acd542b5e9",
-      "checkedAt": "2026-10-30T19:52:45.252Z"
-    },
-    {
-      "company": "OpenAI",
-      "source": "https://developers.openai.com/api/docs/models/gpt-6-luna",
-      "status": "ok",
-      "items": 1,
-      "hash": "307ec9533c5efc4042de08cd309b6cc688e57b33786278728c135c6cba5d87bc",
-      "checkedAt": "2026-10-30T19:52:45.252Z"
+      "hash": "396c9cd8a8ff54ed52fd50e69675f824f1772b550bab6a8d3c0b6f664cb50e89",
+      "checkedAt": "2026-10-31T19:10:04.616Z"
     },
     {
       "company": "OpenAI",
       "source": "https://developers.openai.com/api/docs/models/gpt-6-astra",
       "status": "ok",
       "items": 1,
-      "hash": "d8e4fa55c4e057ea4934e76d7414e60780a1aaeb95f8492c89d34bc790bb956c",
-      "checkedAt": "2026-10-30T19:52:45.252Z"
+      "hash": "509cdddf189a00498f8fa3cbde6c6989f87727b63668c04285ad429b4f8dcf9c",
+      "checkedAt": "2026-10-31T19:10:04.616Z"
+    },
+    {
+      "company": "OpenAI",
+      "source": "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
+      "status": "ok",
+      "items": 1,
+      "hash": "02a18391dd2d0efac0553c1a41167d085e4778359c476e0ed590f6704696c4f1",
+      "checkedAt": "2026-10-31T19:10:04.616Z"
+    },
+    {
+      "company": "OpenAI",
+      "source": "https://developers.openai.com/api/docs/models/gpt-6-luna",
+      "status": "ok",
+      "items": 1,
+      "hash": "beca2830f478df9f5898b2518cc9d61fe1ae713bf280a1503ec6d7fda6ae4a6e",
+      "checkedAt": "2026-10-31T19:10:04.616Z"
+    },
+    {
+      "company": "Meta",
+      "source": "https://dev.meta.ai/docs/pricing-rate-limits",
+      "status": "ok",
+      "items": 2,
+      "hash": "e51205e075daa1787085aaa7fbdee5eeefc3ea3b237cd52da9aca22a30e94521",
+      "checkedAt": "2026-10-31T19:10:04.616Z"
     },
     {
       "company": "Anthropic",
       "source": "https://platform.claude.com/docs/en/about-claude/pricing",
       "status": "ok",
       "items": 4,
-      "hash": "a480992228cfcf3ac73905e0111d12dd9d89e34e088006f32ba17ff0d4ff76b3",
-      "checkedAt": "2026-10-30T19:52:45.252Z"
+      "hash": "9f6e7f1b238d5e2cfb0ee3d4e4e1be2261824d45fa0837be79e907e3d176dbed",
+      "checkedAt": "2026-10-31T19:10:04.616Z"
+    },
+    {
+      "company": "Google",
+      "source": "https://ai.google.dev/gemini-api/docs/pricing",
+      "status": "ok",
+      "items": 3,
+      "hash": "9c117b74abd17d3b42d2a8354cbe1d6b4e2aadaee5cf57542c37950c1e3a778b",
+      "checkedAt": "2026-10-31T19:10:04.616Z"
     }
   ],
   "persistent": false,
