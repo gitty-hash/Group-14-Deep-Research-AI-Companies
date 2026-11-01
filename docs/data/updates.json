@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-31T19:10:04.616Z",
+  "checkedAt": "2026-11-01T19:25:25.075Z",
   "news": [
     {
       "company": "OpenAI",
@@ -58,18 +58,18 @@
       "publisher": "blog.google"
     },
     {
-      "company": "OpenAI",
-      "title": "How we detect frontier model misalignment",
-      "url": "https://openai.com/index/how-we-detect-frontier-model-misalignment",
-      "date": "2026-10-29T09:00:00.000Z",
-      "publisher": "openai.com"
-    },
-    {
       "company": "Google",
       "title": "How Gemini is helping students and teachers in the classroom",
       "url": "https://blog.google/products-and-platforms/products/education/impact-studies-uk-italy/",
       "date": "2026-10-29T09:00:00.000Z",
       "publisher": "blog.google"
+    },
+    {
+      "company": "OpenAI",
+      "title": "How we detect frontier model misalignment",
+      "url": "https://openai.com/index/how-we-detect-frontier-model-misalignment",
+      "date": "2026-10-29T09:00:00.000Z",
+      "publisher": "openai.com"
     },
     {
       "company": "OpenAI",
@@ -193,19 +193,19 @@
   ],
   "prices": [
     {
-      "id": "gpt-6-astra",
-      "input": 10,
-      "output": 50
-    },
-    {
-      "id": "gpt-6.1-sol",
+      "id": "gemini-4-argon",
       "input": 2,
       "output": 10
     },
     {
-      "id": "gpt-6-luna",
-      "input": 0.1,
-      "output": 0.5
+      "id": "gemini-3.8-flash",
+      "input": 0.75,
+      "output": 3.75
+    },
+    {
+      "id": "gemini-3.5-flash-lite",
+      "input": 0.3,
+      "output": 2.5
     },
     {
       "id": "muse-wonder-1.0",
@@ -216,6 +216,21 @@
       "id": "muse-spark-1.3",
       "input": 1.25,
       "output": 4.25
+    },
+    {
+      "id": "gpt-6.1-sol",
+      "input": 2,
+      "output": 10
+    },
+    {
+      "id": "gpt-6-astra",
+      "input": 10,
+      "output": 50
+    },
+    {
+      "id": "gpt-6-luna",
+      "input": 0.1,
+      "output": 0.5
     },
     {
       "id": "claude-fable-5-1",
@@ -236,103 +251,88 @@
       "id": "claude-haiku-5-5",
       "input": 0.1,
       "output": 0.5
-    },
-    {
-      "id": "gemini-4-argon",
-      "input": 2,
-      "output": 10
-    },
-    {
-      "id": "gemini-3.8-flash",
-      "input": 0.75,
-      "output": 3.75
-    },
-    {
-      "id": "gemini-3.5-flash-lite",
-      "input": 0.3,
-      "output": 2.5
     }
   ],
   "logs": [
-    {
-      "company": "Meta",
-      "source": "https://about.fb.com/feed/",
-      "status": "ok",
-      "items": 3,
-      "hash": "313060311b09c0a880a107f641950b7dfe77a4cc19ec08cdfa09847b24601950",
-      "checkedAt": "2026-10-31T19:10:04.616Z"
-    },
-    {
-      "company": "OpenAI",
-      "source": "https://openai.com/news/rss.xml",
-      "status": "ok",
-      "items": 8,
-      "hash": "ed53978fe070e760ec8bd7cab611da09a8177ec3cfcce058b460221642623aa0",
-      "checkedAt": "2026-10-31T19:10:04.616Z"
-    },
-    {
-      "company": "Anthropic",
-      "source": "https://www.anthropic.com/news",
-      "status": "ok",
-      "items": 8,
-      "hash": "b236fea4e80b3a068269567cc418b85679bbd973337a3c61eb09abaa0479ea82",
-      "checkedAt": "2026-10-31T19:10:04.616Z"
-    },
     {
       "company": "Google",
       "source": "https://blog.google/rss/",
       "status": "ok",
       "items": 8,
       "hash": "396c9cd8a8ff54ed52fd50e69675f824f1772b550bab6a8d3c0b6f664cb50e89",
-      "checkedAt": "2026-10-31T19:10:04.616Z"
+      "checkedAt": "2026-11-01T19:25:25.075Z"
     },
     {
       "company": "OpenAI",
-      "source": "https://developers.openai.com/api/docs/models/gpt-6-astra",
+      "source": "https://openai.com/news/rss.xml",
       "status": "ok",
-      "items": 1,
-      "hash": "509cdddf189a00498f8fa3cbde6c6989f87727b63668c04285ad429b4f8dcf9c",
-      "checkedAt": "2026-10-31T19:10:04.616Z"
-    },
-    {
-      "company": "OpenAI",
-      "source": "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
-      "status": "ok",
-      "items": 1,
-      "hash": "02a18391dd2d0efac0553c1a41167d085e4778359c476e0ed590f6704696c4f1",
-      "checkedAt": "2026-10-31T19:10:04.616Z"
-    },
-    {
-      "company": "OpenAI",
-      "source": "https://developers.openai.com/api/docs/models/gpt-6-luna",
-      "status": "ok",
-      "items": 1,
-      "hash": "beca2830f478df9f5898b2518cc9d61fe1ae713bf280a1503ec6d7fda6ae4a6e",
-      "checkedAt": "2026-10-31T19:10:04.616Z"
-    },
-    {
-      "company": "Meta",
-      "source": "https://dev.meta.ai/docs/pricing-rate-limits",
-      "status": "ok",
-      "items": 2,
-      "hash": "e51205e075daa1787085aaa7fbdee5eeefc3ea3b237cd52da9aca22a30e94521",
-      "checkedAt": "2026-10-31T19:10:04.616Z"
+      "items": 8,
+      "hash": "facb71c712783e6a032e4c33d73a7f0e778434dd692b5c5451cbcc5e26842d5f",
+      "checkedAt": "2026-11-01T19:25:25.075Z"
     },
     {
       "company": "Anthropic",
-      "source": "https://platform.claude.com/docs/en/about-claude/pricing",
+      "source": "https://www.anthropic.com/news",
       "status": "ok",
-      "items": 4,
-      "hash": "9f6e7f1b238d5e2cfb0ee3d4e4e1be2261824d45fa0837be79e907e3d176dbed",
-      "checkedAt": "2026-10-31T19:10:04.616Z"
+      "items": 8,
+      "hash": "f9e97c1d303106ebbb9d58cfaa29e7dc95bf9d70fadd5a9b586ee9f5d00619db",
+      "checkedAt": "2026-11-01T19:25:25.075Z"
+    },
+    {
+      "company": "Meta",
+      "source": "https://about.fb.com/feed/",
+      "status": "ok",
+      "items": 3,
+      "hash": "313060311b09c0a880a107f641950b7dfe77a4cc19ec08cdfa09847b24601950",
+      "checkedAt": "2026-11-01T19:25:25.075Z"
     },
     {
       "company": "Google",
       "source": "https://ai.google.dev/gemini-api/docs/pricing",
       "status": "ok",
       "items": 3,
-      "hash": "9c117b74abd17d3b42d2a8354cbe1d6b4e2aadaee5cf57542c37950c1e3a778b",
-      "checkedAt": "2026-10-31T19:10:04.616Z"
+      "hash": "18a09a5606ee1eae6ea8647f833204355d9ecdc76ed3c86e2030a6bd40a9be37",
+      "checkedAt": "2026-11-01T19:25:25.075Z"
+    },
+    {
+      "company": "Meta",
+      "source": "https://dev.meta.ai/docs/pricing-rate-limits",
+      "status": "ok",
+      "items": 2,
+      "hash": "8805ce2016a8d33f35c2f3e036625e4d819acf9d412ad2d01ba6258e6385ce16",
+      "checkedAt": "2026-11-01T19:25:25.075Z"
+    },
+    {
+      "company": "OpenAI",
+      "source": "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
+      "status": "ok",
+      "items": 1,
+      "hash": "b43b44ec1395f06bc8af1aa67b9cf452fa3a6cfc071e8a04901da250affaa561",
+      "checkedAt": "2026-11-01T19:25:25.075Z"
+    },
+    {
+      "company": "OpenAI",
+      "source": "https://developers.openai.com/api/docs/models/gpt-6-astra",
+      "status": "ok",
+      "items": 1,
+      "hash": "0509e97af2526cca0bc82e8679a4027406d33e3f4be6238e4ed0ecb6fc7e276b",
+      "checkedAt": "2026-11-01T19:25:25.075Z"
+    },
+    {
+      "company": "OpenAI",
+      "source": "https://developers.openai.com/api/docs/models/gpt-6-luna",
+      "status": "ok",
+      "items": 1,
+      "hash": "fb9069b2f6b48d2a3fd70e12b19f80af5eb536db6732f6a11851c342b19196f7",
+      "checkedAt": "2026-11-01T19:25:25.075Z"
+    },
+    {
+      "company": "Anthropic",
+      "source": "https://platform.claude.com/docs/en/about-claude/pricing",
+      "status": "ok",
+      "items": 4,
+      "hash": "cb8bbb30466c97b40261de3b3fd4917373be6e624f8672df47068f174021e55d",
+      "checkedAt": "2026-11-01T19:25:25.075Z"
     }
   ],
   "persistent": false,
