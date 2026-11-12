@@ -1,6 +1,62 @@
 {
-  "checkedAt": "2026-11-11T21:47:37.986Z",
+  "checkedAt": "2026-11-12T21:46:33.595Z",
   "news": [
+    {
+      "company": "OpenAI",
+      "title": "How Amplitude ships product improvements in 1–2 days with OpenAI",
+      "url": "https://openai.com/index/amplitude",
+      "date": "2026-11-12T20:00:00.000Z",
+      "publisher": "openai.com"
+    },
+    {
+      "company": "Google",
+      "title": "Google Search gets a major upgrade with Gemini 4 Hydrogen",
+      "url": "https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade/",
+      "date": "2026-11-12T18:00:00.000Z",
+      "publisher": "blog.google"
+    },
+    {
+      "company": "Google",
+      "title": "Gemini 4 Hydrogen: everyday coding and agentic workflows for developers",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-4-hydrogen/",
+      "date": "2026-11-12T18:00:00.000Z",
+      "publisher": "blog.google"
+    },
+    {
+      "company": "Google",
+      "title": "Introducing Gemini 4 Hydrogen",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
+      "date": "2026-11-12T18:00:00.000Z",
+      "publisher": "blog.google"
+    },
+    {
+      "company": "Google",
+      "title": "Scientists are using Google AI to help restore giant kelp forests.",
+      "url": "https://blog.google/company-news/outreach-and-initiatives/sustainability/saving-giant-kelp-australia/",
+      "date": "2026-11-12T17:00:00.000Z",
+      "publisher": "blog.google"
+    },
+    {
+      "company": "Google",
+      "title": "Get quick answers from Gemini on any website.",
+      "url": "https://blog.google/innovation-and-ai/products/gemini-app/research-with-gemini-in-chrome/",
+      "date": "2026-11-12T17:00:00.000Z",
+      "publisher": "blog.google"
+    },
+    {
+      "company": "OpenAI",
+      "title": "Holiday Extras is rethinking what it can build with Codex",
+      "url": "https://openai.com/business/customer-stories/holidays-extras-codex",
+      "date": "2026-11-12T09:30:00.000Z",
+      "publisher": "openai.com"
+    },
+    {
+      "company": "OpenAI",
+      "title": "Supporting research on AI and children’s safety",
+      "url": "https://openai.com/index/children-first-declaration",
+      "date": "2026-11-12T00:00:00.000Z",
+      "publisher": "openai.com"
+    },
     {
       "company": "OpenAI",
       "title": "Gilbert + Tobin rethinks the business of law with AI",
@@ -30,13 +86,6 @@
       "publisher": "blog.google"
     },
     {
-      "company": "Google",
-      "title": "Get certified as a Google Cloud Professional Agentic Architect.",
-      "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/professional-agentic-architect/",
-      "date": "2026-11-11T17:00:00.000Z",
-      "publisher": "blog.google"
-    },
-    {
       "company": "OpenAI",
       "title": "ChatGPT Plus for veterans and servicemembers",
       "url": "https://openai.com/index/chatgpt-plus-for-veterans",
@@ -51,34 +100,6 @@
       "publisher": "openai.com"
     },
     {
-      "company": "Google",
-      "title": "Gemini Intelligence: New features, on more devices",
-      "url": "https://blog.google/products-and-platforms/platforms/android/gemini-intelligence-november-features-devices/",
-      "date": "2026-11-10T19:00:00.000Z",
-      "publisher": "blog.google"
-    },
-    {
-      "company": "Google",
-      "title": "Pixel 10 with Gemini Intelligence, custom widgets, and more in our November Pixel Drop",
-      "url": "https://blog.google/products-and-platforms/devices/pixel/november-2026-pixel-drop/",
-      "date": "2026-11-10T19:00:00.000Z",
-      "publisher": "blog.google"
-    },
-    {
-      "company": "Google",
-      "title": "Gemini 4 Carbon is now available for developers.",
-      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-4-carbon-developers/",
-      "date": "2026-11-10T16:00:00.000Z",
-      "publisher": "blog.google"
-    },
-    {
-      "company": "Google",
-      "title": "Gemini 4 Carbon is now available",
-      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/",
-      "date": "2026-11-10T16:00:00.000Z",
-      "publisher": "blog.google"
-    },
-    {
       "company": "OpenAI",
       "title": "Helping caregivers use AI in everyday life",
       "url": "https://openai.com/index/helping-caregivers-use-ai-in-everyday-life",
@@ -90,27 +111,6 @@
       "title": "Introducing Businesses in ChatGPT",
       "url": "https://openai.com/index/introducing-businesses-chatgpt",
       "date": "2026-11-10T10:00:00.000Z",
-      "publisher": "openai.com"
-    },
-    {
-      "company": "OpenAI",
-      "title": "Closing the AI guidance gap in education",
-      "url": "https://openai.com/index/closing-ai-guidance-gap-education",
-      "date": "2026-11-10T09:00:00.000Z",
-      "publisher": "openai.com"
-    },
-    {
-      "company": "OpenAI",
-      "title": "Singapore Airlines elevates travel & work with OpenAI technology",
-      "url": "https://openai.com/index/singapore-airlines-travel-work",
-      "date": "2026-11-10T08:00:00.000Z",
-      "publisher": "openai.com"
-    },
-    {
-      "company": "OpenAI",
-      "title": "Work at the Frontier: AI’s effect on freelance work",
-      "url": "https://openai.com/index/ai-effect-on-freelance-work",
-      "date": "2026-11-10T07:00:00.000Z",
       "publisher": "openai.com"
     },
     {
@@ -189,16 +189,14 @@
       "url": "https://www.anthropic.com/news/christopher-stubbs-joins-long-term-benefit-trust",
       "date": "2026-10-21T00:00:00.000Z",
       "publisher": "www.anthropic.com"
-    },
-    {
-      "company": "Meta",
-      "title": "More Than Three Quarters of Small Business Owners Say AI Makes Them More Productive, But Most Need More Guidance",
-      "url": "https://about.fb.com/news/2026/10/more-than-three-quarters-of-small-business-owners-say-ai-makes-them-more-productive-but-most-need-more-guidance/",
-      "date": "2026-10-15T00:50:50.000Z",
-      "publisher": "about.fb.com"
     }
   ],
   "prices": [
+    {
+      "id": "gpt-6-luna",
+      "input": 0.1,
+      "output": 0.5
+    },
     {
       "id": "gpt-6.1-sol",
       "input": 2,
@@ -208,16 +206,6 @@
       "id": "gpt-6-astra",
       "input": 10,
       "output": 50
-    },
-    {
-      "id": "gpt-6-luna",
-      "input": 0.1,
-      "output": 0.5
-    },
-    {
-      "id": "muse-spark-1.3",
-      "input": 0.1,
-      "output": 0.2
     },
     {
       "id": "claude-fable-5-1",
@@ -238,6 +226,11 @@
       "id": "claude-haiku-5-5",
       "input": 0.1,
       "output": 0.5
+    },
+    {
+      "id": "muse-spark-1.3",
+      "input": 0.1,
+      "output": 0.2
     },
     {
       "id": "muse-wonder-1.0",
@@ -270,79 +263,79 @@
       "source": "https://blog.google/rss/",
       "status": "ok",
       "items": 8,
-      "hash": "1bd45becb8a8a2c24ce13876f00bd4a34a8f56f6ab9ae8df0cdf356e0a85b7c1",
-      "checkedAt": "2026-11-11T21:47:37.986Z"
+      "hash": "902b5cf4e8e3877a2bc9152a417cc2c0a3565dffa6401f0f4a9df492fb1feb9b",
+      "checkedAt": "2026-11-12T21:46:33.595Z"
     },
     {
       "company": "OpenAI",
       "source": "https://openai.com/news/rss.xml",
       "status": "ok",
       "items": 8,
-      "hash": "a222f9f59ebbe979f6fd542b5c83668f0fb84e6730aaa340b37e42d973a0c725",
-      "checkedAt": "2026-11-11T21:47:37.986Z"
+      "hash": "4a0442696be1558a92ceee90fb63529b7eba335fa0d3aecf1e19bd344b8d1893",
+      "checkedAt": "2026-11-12T21:46:33.595Z"
     },
     {
       "company": "Meta",
       "source": "https://about.fb.com/feed/",
       "status": "ok",
-      "items": 4,
-      "hash": "45dca49096a130e84e1fefd35e501c431e350a58d5f13f55de5c83772af80acc",
-      "checkedAt": "2026-11-11T21:47:37.986Z"
+      "items": 3,
+      "hash": "67493904e747993b898dc197401944a541877d412f44269b12bc2df0c2c8f3e6",
+      "checkedAt": "2026-11-12T21:46:33.595Z"
     },
     {
       "company": "Anthropic",
       "source": "https://www.anthropic.com/news",
       "status": "ok",
       "items": 8,
-      "hash": "7cfceb7c3530637114df918fe075689e08920252d46186f0d5c02c9c0db372e5",
-      "checkedAt": "2026-11-11T21:47:37.986Z"
-    },
-    {
-      "company": "OpenAI",
-      "source": "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
-      "status": "ok",
-      "items": 1,
-      "hash": "09d3cca7c5b2347f8fa6fb3e12113a5a99842c99665de3dab0b3546771a13ea2",
-      "checkedAt": "2026-11-11T21:47:37.986Z"
-    },
-    {
-      "company": "OpenAI",
-      "source": "https://developers.openai.com/api/docs/models/gpt-6-astra",
-      "status": "ok",
-      "items": 1,
-      "hash": "f5bb9f3b6870cd1dc90d7b06f48715b3db4cd15d3a31ada9bba22e52d5d77485",
-      "checkedAt": "2026-11-11T21:47:37.986Z"
+      "hash": "09f087e3dd83c792003c0a3d615d617f36ec8b5673af6c160c726bf2782af788",
+      "checkedAt": "2026-11-12T21:46:33.595Z"
     },
     {
       "company": "OpenAI",
       "source": "https://developers.openai.com/api/docs/models/gpt-6-luna",
       "status": "ok",
       "items": 1,
-      "hash": "2d322e3eae50a8d714f6b26772dc4e641c10295ba80c481a45b8a871d1fc8b5e",
-      "checkedAt": "2026-11-11T21:47:37.986Z"
+      "hash": "1b0f44075143d1e8edbc83e77199159cf737a7ac687353d1a629cfb42250a741",
+      "checkedAt": "2026-11-12T21:46:33.595Z"
+    },
+    {
+      "company": "OpenAI",
+      "source": "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
+      "status": "ok",
+      "items": 1,
+      "hash": "355420b9d36e088c1fe35f501290dd2eb8d824144707031becd0bde678dfc7e0",
+      "checkedAt": "2026-11-12T21:46:33.595Z"
+    },
+    {
+      "company": "OpenAI",
+      "source": "https://developers.openai.com/api/docs/models/gpt-6-astra",
+      "status": "ok",
+      "items": 1,
+      "hash": "d0c2e46422112d4635650ae2761e3f3b8bfb26105f673826c64027b9c1c230c7",
+      "checkedAt": "2026-11-12T21:46:33.595Z"
     },
     {
       "company": "Google",
       "source": "https://ai.google.dev/gemini-api/docs/pricing",
       "status": "error",
       "message": "Unapproved source domain",
-      "checkedAt": "2026-11-11T21:47:37.986Z"
-    },
-    {
-      "company": "Meta",
-      "source": "https://dev.meta.ai/docs/pricing-rate-limits",
-      "status": "ok",
-      "items": 1,
-      "hash": "ad2144159af7ccb694176f406879c5726549950c363fd71f186bc82c0fc2f241",
-      "checkedAt": "2026-11-11T21:47:37.986Z"
+      "checkedAt": "2026-11-12T21:46:33.595Z"
     },
     {
       "company": "Anthropic",
       "source": "https://platform.claude.com/docs/en/about-claude/pricing",
       "status": "ok",
       "items": 4,
-      "hash": "9d27e4437edc25fe3dd04a04c45bb7a84947a420ba766420b6a22d0b935c2c4c",
-      "checkedAt": "2026-11-11T21:47:37.986Z"
+      "hash": "a13ae8e669f1d779adcf4df83352c9a85604cd5072760c92671a78e1266af197",
+      "checkedAt": "2026-11-12T21:46:33.595Z"
+    },
+    {
+      "company": "Meta",
+      "source": "https://dev.meta.ai/docs/pricing-rate-limits",
+      "status": "ok",
+      "items": 1,
+      "hash": "049dd757789502e7f2b5989a1576f10551d2d939753f80b86b4f84df45d87953",
+      "checkedAt": "2026-11-12T21:46:33.595Z"
     }
   ],
   "persistent": false,
