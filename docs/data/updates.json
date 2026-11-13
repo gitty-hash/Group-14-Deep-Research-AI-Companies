@@ -1,10 +1,31 @@
 {
-  "checkedAt": "2026-11-12T21:46:33.595Z",
+  "checkedAt": "2026-11-13T21:16:56.522Z",
   "news": [
+    {
+      "company": "Google",
+      "title": "Claim your Google Cloud Credits in Google AI Studio",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/google-cloud-credits-gdp-ai-studio/",
+      "date": "2026-11-13T20:30:00.000Z",
+      "publisher": "blog.google"
+    },
+    {
+      "company": "Google",
+      "title": "Connect Google Wallet to Gemini for personal finance insights",
+      "url": "https://blog.google/innovation-and-ai/products/gemini-app/google-wallet-gemini-app/",
+      "date": "2026-11-13T17:00:00.000Z",
+      "publisher": "blog.google"
+    },
+    {
+      "company": "OpenAI",
+      "title": "Introducing ChatGPT Wallet",
+      "url": "https://openai.com/index/introducing-chatgpt-wallet",
+      "date": "2026-11-13T15:00:00.000Z",
+      "publisher": "openai.com"
+    },
     {
       "company": "OpenAI",
       "title": "How Amplitude ships product improvements in 1–2 days with OpenAI",
-      "url": "https://openai.com/index/amplitude",
+      "url": "https://openai.com/business/customer-stories/amplitude",
       "date": "2026-11-12T20:00:00.000Z",
       "publisher": "openai.com"
     },
@@ -45,6 +66,13 @@
     },
     {
       "company": "OpenAI",
+      "title": "Gondola doubles revenue as its team builds more with Codex",
+      "url": "https://openai.com/business/customer-stories/gondola",
+      "date": "2026-11-12T12:00:00.000Z",
+      "publisher": "openai.com"
+    },
+    {
+      "company": "OpenAI",
       "title": "Holiday Extras is rethinking what it can build with Codex",
       "url": "https://openai.com/business/customer-stories/holidays-extras-codex",
       "date": "2026-11-12T09:30:00.000Z",
@@ -72,20 +100,6 @@
       "publisher": "blog.google"
     },
     {
-      "company": "Google",
-      "title": "Talk it through with Gemini, now on Apple CarPlay",
-      "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-on-apple-carplay/",
-      "date": "2026-11-11T17:00:00.000Z",
-      "publisher": "blog.google"
-    },
-    {
-      "company": "Google",
-      "title": "Google Cloud leaders share what to expect in cybersecurity for 2027.",
-      "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/cybersecurity-2027/",
-      "date": "2026-11-11T17:00:00.000Z",
-      "publisher": "blog.google"
-    },
-    {
       "company": "OpenAI",
       "title": "ChatGPT Plus for veterans and servicemembers",
       "url": "https://openai.com/index/chatgpt-plus-for-veterans",
@@ -97,20 +111,6 @@
       "title": "JioStar’s chief architect on AI discovery at 500M-user scale",
       "url": "https://openai.com/index/jiostar-vijay-seshadri",
       "date": "2026-11-11T00:00:00.000Z",
-      "publisher": "openai.com"
-    },
-    {
-      "company": "OpenAI",
-      "title": "Helping caregivers use AI in everyday life",
-      "url": "https://openai.com/index/helping-caregivers-use-ai-in-everyday-life",
-      "date": "2026-11-10T12:00:00.000Z",
-      "publisher": "openai.com"
-    },
-    {
-      "company": "OpenAI",
-      "title": "Introducing Businesses in ChatGPT",
-      "url": "https://openai.com/index/introducing-businesses-chatgpt",
-      "date": "2026-11-10T10:00:00.000Z",
       "publisher": "openai.com"
     },
     {
@@ -193,9 +193,9 @@
   ],
   "prices": [
     {
-      "id": "gpt-6-luna",
-      "input": 0.1,
-      "output": 0.5
+      "id": "gpt-6-astra",
+      "input": 10,
+      "output": 50
     },
     {
       "id": "gpt-6.1-sol",
@@ -203,9 +203,9 @@
       "output": 10
     },
     {
-      "id": "gpt-6-astra",
-      "input": 10,
-      "output": 50
+      "id": "gpt-6-luna",
+      "input": 0.1,
+      "output": 0.5
     },
     {
       "id": "claude-fable-5-1",
@@ -259,20 +259,12 @@
   ],
   "logs": [
     {
-      "company": "Google",
-      "source": "https://blog.google/rss/",
-      "status": "ok",
-      "items": 8,
-      "hash": "902b5cf4e8e3877a2bc9152a417cc2c0a3565dffa6401f0f4a9df492fb1feb9b",
-      "checkedAt": "2026-11-12T21:46:33.595Z"
-    },
-    {
       "company": "OpenAI",
       "source": "https://openai.com/news/rss.xml",
       "status": "ok",
       "items": 8,
-      "hash": "4a0442696be1558a92ceee90fb63529b7eba335fa0d3aecf1e19bd344b8d1893",
-      "checkedAt": "2026-11-12T21:46:33.595Z"
+      "hash": "f8f8be13f0458591e20470ab1be59607100a4614958d868948a6b9bade58f6eb",
+      "checkedAt": "2026-11-13T21:16:56.522Z"
     },
     {
       "company": "Meta",
@@ -280,62 +272,70 @@
       "status": "ok",
       "items": 3,
       "hash": "67493904e747993b898dc197401944a541877d412f44269b12bc2df0c2c8f3e6",
-      "checkedAt": "2026-11-12T21:46:33.595Z"
+      "checkedAt": "2026-11-13T21:16:56.522Z"
     },
     {
       "company": "Anthropic",
       "source": "https://www.anthropic.com/news",
       "status": "ok",
       "items": 8,
-      "hash": "09f087e3dd83c792003c0a3d615d617f36ec8b5673af6c160c726bf2782af788",
-      "checkedAt": "2026-11-12T21:46:33.595Z"
+      "hash": "c503578664c75e61d39346689c0c3c8324c113da05640b4b4696f433480d96aa",
+      "checkedAt": "2026-11-13T21:16:56.522Z"
     },
     {
-      "company": "OpenAI",
-      "source": "https://developers.openai.com/api/docs/models/gpt-6-luna",
+      "company": "Google",
+      "source": "https://blog.google/rss/",
       "status": "ok",
-      "items": 1,
-      "hash": "1b0f44075143d1e8edbc83e77199159cf737a7ac687353d1a629cfb42250a741",
-      "checkedAt": "2026-11-12T21:46:33.595Z"
-    },
-    {
-      "company": "OpenAI",
-      "source": "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
-      "status": "ok",
-      "items": 1,
-      "hash": "355420b9d36e088c1fe35f501290dd2eb8d824144707031becd0bde678dfc7e0",
-      "checkedAt": "2026-11-12T21:46:33.595Z"
-    },
-    {
-      "company": "OpenAI",
-      "source": "https://developers.openai.com/api/docs/models/gpt-6-astra",
-      "status": "ok",
-      "items": 1,
-      "hash": "d0c2e46422112d4635650ae2761e3f3b8bfb26105f673826c64027b9c1c230c7",
-      "checkedAt": "2026-11-12T21:46:33.595Z"
+      "items": 8,
+      "hash": "b316f588f7c56c274479627792fa684368d666dd4f1fb8819e506994f6c818c8",
+      "checkedAt": "2026-11-13T21:16:56.522Z"
     },
     {
       "company": "Google",
       "source": "https://ai.google.dev/gemini-api/docs/pricing",
       "status": "error",
       "message": "Unapproved source domain",
-      "checkedAt": "2026-11-12T21:46:33.595Z"
+      "checkedAt": "2026-11-13T21:16:56.522Z"
+    },
+    {
+      "company": "OpenAI",
+      "source": "https://developers.openai.com/api/docs/models/gpt-6-astra",
+      "status": "ok",
+      "items": 1,
+      "hash": "195163e809c48daff02ab8d32bae347d56d55eb023316936507b74a395031c1d",
+      "checkedAt": "2026-11-13T21:16:56.522Z"
+    },
+    {
+      "company": "OpenAI",
+      "source": "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
+      "status": "ok",
+      "items": 1,
+      "hash": "7f808a41fafa56923d60e99de9a656f1539b7c359724fc858cfcd1a170eedc87",
+      "checkedAt": "2026-11-13T21:16:56.522Z"
+    },
+    {
+      "company": "OpenAI",
+      "source": "https://developers.openai.com/api/docs/models/gpt-6-luna",
+      "status": "ok",
+      "items": 1,
+      "hash": "ca4ec98a3ece1dda60982c7792d36095b88dcf6a954cf925867f651a4658bf76",
+      "checkedAt": "2026-11-13T21:16:56.522Z"
     },
     {
       "company": "Anthropic",
       "source": "https://platform.claude.com/docs/en/about-claude/pricing",
       "status": "ok",
       "items": 4,
-      "hash": "a13ae8e669f1d779adcf4df83352c9a85604cd5072760c92671a78e1266af197",
-      "checkedAt": "2026-11-12T21:46:33.595Z"
+      "hash": "fb858e489ef299f79542dc695674b82f731ccbced3b31cb1d6d092679db51baa",
+      "checkedAt": "2026-11-13T21:16:56.522Z"
     },
     {
       "company": "Meta",
       "source": "https://dev.meta.ai/docs/pricing-rate-limits",
       "status": "ok",
       "items": 1,
-      "hash": "049dd757789502e7f2b5989a1576f10551d2d939753f80b86b4f84df45d87953",
-      "checkedAt": "2026-11-12T21:46:33.595Z"
+      "hash": "1e50c45ec65b240e7bfa7e506c2ff57af40187eb53689b89359d1fd8fbc76e6c",
+      "checkedAt": "2026-11-13T21:16:56.522Z"
     }
   ],
   "persistent": false,
