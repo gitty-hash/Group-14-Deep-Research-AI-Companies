@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-20T22:10:02.394Z",
+  "checkedAt": "2026-11-21T20:49:39.867Z",
   "news": [
     {
       "company": "Meta",
@@ -266,83 +266,83 @@
   ],
   "logs": [
     {
+      "company": "OpenAI",
+      "source": "https://openai.com/news/rss.xml",
+      "status": "ok",
+      "items": 8,
+      "hash": "8c732e20982e5c89f51784a7cd2300ee2ee9a2bfd2c1ebbd7e2f05a0aaae6082",
+      "checkedAt": "2026-11-21T20:49:39.867Z"
+    },
+    {
       "company": "Meta",
       "source": "https://about.fb.com/feed/",
       "status": "ok",
       "items": 4,
       "hash": "0a5a89bd5b73892f5ab6e21ee5f7a5bc24602711cd9600c9d9493d365cb39e80",
-      "checkedAt": "2026-11-20T22:10:02.394Z"
-    },
-    {
-      "company": "OpenAI",
-      "source": "https://openai.com/news/rss.xml",
-      "status": "ok",
-      "items": 8,
-      "hash": "f6bafbc6264bcf473925a0c362e93e4f838fd312ae4e9465376b76ca866ce1d6",
-      "checkedAt": "2026-11-20T22:10:02.394Z"
+      "checkedAt": "2026-11-21T20:49:39.867Z"
     },
     {
       "company": "Google",
       "source": "https://blog.google/rss/",
       "status": "ok",
       "items": 8,
-      "hash": "49d8ad5e3176d68fad418d897d8efa596a1d52579d37843e51385f20d2e9028d",
-      "checkedAt": "2026-11-20T22:10:02.394Z"
+      "hash": "45b471d94945652925e4ae9db137b4a9a4ea347d3bf8145f3c7428ff3df31a91",
+      "checkedAt": "2026-11-21T20:49:39.867Z"
     },
     {
       "company": "Anthropic",
       "source": "https://www.anthropic.com/news",
       "status": "ok",
       "items": 8,
-      "hash": "6f14e347f860893293bf4eb35d0aedc9463b3e41f7b8ebcf28f87dba12ec0c3f",
-      "checkedAt": "2026-11-20T22:10:02.394Z"
+      "hash": "6bf9c731ffd53b6ecb4c1ed1ef42e43afd204760a54caaf450a29a3cd7eb6410",
+      "checkedAt": "2026-11-21T20:49:39.867Z"
     },
     {
       "company": "OpenAI",
       "source": "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
       "status": "ok",
       "items": 1,
-      "hash": "071b7efdeb55ed4503eed9125c44015ae3fd1c63dd5d88f0ddffddb6e252f7dc",
-      "checkedAt": "2026-11-20T22:10:02.394Z"
-    },
-    {
-      "company": "OpenAI",
-      "source": "https://developers.openai.com/api/docs/models/gpt-6-astra",
-      "status": "ok",
-      "items": 1,
-      "hash": "3904c371a19585db920612ccb056c5dde6c1bee5c253dba1f99d87467b1b0b67",
-      "checkedAt": "2026-11-20T22:10:02.394Z"
+      "hash": "2941a244e261a691e9f8068c0a771def775a0361c775f09ebd0fc5ad973da223",
+      "checkedAt": "2026-11-21T20:49:39.867Z"
     },
     {
       "company": "Google",
       "source": "https://ai.google.dev/gemini-api/docs/pricing",
       "status": "error",
       "message": "Unapproved source domain",
-      "checkedAt": "2026-11-20T22:10:02.394Z"
+      "checkedAt": "2026-11-21T20:49:39.867Z"
+    },
+    {
+      "company": "OpenAI",
+      "source": "https://developers.openai.com/api/docs/models/gpt-6-astra",
+      "status": "ok",
+      "items": 1,
+      "hash": "c58c7782c30b4f797d09982b06c334293d33a9e78e4501494793e3173e4852ae",
+      "checkedAt": "2026-11-21T20:49:39.867Z"
     },
     {
       "company": "Meta",
       "source": "https://dev.meta.ai/docs/pricing-rate-limits",
       "status": "ok",
       "items": 1,
-      "hash": "43527895ee307241cdeda294183f42c48e93892ecdca4d338da5ae85ae1d926b",
-      "checkedAt": "2026-11-20T22:10:02.394Z"
+      "hash": "20761cf48d08c8dc00921d12f5944aa01460b953a25e8d4ed268993d16981038",
+      "checkedAt": "2026-11-21T20:49:39.867Z"
     },
     {
       "company": "OpenAI",
       "source": "https://developers.openai.com/api/docs/models/gpt-6-luna",
       "status": "ok",
       "items": 1,
-      "hash": "3117c827203ed148e7911c2cf9384f1cea41b3fd9222531e643104e28f342811",
-      "checkedAt": "2026-11-20T22:10:02.394Z"
+      "hash": "33c696b087409cad4a547af119b691299b86a2ae6b34152bbfa5024728118619",
+      "checkedAt": "2026-11-21T20:49:39.867Z"
     },
     {
       "company": "Anthropic",
       "source": "https://platform.claude.com/docs/en/about-claude/pricing",
       "status": "ok",
       "items": 4,
-      "hash": "fa2c6a4e3c620ee8520ea1f7bec5cf651aa698799b57a4edefeaff60b248afbf",
-      "checkedAt": "2026-11-20T22:10:02.394Z"
+      "hash": "2bdbf95c6522e41adf9373a113e52b49a903a4f25101b305594f577e0b3687d5",
+      "checkedAt": "2026-11-21T20:49:39.867Z"
     }
   ],
   "persistent": false,
